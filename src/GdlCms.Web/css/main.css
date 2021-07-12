@@ -402,6 +402,16 @@ dd {
     margin-right: 5px;
 }
 
+.float-left
+{
+    float:left !important;
+}
+
+
+.float-right {
+    float: right !important;
+}
+
 /* ------------------------------------------------------------------- 
  * ## responsive video container
  * ------------------------------------------------------------------- */
@@ -1705,7 +1715,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     top: 50%;
     right: auto;
     bottom: auto;
-    background-color: white;
+    background-color: #333;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
@@ -1829,7 +1839,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .home-content__main {
-    padding-top: 24rem;
+    /*padding-top: 24rem;*/
+    padding-top: 35%;
     position: relative;
 }
 
@@ -1840,8 +1851,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .home-content__buttons .btn {
     width: 215px;
-    border-color: #FFFFFF;
-    color: #FFFFFF;
+    /*border-color: #FFFFFF;
+    color: #FFFFFF;*/
+    
+    border-color: #333;
+    color: #333;
     margin: 1.5rem 1.5rem 0 0;
     letter-spacing: .25rem;
     -webkit-transition: all 0.5s ease-in-out;
@@ -2097,7 +2111,7 @@ html.no-csstransitions .home-content__main {
     }
     .home-content__main {
         padding-top: 21rem;
-        padding-right: 80px;
+        /*padding-right: 80px;*/
         max-width: 680px;
     }
 }
@@ -2110,7 +2124,7 @@ html.no-csstransitions .home-content__main {
         font-size: 4rem;
     }
     .home-content__main {
-        padding-right: 70px;
+        /*padding-right: 70px;*/
         max-width: 550px;
     }
 }
@@ -2125,7 +2139,7 @@ html.no-csstransitions .home-content__main {
     }
     .home-content__buttons .btn {
         display: block;
-        width: 70%;
+        /*width: 70%;*/
         margin: 1.5rem 0 0 0;
     }
     .home-social {
@@ -2176,13 +2190,16 @@ html.no-csstransitions .home-content__main {
         max-width: none;
         padding-top: 15rem;
         padding-right: 25px;
-        width: 85%;
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
     }
     .home-content__buttons {
         padding-top: 1.2rem;
+        margin-top:80%;
     }
     .home-content__buttons .btn {
-        width: auto;
+        width: 100%;
         margin: 1.5rem 0 0 0;
     }
     .home-social {
