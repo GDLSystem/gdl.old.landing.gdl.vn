@@ -2112,7 +2112,8 @@ html.no-csstransitions .home-content__main {
     .home-content__main {
         padding-top: 21rem;
         /*padding-right: 80px;*/
-        max-width: 680px;
+        /*max-width: 680px;*/
+        width: 100%;
     }
 }
 
@@ -2125,13 +2126,15 @@ html.no-csstransitions .home-content__main {
     }
     .home-content__main {
         /*padding-right: 70px;*/
-        max-width: 550px;
+        /*max-width: 550px;*/
+        width: 100%;
     }
 }
 
 @media only screen and (max-width: 700px) {
     .home-content__main {
-        max-width: 490px;
+        /*max-width: 490px;*/
+        width: 100%;
     }
     .home-content__buttons {
         padding-top: 1.2rem;
@@ -2222,7 +2225,7 @@ html.no-csstransitions .home-content__main {
     }
     .home-content__main {
         padding-top: 16.2rem;
-        width: auto;
+        width: 100%;
     }
 }
 
