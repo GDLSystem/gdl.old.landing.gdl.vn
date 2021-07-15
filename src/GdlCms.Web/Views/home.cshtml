@@ -12,7 +12,7 @@
         <a class="site-logo" href="@Model.Url()">
             @if (Model.SiteLogo != null)
             {
-                <img src="@Model.SiteLogo.Url()" alt="@Model.Sitename">
+                <img src="@Model.SiteLogo.Url()" alt="@Model.Sitename"> 
             }
         </a>
     </div>
@@ -105,12 +105,16 @@
             </h1>*@
 
             <div class="home-content__buttons">
-                <a href="#@Model.ContactMenuId" class="smoothscroll btn btn--stroke float-left">
-                    @Model.ContactMenuName
-                </a>
-                <a href="#@Model.AboutMenuId" class="smoothscroll btn btn--stroke float-right">
-                    @Model.AboutMenuName
-                </a>
+                <div class="btn-center">
+                    <a href="#@Model.ContactMenuId" class="smoothscroll btn btn--stroke float-left">
+                        @Model.ContactMenuName
+                    </a>
+                </div>
+                <div class="btn-center">
+                    <a href="#@Model.AboutMenuId" class="smoothscroll btn btn--stroke float-right">
+                        @Model.AboutMenuName
+                    </a>
+                </div>
             </div>
 
         </div>

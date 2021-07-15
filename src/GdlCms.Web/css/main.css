@@ -3642,3 +3642,56 @@ footer .row {
 
 
 /*# sourceMappingURL=main.css.map */
+
+.parallax-mirror {
+    background-color: #f0f0f0;
+    z-index: 1!important;
+}
+
+.parallax-slider {
+    transform: scale(0.7)!important;
+}
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-center a {
+    margin: 0;
+}
+
+#home {
+    background-color: #f0f0f0 !important;
+}
+
+.home-content__buttons {
+    position: absolute;
+    
+    padding-top: 0 !important;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.home-content {
+    padding-bottom: 8rem;
+}
+
+.home-content__main {
+    padding-top: 45%;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 1500px) {
+    .home-content__main {
+        padding-top: 70rem!important;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    #home {
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+    }
+}
