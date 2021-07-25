@@ -80,6 +80,13 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string AboutTitle => this.Value<string>("aboutTitle");
 
 		///<summary>
+		/// About Top Picture
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("aboutTopPicture")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops AboutTopPicture => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("aboutTopPicture");
+
+		///<summary>
 		/// Color Theme
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -276,6 +283,27 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string FooterSubHeader => this.Value<string>("footerSubHeader");
 
 		///<summary>
+		/// Ghien Da Lat Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("ghienDaLatDescription")]
+		public virtual global::System.Web.IHtmlString GhienDaLatDescription => this.Value<global::System.Web.IHtmlString>("ghienDaLatDescription");
+
+		///<summary>
+		/// Ghien Da Lat Picture
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("ghienDaLatPicture")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops GhienDaLatPicture => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("ghienDaLatPicture");
+
+		///<summary>
+		/// Ghien Da Lat Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("ghienDaLatTitle")]
+		public virtual string GhienDaLatTitle => this.Value<string>("ghienDaLatTitle");
+
+		///<summary>
 		/// Hero Background: Spice up the homepage by adding a beautiful photo that relates to your business
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -294,7 +322,7 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("HeroCtalink")]
-		public virtual global::Umbraco.Core.Models.PublishedContent.IPublishedContent HeroCtalink => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("HeroCtalink");
+		public virtual string HeroCtalink => this.Value<string>("HeroCtalink");
 
 		///<summary>
 		/// Description
@@ -311,11 +339,11 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string HeroHeader => this.Value<string>("heroHeader");
 
 		///<summary>
-		/// Hero Logo
+		/// Hero Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("heroLogo")]
-		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroLogo => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("heroLogo");
+		[ImplementPropertyType("heroImage")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroImage => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("heroImage");
 
 		///<summary>
 		/// Menu ID
@@ -330,6 +358,20 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("homeMenuName")]
 		public virtual string HomeMenuName => this.Value<string>("homeMenuName");
+
+		///<summary>
+		/// Other Communities
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("otherCommunities")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.Feature> OtherCommunities => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.Feature>>("otherCommunities");
+
+		///<summary>
+		/// Other Community Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("otherCommunityTitle")]
+		public virtual string OtherCommunityTitle => this.Value<string>("otherCommunityTitle");
 
 		///<summary>
 		/// Partner Excerpt
@@ -430,38 +472,31 @@ namespace Umbraco.Web.PublishedModels
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SocialIcon> Socials => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SocialIcon>>("socials");
 
 		///<summary>
-		/// Work Gallery
+		/// Viet Nam oi Community Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("workGallery")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.GalleryElement> WorkGallery => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.GalleryElement>>("workGallery");
+		[ImplementPropertyType("vietNamOiCommunityTitle")]
+		public virtual string VietNamOiCommunityTitle => this.Value<string>("vietNamOiCommunityTitle");
 
 		///<summary>
-		/// Work Header
+		/// Viet Nam ơi Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("workHeader")]
-		public virtual string WorkHeader => this.Value<string>("workHeader");
+		[ImplementPropertyType("vietNamOiDescription")]
+		public virtual global::System.Web.IHtmlString VietNamOiDescription => this.Value<global::System.Web.IHtmlString>("vietNamOiDescription");
 
 		///<summary>
-		/// Menu ID
+		/// Viet Nam ơi Picture
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("workMenuId")]
-		public virtual string WorkMenuId => this.Value<string>("workMenuId");
+		[ImplementPropertyType("vietNamOiPicture")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops VietNamOiPicture => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("vietNamOiPicture");
 
 		///<summary>
-		/// Menu Name
+		/// What we have title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("workMenuName")]
-		public virtual string WorkMenuName => this.Value<string>("workMenuName");
-
-		///<summary>
-		/// Work Sub Header
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("workSubHeader")]
-		public virtual string WorkSubHeader => this.Value<string>("workSubHeader");
+		[ImplementPropertyType("whatWeHaveTitle")]
+		public virtual string WhatWeHaveTitle => this.Value<string>("whatWeHaveTitle");
 	}
 }

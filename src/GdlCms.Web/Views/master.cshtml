@@ -1,12 +1,10 @@
 ﻿@using Umbraco.Core.PropertyEditors
 @inherits UmbracoViewPage
-@{
-    Layout = null;
+@{ Layout = null;
     // Get basic design settings from the homepage
-    var home = (Home) Model.Root();
+    var home = (Home)Model.Root();
     var font = home.Font;
-    var colorTheme = home.ColorTheme;
-}
+    var colorTheme = home.ColorTheme; }
 
 <!doctype html>
 <html lang="en">
@@ -15,14 +13,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>@Model.Name - @home.Sitename</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    @RenderSection("HeaderMeta", false)
+
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="@Url.Content("~/css/base.css")">
-    <link rel="stylesheet" href="@Url.Content("~/css/vendor.css")">
-    <link rel="stylesheet" href="@Url.Content("~/css/main.css")">
-
+    <link rel="stylesheet" href="@Url.Content("~/css/index.css")">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
     <!-- favicons
     ================================================== -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -30,147 +30,137 @@
 
     @RenderSection("Header", required: false)
 
-
-    <!-- script
-    ================================================== -->
-    <script src="@Url.Content("~/scripts/modernizr.js")"></script>
-    <script src="@Url.Content("~/scripts/pace.min.js")"></script>
 </head>
 
 <body id="top">
-
-<main>
-    @RenderBody()
-</main>
-
-<!-- footer
-================================================== -->
-<footer>
-
-    <div class="row footer-main">
-
-        <div class="col-six tab-full left footer-desc">
-
-            <div class="footer-logo">
-                @if (home.FooterLogo != null)
+    <div class="nav mx-layout h-3rem mt-2rem">
+        <img class="h-3rem" src="@home.SiteLogo.Url()" alt="@home.Name">
+        <div class="top-right-header my-auto">
+            @{
+                if (home.Socials.Any())
                 {
-                    <img src="@home.FooterLogo.MediaItem.Url()" alt="">
+                    foreach (var item in home.Socials.ToList())
+                    {
+                        if (item.Caption.ToLower().Contains("twitter"))
+                        {
+                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/twitter.png")" title="twitter"></a>
+                        }
+
+                        if (item.Caption.ToLower().Contains("facebook"))
+                        {
+                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/facebook.png")" title="facebook"></a>
+                        }
+
+                        if (item.Caption.ToLower().Contains("instagram"))
+                        {
+                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/instagram.png")" title="instagram"></a>
+                        }
+
+                        if (item.Caption.ToLower().Contains("facebook"))
+                        {
+                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/youtube.png")" title="youtube"></a>
+                        }
+                    }
                 }
-                else
+            }
+            <ul id="top-nav-language">
+                @foreach (var (culture, infos) in Model.Cultures.Reverse())
                 {
-                    <img src="../css/images/footer-logo.png" alt="">
+                    <li>
+                        <a href="@Model.Url(culture)">
+                            <img src="@Url.Content(culture.ToLowerInvariant().Contains("en") ? "~/css/flags/en.png" : "~/css/flags/vn.png")" alt="@culture.ToFriendlyName()" />
+                        </a>
+                    </li>
                 }
-            </div>
-            <h4>@home.FooterHeader</h4>
-            <div>@home.FooterDescription</div>
+            </ul>
         </div>
 
-        <div class="col-six tab-full right footer-subscribe">
+    </div>
 
-            <h4>@home.FooterCtacaption</h4>
-            <p>
-               @home.FooterAddress
-            </p>
-            <div class="subscribe-form">
-                <form id="mc-form" class="group" novalidate="true">
-                    <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                    <input type="submit" name="subscribe" value="Subscribe">
-                    <label for="mc-email" class="subscribe-message"></label>
-                </form>
-            </div>
+    <div class="container">
+        @RenderBody()
+    </div>
 
-        </div>
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer f-ssp fw-400 f-1rem d-flex">
+                <div class="flex-layout align-center mx-auto mt-2rem mb-auto">
+                    <div class="f-item footer-m">
+                        <div class="d-flex">
+                            <div class="container">
+                                @if (home.FooterLogo != null)
+                                {
+                                    <img src="@home.FooterLogo.MediaItem.Url()" alt="" style="height: 4.375rem"> }
+                                else
+                                {
+                                    <img src="@Url.Content("~/css/imgs/footer-logo-1.png")" style="height: 4.375rem">
+                                }
+                                <div class="d-flex mt-1rem">
+                                    @{ if (home.Socials.Any())
+                                        {
+                                            foreach (var item in home.Socials.ToList())
+                                            {
+                                                if (item.Caption.ToLower().Contains("twitter"))
+                                                {
+                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/twitter-f.png")" title="twitter"></a>
+                                                }
 
-    </div> <!-- end footer-main -->
+                                                if (item.Caption.ToLower().Contains("facebook"))
+                                                {
+                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/facebook-f.png")" title="facebook"></a>
+                                                }
 
-    <div class="row footer-bottom">
+                                                if (item.Caption.ToLower().Contains("instagram"))
+                                                {
+                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/instagram-f.png")" title="instagram"></a>
+                                                }
 
-        <div class="col-twelve">
-            <div class="copyright">
-                <span>© Copyright @home.Sitename @DateTime.Now.Year</span>
-                <span>Site Template by <a href="https://vindustry.co/">Vindustry.co</a></span>
-            </div>
-
-            <div class="go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top">
-                    <i class="icon-arrow-up" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-
-    </div> <!-- end footer-bottom -->
-
-</footer> <!-- end footer -->
-
-
-<!-- photoswipe background
-================================================== -->
-<div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-
-    <div class="pswp__bg"></div>
-    <div class="pswp__scroll-wrap">
-
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title=
-                        "Share">
-                </button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title=
-                        "Zoom in/out">
-                </button>
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
+                                                if (item.Caption.ToLower().Contains("facebook"))
+                                                {
+                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/youtube-f.png")" title="youtube"></a>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-layout">
+                        <div class="f-item footer-m">
+                            <p class="mb-1rem">@home.ContactAddressTitle</p>
+                            <p>
+                                @home.ContactAddressDetail
+                            </p>
+                        </div>
+                        <div class="f-item footer-m">
+                            <p class="mb-1rem">@home.ContactEmailHeader</p>
+                            <p>@home.ContactAddressDetail</p>
+                            <p>www.gld.vn</p>
+                        </div>
+                        <div class="f-item footer-m">
+                            <p class="mb-1rem">@home.ContactPhoneTitle</p>
+                            <p>@home.ContactPhoneDetail</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-            <button class="pswp__button pswp__button--arrow--right" title=
-                    "Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
+                <div class="text-center mb-1rem mt-1rem">© Copyright gdl.vn  @DateTime.Now.Year</div>
+                <div class="text-center mb-1rem mt-1rem">Site Development by <a class="link" href="https://vindustry.co/">Vindustry.co</a></div>
             </div>
         </div>
 
-    </div>
+    </footer> <!-- end footer -->
+    <!-- Java Script
+    ================================================== -->
+    <script src="@Url.Content("~/scripts/jquery-3.2.1.min.js")"></script>
+    <script src="@Url.Content("~/scripts/index.js")"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5316d83452998f7e"></script>
 
-</div> <!-- end photoSwipe background -->
-
-
-<!-- preloader
-================================================== -->
-<div id="preloader">
-    <div id="loader">
-        <div class="line-scale-pulse-out">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-</div>
-
-<!-- Java Script
-================================================== -->
-<script src="@Url.Content("~/scripts/jquery-3.2.1.min.js")"></script>
-<script src="@Url.Content("~/scripts/plugins.js")"></script>
-<script src="@Url.Content("~/scripts/main.js")"></script>
-
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+    @*<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>*@
 </body>
 
 </html>

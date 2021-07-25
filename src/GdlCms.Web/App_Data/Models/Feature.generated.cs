@@ -45,6 +45,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Action Redirect URL
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("actionRedirectURL")]
+		public virtual string ActionRedirectUrl => this.Value<string>("actionRedirectURL");
+
+		///<summary>
 		/// Details
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -57,5 +64,12 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("featureName")]
 		public virtual string FeatureName => this.Value<string>("featureName");
+
+		///<summary>
+		/// Feature Picture
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("featurePicture")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops FeaturePicture => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("featurePicture");
 	}
 }

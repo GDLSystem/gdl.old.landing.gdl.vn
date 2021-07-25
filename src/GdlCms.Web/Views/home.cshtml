@@ -1,402 +1,227 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Web.PublishedModels;
-@{
-    Layout = "master.cshtml";
+@{ Layout = "master.cshtml";
     var heroImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : string.Empty;
+    string domainAddress = $"{Request.Url?.Scheme}://{Request.Url?.Authority}";
 }
-<!-- header
-================================================== -->
-<header class="s-header">
+@section HeaderMeta
+{
+    <meta property="og:url" content="@Model.Url()" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@Model.Name - @Model.Sitename" />
+    <meta property="og:image" content="@($"{domainAddress}{Model.SiteLogo.Url()}")" />
+}
 
-    <div class="header-logo">
-        <a class="site-logo" href="@Model.Url()">
-            @if (Model.SiteLogo != null)
-            {
-                <img src="@Model.SiteLogo.Url()" alt="@Model.Sitename">
-            }
-        </a>
-    </div>
-
-    <nav class="header-nav">
-
-        <a href="#0" class="header-nav__close" title="close">
-            <span>Close</span>
-        </a>
-
-        <div class="header-nav__content">
-            <div class="languages">
-                <ul id="top-nav-language" class="right">
-                    @foreach (var (culture, infos) in Model.Cultures)
+<div class="landing-page p-relative">
+    <img class="p-absolute img-1" src="@Url.Content("~/css/imgs/1.png")" />
+    <img class="p-absolute img-2" src="@Url.Content("~/css/imgs/2.png")" />
+    <div class="page-content mx-layout mt-4rem">
+        <div class="flex-layout">
+            <div class="w-layout fade-in">
+                <div class="text-center w-22rem mx-auto">
+                    @if (Model.HeroImage != null)
                     {
-                        <li>
-                            <a href="@Model.Url(culture)">
-                                <img src="@Url.Content(culture.ToLowerInvariant().Contains("en") ? "~/css/images/flags/en.png" : "~/css/images/flags/vn.png")" alt="@culture.ToFriendlyName()"/>
-                            </a>
-                        </li>
-                    }
-                </ul>
-            </div>
-            <h3>Navigation</h3>
-
-            <ul class="header-nav__list">
-                <li class="current">
-                    <a class="smoothscroll" href="#@Model.HomeMenuId" title="home">@Model.HomeMenuName</a>
-                </li>
-                <li>
-                    <a class="smoothscroll" href="#@Model.AboutMenuId" title="about">@Model.AboutMenuName</a>
-                </li>
-                <li>
-                    <a class="smoothscroll" href="#@Model.ServiceMenuId" title="about">@Model.ServiceMenuName</a>
-                </li>
-                <li>
-                    <a class="smoothscroll" href="#@Model.WorkMenuId" title="about">@Model.WorkMenuName</a>
-                </li>
-                <li>
-                    <a class="smoothscroll" href="#@Model.PartnerMenuId" title="about">@Model.PartnerMenuName</a>
-                </li>
-                <li>
-                    <a class="smoothscroll" href="#@Model.ContactMenuId" title="about">@Model.ContactMenuName</a>
-                </li>
-            </ul>
-
-            <p></p>
-
-            <ul class="header-nav__social">
-                @if (Model.Socials != null)
-                {
-                    foreach (var social in Model.Socials.OrderBy(_ => _.Sort))
+                        <img class="w-100" src="@Model.HeroImage.MediaItem.Url()" alt="logo"> }
+                    else
                     {
-                        <li>
-                            <a target="_blank" href="@social.ActionUrl">
-                                <i class="@social.FontAwesomeClass"></i>
-                            </a>
-                        </li>
-                    }
-                }
-            </ul>
-
-        </div> <!-- end header-nav__content -->
-
-    </nav> <!-- end header-nav -->
-
-    <a class="header-menu-toggle" href="#0">
-        <span class="header-menu-text">Menu</span>
-        <span class="header-menu-icon"></span>
-    </a>
-
-</header> <!-- end s-header -->
-
-
-<!-- home
-================================================== -->
-<section id="@Model.HomeMenuId" class="s-home target-section" data-parallax="scroll" data-image-src="@heroImage" data-position-y=center data-position-x=top>
-
-    @*<div class="overlay"></div>
-    <div class="shadow-overlay"></div>*@
-
-    <div class="home-content">
-
-        <div class="row home-content__main">
-
-            @*<h3>@Model.HeroHeader</h3>
-
-            <h1>
-                @Model.HeroDescription
-            </h1>*@
-
-            <div class="home-content__buttons">
-                <a href="#@Model.ContactMenuId" class="smoothscroll btn btn--stroke float-left">
-                    @Model.ContactMenuName
-                </a>
-                <a href="#@Model.AboutMenuId" class="smoothscroll btn btn--stroke float-right">
-                    @Model.AboutMenuName
-                </a>
+                        <img class="w-100" src="@Url.Content("~/css/imgs/landing-logo.gif")" alt="logo">}
+                </div>
+                <div class="text-center mt-3rem">
+                    <button class="contact-btn f-1rem f-ssp">@Model.HeroCtacaption</button>
+                </div>
             </div>
+            <div class="w-layout d-flex landing-page-content fade-in">
+                <div class="flex-center">
+                    <div class="text-center w-20rem">
 
-        </div>
-
-    </div> <!-- end home-content -->
-
-
-    <ul class="home-social">
-        @if (Model.Socials != null)
-        {
-            foreach (var social in Model.Socials)
-            {
-                <li>
-                    <a target="_blank" href="@social.ActionUrl">
-                        <i class="@social.FontAwesomeClass" aria-hidden="true"></i><span>@social.Caption</span>
-                    </a>
-                </li>
-            }
-        }
-    </ul>
-    <!-- end home-social -->
-
-</section> <!-- end s-home -->
-
-
-<!-- about
-================================================== -->
-<section id="@Model.AboutMenuId" class="s-about">
-
-    <div class="row section-header has-bottom-sep" data-aos="fade-up">
-        <div class="col-full">
-            <h3 class="subhead subhead--dark">@Model.AboutTitle</h3>
-            <h1 class="display-1 display-1--light">@Model.AboutSubTitle</h1>
-        </div>
-    </div> <!-- end section-header -->
-
-    <div class="row about-desc" data-aos="fade-up">
-        <div class="col-md-3">
-
-        </div>
-        <div class="col-md-9">
-            @Html.Raw(Model.AboutDescription.ToHtmlString())
-        </div>
-    </div> <!-- end about-desc -->
-
-    <div class="row about-stats stats block-1-@(Model.FeatureStats.Count()) block-m-1-2 block-mob-full" data-aos="fade-up">
-        @if (Model.FeatureStats != null)
-        {
-            foreach (var stats in Model.FeatureStats?.OrderBy(_ => _.Sort))
-            {
-                <div class="col-block stats__col ">
-                    <div class="stats__count">@stats.StatsCount</div>
-                    <h5>@stats.Title</h5>
-                </div>
-            }
-        }
-    </div> <!-- end about-stats -->
-
-</section> <!-- end s-about -->
-
-
-<!-- services
-================================================== -->
-<section id="@Model.ServiceMenuId" class="s-services">
-
-    <div class="row section-header has-bottom-sep" data-aos="fade-up">
-        <div class="col-full">
-            <h3 class="subhead">@Model.ServiceHeader</h3>
-            <h1 class="display-2">@Model.ServiceSubHeader</h1>
-        </div>
-    </div> <!-- end section-header -->
-
-    <div class="row services-list block-1-2 block-tab-full">
-        <div class="col-twelve">
-            <h3>@Model.ServiceExcerpt</h3>
-        </div>
-        <div class="col-twelve">
-            @foreach (var service in Model.FeatureServices)
-            {
-                <div class="col-block service-item" data-aos="fade-up">
-                    <div class="service-icon">
-                        <img src="@(service.FeatureCoverImage?.MediaItem.Url())" title="@service.FeatureName" alt="@service.FeatureName"/>
-                    </div>
-                    <div class="service-text">
-                        <h3 class="h2">@service.FeatureName</h3>
-                        <p>@service.FeatureDetails</p>
-                    </div>
-                </div>
-            }
-        </div>
-
-    </div> <!-- end services-list -->
-
-</section> <!-- end s-services -->
-
-
-<!-- works
-================================================== -->
-<section id="@Model.WorkMenuId" class="s-works">
-
-<div class="intro-wrap">
-
-    <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
-        <div class="col-full">
-            <h3 class="subhead">@Model.WorkHeader</h3>
-            <h1 class="display-2 display-2--light">@Model.WorkSubHeader</h1>
-        </div>
-    </div> <!-- end section-header -->
-
-</div> <!-- end intro-wrap -->
-
-<div class="row works-content">
-    <div class="col-full masonry-wrap">
-        <div class="masonry">
-            @if (Model.WorkGallery != null)
-            {
-                foreach (var workGallery in Model.WorkGallery)
-                {
-                    <div class="masonry__brick" data-aos="fade-up">
-                        <div class="item-folio">
-
-                            <div class="item-folio__thumb">
-                                <a href="@(workGallery.LargeImage?.MediaItem.Url())" class="thumb-link" title="@workGallery.Title" data-size="1050x700">
-                                    <img src="@(workGallery.ThumbImage?.MediaItem.Url())" alt="@workGallery.Title">
-                                </a>
-                            </div>
-
-                            <div class="item-folio__text">
-                                <h3 class="item-folio__title">
-                                    @workGallery.Title
-                                </h3>
-                                <p class="item-folio__cat">
-                                    @workGallery.Excerpt
-                                </p>
-                            </div>
-
-                            <div class="item-folio__caption">
-                                <p>
-                                    @workGallery.Description
-                                </p>
-                            </div>
-
-                        </div>
-                    </div> <!-- end masonry__brick -->
-
-                }                
-            }
-        </div> <!-- end masonry -->
-    </div> <!-- end col-full -->
-</div> <!-- end works-content -->
-
-</section> <!-- end s-works -->
-
-
-<!-- clients
-================================================== -->
-<section id="@Model.PartnerMenuId" class="s-clients">
-
-    <div class="row section-header" data-aos="fade-up">
-        <div class="col-full">
-            <h3 class="subhead">@Model.PartnerHeader</h3>
-            <h1 class="display-2">
-                @Model.PartnerSubHeader
-            </h1>
-        </div>
-    </div> <!-- end section-header -->
-
-    <div class="row clients-outer" data-aos="fade-up">
-        <div class="col-full">
-            <div class="clients">
-                @if (Model.FeaturePartners != null)
-                {
-                    foreach (var partner in Model.FeaturePartners)
-                    {
-                        <a target="_blank" href="@partner.ActionUrl" title="@partner.FeatureName" class="clients__slide">
-                            @if (partner.FeatureCoverImage != null)
-                            {
-                                <img src="@partner.FeatureCoverImage.MediaItem.Url()" alt="@partner.FeatureName"/>
-                            }
-                        </a>
-                    }
-                }
-            </div> <!-- end clients -->
-        </div> <!-- end col-full -->
-    </div> <!-- end clients-outer -->
-</section> <!-- end s-clients -->
-
-
-<!-- contact
-================================================== -->
-<section id="@Model.ContactMenuId" class="s-contact">
-
-    <div class="overlay"></div>
-    <div class="row section-header" data-aos="fade-up">
-        <div class="col-full">
-            <h3 class="subhead">@Model.ContactHeader</h3>
-            <h1 class="display-2 display-2--light">@Model.ContactSubHeader</h1>
-        </div>
-    </div>
-
-    <div class="row contact-content" data-aos="fade-up">
-
-        <div class="contact-primary">
-
-            <h3 class="h6">@Model.ContactFormHeader</h3>
-
-            <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
-                <fieldset>
-
-                    <div class="form-field">
-                        <input name="contactName" type="text" id="contactName" placeholder="Your Name" value="" minlength="2" required="" aria-required="true" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" value="" required="" aria-required="true" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
-                    </div>
-                    <div class="form-field">
-                        <button class="full-width btn--primary">Submit</button>
-                        <div class="submit-loader">
-                            <div class="text-loader">Sending...</div>
-                            <div class="s-loader">
-                                <div class="bounce1"></div>
-                                <div class="bounce2"></div>
-                                <div class="bounce3"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </fieldset>
-            </form>
-
-            <!-- contact-warning -->
-            <div class="message-warning">
-                @Model.ContactFormWarningMessage
-            </div>
-
-            <!-- contact-success -->
-            <div class="message-success">
-                @Model.ContactFormSuccessMessage<br>
-            </div>
-
-        </div> <!-- end contact-primary -->
-
-        <div class="contact-secondary">
-            <div class="contact-info">
-
-                <h3 class="h6 hide-on-fullwidth">@Model.ContactHeader</h3>
-
-                <div class="cinfo">
-                    <h5>@Model.ContactAddressTitle</h5>
-                    @Html.Raw(Model.ContactAddressDetail.ToHtmlString())
-                </div>
-
-                <div class="cinfo">
-                    <h5>@Model.ContactEmailHeader</h5>
-                    @Html.Raw(Model.ContactEmailDetail.ToHtmlString())
-                </div>
-
-                <div class="cinfo">
-                    <h5>@Model.ContactPhoneTitle</h5>
-                    @Html.Raw(Model.ContactPhoneDetail.ToHtmlString())
-                </div>
-
-                <ul class="contact-social">
-                    @if (Model.Socials != null)
-                    {
-                        foreach (var social in Model.Socials.OrderBy(_ => _.Sort))
+                        @if (Model.AboutTopPicture != null)
                         {
-                            <li>
-                                <a target="_blank" href="@social.ActionUrl">
-                                    <i class="@social.FontAwesomeClass"></i>
-                                </a>
-                            </li>
+                            <img id="landing-text-logo" class="w-100" src="@Model.AboutTopPicture.MediaItem.Url()" alt="About top image"> }
+                        else
+                        {
+                            <img id="landing-text-logo" class="w-100" src="@Url.Content("~/css/imgs/landing-text-logo.png")" alt="About top image">}
+                    </div>
+                    <div class="mt-layout">
+                        <div class="w-lp-description">
+                            @Html.Raw(Model.AboutDescription)
+                        </div>
+                        <div class="d-flex mt-1rem">
+                            <div class="summaries d-flex">
+                                @foreach (var item in Model.FeatureStats)
+                                {
+                                    <div class="mr-2rem summary-item">
+                                        <span class="stats-count f-3rem">@item.StatsCount</span>
+                                        <p class="info">@item.Title</p>
+                                    </div>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12rem">
+            <p class="f-rbt f-layout upper-case fw-500">@Model.WhatWeHaveTitle</p>
+            <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" />
+        </div>
+    </div>
+</div>
+
+<div id="details-page" class="mx-layout">
+    <div class="flex-layout">
+        <div class="w-layout d-flex p-relative">
+            <div class="bubble b-1">
+                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+            </div>
+            <div class="mx-auto w-32rem">
+                @if (Model.VietNamOiPicture != null)
+                {
+                    <img class="w-100" src="@Model.VietNamOiPicture.MediaItem.Url()" alt="" /> }
+                else
+                {
+                    <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-1.png")" alt="" />}
+            </div>
+        </div>
+        <div class="fade-in-anchor w-layout d-flex px-layout f-1rem">
+            <div class="fade-in-content flex-center w-32rem">
+                <div class="f-pd fw-700 f-content-header">
+                    @Model.VietNamOiCommunityTitle
+                </div>
+                @Html.Raw(Model.VietNamOiDescription)
+            </div>
+        </div>
+    </div>
+    <div class="flex-layout mt-8rem flex-direction-layout">
+        <div class="fade-in-anchor w-layout d-flex px-layout f-1rem">
+            <div class="fade-in-content flex-center w-32rem">
+                <div class="f-pd fw-700 f-content-header">
+                    @Model.GhienDaLatTitle
+                </div>
+                @Html.Raw(Model.GhienDaLatDescription)
+            </div>
+        </div>
+        <div class="w-layout d-flex p-relative">
+            <div class="bubble b-2">
+                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+            </div>
+            <div class="bubble b-3">
+                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+            </div>
+            <div class="bubble b-4">
+                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+            </div>
+            <div class="plus p-1">
+                <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
+            </div>
+            <div class="plus p-2">
+                <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
+            </div>
+            <div class="mx-auto w-32rem">
+                @if (Model.VietNamOiPicture != null)
+                {
+                    <img class="w-100" src="@Model.GhienDaLatPicture.MediaItem.Url()" alt="" /> }
+                else
+                {
+                    <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-2.png")" alt="" />}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fade-in-anchor p-relative">
+    <img class="p-absolute img-3" src="@Url.Content("~/css/imgs/3.png")" alt="">
+    <div class="fade-in-content mx-layout">
+        <div class="d-flex justify-content-between mt-6rem mb-2rem">
+            <span class="f-pd fw-700 f-content-header">@Model.OtherCommunityTitle</span>
+            @*<div class="my-auto">
+                    <a class="f-ssp fw-400 f-1rem" href="#" id="view-all">
+                        <span>Xem tất cả</span>
+                        <img class="next-icon" src="./imgs/next.png" alt="">
+                    </a>
+                </div>*@
+        </div>
+        <div id="communities" class="d-flex communities">
+            @if (Model.OtherCommunities != null)
+            {
+                foreach (var item in Model.OtherCommunities.ToList())
+                {
+                    <a href="@item.ActionRedirectUrl" target="_blank">
+                        @if (item.FeaturePicture != null)
+                        {
+                            <img class="community-item h-13rem" src="@item.FeaturePicture.MediaItem.Url()" alt="@item.FeatureName">
+                        }
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<div class="fade-in-anchor services-page mt-6rem p-relative">
+    <div class="bubble b-5">
+        <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="">
+    </div>
+    <div class="fade-in-content mx-layout">
+        <div class="header">
+            <p class="f-rbt fw-500 f-layout upper-case">@Model.ServiceHeader</p>
+            <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt="">
+        </div>
+        <div class="services d-flex f-ssp justify-content-around">
+            <div class="flex-layout my-auto">
+                @foreach (var item in Model.FeatureServices)
+                {
+                    <div class="service-item text-center fade-in-content">
+                        <div class="service-icon">
+                            @if (item.FeatureCoverImage != null)
+                            {
+                                <img class="w-4rem" src="@item.FeatureCoverImage.MediaItem.Url()" alt="@item.FeatureName">
+                            }
+                        </div>
+                        <div class="service-name fw-600 f-1-125rem">
+                            @item.FeatureName
+                        </div>
+                        <div class="service-description f-1rem fw-400">
+                            @item.FeatureDetails
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fade-in-anchor partner-page p-relative">
+    <div class="bubble b-6">
+        <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" />
+    </div>
+    <div class="bubble b-7">
+        <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" />
+    </div>
+    <img class="p-absolute img-4" src="@Url.Content("~/css/imgs/4.png")" />
+    <div class="fade-in-content mx-layout">
+        <div class="header">
+            <p class="f-rbt fw-500 f-layout upper-case">@Model.PartnerHeader</p>
+            <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" />
+        </div>
+        <div class="partner-container">
+            <div class="d-flex mb-2rem">
+                <div id="partners" class="partners d-flex mx-auto align-center">
+                    @{
+                        var partners = Model.FeaturePartners.ToArray();
+                        for (int i = 0; i < partners.Length; i++)
+                        {
+                            if (partners[i].FeatureCoverImage != null)
+                            {
+                                <img class="partner-item mr-4rem partner-@(i + 1)" src="@partners[i].FeatureCoverImage.MediaItem.Url()" alt="@partners[i].FeatureName">
+                            }
                         }
                     }
-
-                </ul> <!-- end contact-social -->
-
-            </div> <!-- end contact-info -->
-        </div> <!-- end contact-secondary -->
-
-    </div> <!-- end contact-content -->
-
-</section> <!-- end s-contact -->
+                </div>
+            </div>
+            <div class="text-center">
+                @Model.PartnerExcerpt
+            </div>
+        </div>
+    </div>
+</div>
