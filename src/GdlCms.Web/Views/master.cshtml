@@ -33,46 +33,49 @@
 </head>
 
 <body id="top">
+    <button id="back2top">
+        <img src="~/css/imgs/scroll2top.png" />
+    </button>
     <div class="nav mx-layout h-3rem mt-2rem">
-        <img class="h-3rem" src="@home.SiteLogo.Url()" alt="@home.Name">
-        <div class="top-right-header my-auto">
-            @{
-                if (home.Socials.Any())
+        <div class="my-auto">
+            <img class="h-3rem" src="@home.SiteLogo.Url()" alt="@home.Name">
+        </div>
+        <div class="my-auto">
+            <div class="d-flex">
+                @if (home.Socials.Any())
                 {
                     foreach (var item in home.Socials.ToList())
                     {
                         if (item.Caption.ToLower().Contains("twitter"))
                         {
-                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/twitter.png")" title="twitter"></a>
+                            <a class="d-flex" target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/twitter.png")" title="twitter"></a>
                         }
 
                         if (item.Caption.ToLower().Contains("facebook"))
                         {
-                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/facebook.png")" title="facebook"></a>
+                            <a class="d-flex" target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/facebook.png")" title="facebook"></a>
                         }
 
                         if (item.Caption.ToLower().Contains("instagram"))
                         {
-                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/instagram.png")" title="instagram"></a>
+                            <a class="d-flex" target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/instagram.png")" title="instagram"></a>
                         }
 
                         if (item.Caption.ToLower().Contains("facebook"))
                         {
-                            <a target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/youtube.png")" title="youtube"></a>
+                            <a class="d-flex" target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/youtube.png")" title="youtube"></a>
                         }
                     }
                 }
-            }
-            <ul id="top-nav-language">
+            </div>
+            <div class="d-flex lang-group">
                 @foreach (var (culture, infos) in Model.Cultures.Reverse())
                 {
-                    <li>
-                        <a href="@Model.Url(culture)">
-                            <img src="@Url.Content(culture.ToLowerInvariant().Contains("en") ? "~/css/flags/en.png" : "~/css/flags/vn.png")" alt="@culture.ToFriendlyName()" />
-                        </a>
-                    </li>
+                    <a class="d-flex" href="@Model.Url(culture)">
+                        <img class="h-1rem lang-icon" src="@Url.Content(culture.ToLowerInvariant().Contains("en") ? "~/css/flags/en.png" : "~/css/flags/vn.png")" alt="@culture.ToFriendlyName()" />
+                    </a>
                 }
-            </ul>
+            </div>
         </div>
 
     </div>
@@ -89,7 +92,7 @@
                 <div class="flex-layout align-center mx-auto mt-2rem mb-auto">
                     <div class="f-item footer-m">
                         <div class="d-flex">
-                            <div class="container">
+                            <div class="container mx-auto-layout">
                                 @if (home.FooterLogo != null)
                                 {
                                     <img src="@home.FooterLogo.MediaItem.Url()" alt="" style="height: 4.375rem"> }
@@ -98,32 +101,34 @@
                                     <img src="@Url.Content("~/css/imgs/footer-logo-1.png")" style="height: 4.375rem">
                                 }
                                 <div class="d-flex mt-1rem">
-                                    @{ if (home.Socials.Any())
-                                        {
-                                            foreach (var item in home.Socials.ToList())
+                                    <div class="d-flex mx-auto">
+                                        @{ if (home.Socials.Any())
                                             {
-                                                if (item.Caption.ToLower().Contains("twitter"))
+                                                foreach (var item in home.Socials.ToList())
                                                 {
-                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/twitter-f.png")" title="twitter"></a>
-                                                }
+                                                    if (item.Caption.ToLower().Contains("twitter"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/twitter-f.png")" title="twitter"></a>
+                                                    }
 
-                                                if (item.Caption.ToLower().Contains("facebook"))
-                                                {
-                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/facebook-f.png")" title="facebook"></a>
-                                                }
+                                                    if (item.Caption.ToLower().Contains("facebook"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/facebook-f.png")" title="facebook"></a>
+                                                    }
 
-                                                if (item.Caption.ToLower().Contains("instagram"))
-                                                {
-                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/instagram-f.png")" title="instagram"></a>
-                                                }
+                                                    if (item.Caption.ToLower().Contains("instagram"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/instagram-f.png")" title="instagram"></a>
+                                                    }
 
-                                                if (item.Caption.ToLower().Contains("facebook"))
-                                                {
-                                                    <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/youtube-f.png")" title="youtube"></a>
+                                                    if (item.Caption.ToLower().Contains("facebook"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/youtube-f.png")" title="youtube"></a>
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +155,6 @@
                 <div class="text-center mb-1rem mt-1rem">Site Development by <a class="link" href="https://vindustry.co/">Vindustry.co</a></div>
             </div>
         </div>
-
     </footer> <!-- end footer -->
     <!-- Java Script
     ================================================== -->

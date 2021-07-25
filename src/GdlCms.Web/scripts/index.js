@@ -2,6 +2,8 @@ $(document).ready(() => {
     drag2Scroll('communities');
     drag2Scroll('partners');
     startCount();
+    const button = document.querySelector("#back2top");
+    back2top(button, 200, "all", 300, "ease", 0);
 });
 function drag2Scroll(id) {
     let ele = document.getElementById(id);
@@ -57,9 +59,19 @@ $(window).scroll(function() {
         hH = $(item).outerHeight(),
         wH = $(window).height(),
         wS = $(this).scrollTop();
-        console.log((hT-wH) , wS);
         if (wS > (hT+hH/2-wH)){
-            $(item).find('.fade-in-content').addClass("fade-in");
+            let contents = $(item).find('.fade-in-content');
+            if (contents.length > 1) {
+                let i = 0;
+                for (let content of contents) {
+                    i++;
+                    setTimeout(function () {
+                        $(content).addClass("index-fade-in");
+                    }, i * 200);
+                }
+            } else {
+                contents.addClass("index-fade-in");
+            }
         }
     }
 });
@@ -84,4 +96,37 @@ function startCount() {
     $('.stats-count').each(function(index) {
         animateValue($(this), 2000);
     });
+}
+
+function back2top(selector, offset, prop = 'all', time = '300', effect = 'ease', delay = 0) {
+    const WIN_SCROLLED = function () {
+        if (document.body.scrollTop > offset || document.documentElement.scrollTop > offset) {
+            const STYLES = {
+                opacity: '1',
+                visibility: 'visible',
+                transform: 'translateY(0)',
+                transition: `${prop} ${time}ms ${effect} ${delay}ms`
+            }
+            Object.assign(selector.style, STYLES);
+        } else {
+            const STYLES = {
+                opacity: '0',
+                visibility: 'hidden',
+                transform: 'translateY(100%)',
+                transition: `${prop} ${time}ms ${effect} ${delay}ms`
+            }
+            Object.assign(selector.style, STYLES);
+        }
+    };
+    const SCROLL_EVT = function () {
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    };
+    const SELECTOR_LISTENER = selector.addEventListener("click", SCROLL_EVT);
+    const WINDOW_LISTENER = window.addEventListener('scroll', WIN_SCROLLED);
+    return SELECTOR_LISTENER;
+    return WINDOW_LISTENER;
 }

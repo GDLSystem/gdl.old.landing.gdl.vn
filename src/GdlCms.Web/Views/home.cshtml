@@ -12,12 +12,12 @@
     <meta property="og:image" content="@($"{domainAddress}{Model.SiteLogo.Url()}")" />
 }
 
-<div class="landing-page p-relative">
+<div class="landing-page p-relative index-fade-in">
     <img class="p-absolute img-1" src="@Url.Content("~/css/imgs/1.png")" />
     <img class="p-absolute img-2" src="@Url.Content("~/css/imgs/2.png")" />
     <div class="page-content mx-layout mt-4rem">
         <div class="flex-layout">
-            <div class="w-layout fade-in">
+            <div class="w-layout">
                 <div class="text-center w-22rem mx-auto">
                     @if (Model.HeroImage != null)
                     {
@@ -30,7 +30,7 @@
                     <button class="contact-btn f-1rem f-ssp">@Model.HeroCtacaption</button>
                 </div>
             </div>
-            <div class="w-layout d-flex landing-page-content fade-in">
+            <div class="w-layout d-flex landing-page-content">
                 <div class="flex-center">
                     <div class="text-center w-20rem">
 
@@ -69,61 +69,65 @@
 </div>
 
 <div id="details-page" class="mx-layout">
-    <div class="flex-layout">
-        <div class="w-layout d-flex p-relative">
-            <div class="bubble b-1">
-                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
-            </div>
-            <div class="mx-auto w-32rem">
-                @if (Model.VietNamOiPicture != null)
-                {
-                    <img class="w-100" src="@Model.VietNamOiPicture.MediaItem.Url()" alt="" /> }
-                else
-                {
-                    <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-1.png")" alt="" />}
-            </div>
-        </div>
-        <div class="fade-in-anchor w-layout d-flex px-layout f-1rem">
-            <div class="fade-in-content flex-center w-32rem">
-                <div class="f-pd fw-700 f-content-header">
-                    @Model.VietNamOiCommunityTitle
+    <div class="fade-in-anchor">
+        <div class="flex-layout fade-in-content">
+            <div class="w-layout d-flex p-relative">
+                <div class="bubble b-1">
+                    <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
                 </div>
-                @Html.Raw(Model.VietNamOiDescription)
+                <div class="mx-auto w-32rem">
+                    @if (Model.VietNamOiPicture != null)
+                    {
+                        <img class="w-100" src="@Model.VietNamOiPicture.MediaItem.Url()" alt="" /> }
+                    else
+                    {
+                        <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-1.png")" alt="" />}
+                </div>
+            </div>
+            <div class="w-layout d-flex px-layout f-1rem">
+                <div class="flex-center w-32rem">
+                    <div class="f-pd fw-700 f-content-header">
+                        @Model.VietNamOiCommunityTitle
+                    </div>
+                    @Html.Raw(Model.VietNamOiDescription)
+                </div>
             </div>
         </div>
     </div>
-    <div class="flex-layout mt-8rem flex-direction-layout">
-        <div class="fade-in-anchor w-layout d-flex px-layout f-1rem">
-            <div class="fade-in-content flex-center w-32rem">
-                <div class="f-pd fw-700 f-content-header">
-                    @Model.GhienDaLatTitle
+    <div class="fade-in-anchor">
+        <div class="flex-layout mt-8rem flex-direction-layout fade-in-content">
+            <div class="w-layout d-flex px-layout f-1rem">
+                <div class="flex-center w-32rem">
+                    <div class="f-pd fw-700 f-content-header">
+                        @Model.GhienDaLatTitle
+                    </div>
+                    @Html.Raw(Model.GhienDaLatDescription)
                 </div>
-                @Html.Raw(Model.GhienDaLatDescription)
             </div>
-        </div>
-        <div class="w-layout d-flex p-relative">
-            <div class="bubble b-2">
-                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
-            </div>
-            <div class="bubble b-3">
-                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
-            </div>
-            <div class="bubble b-4">
-                <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
-            </div>
-            <div class="plus p-1">
-                <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
-            </div>
-            <div class="plus p-2">
-                <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
-            </div>
-            <div class="mx-auto w-32rem">
-                @if (Model.VietNamOiPicture != null)
-                {
-                    <img class="w-100" src="@Model.GhienDaLatPicture.MediaItem.Url()" alt="" /> }
-                else
-                {
-                    <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-2.png")" alt="" />}
+            <div class="w-layout d-flex p-relative">
+                <div class="bubble b-2">
+                    <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+                </div>
+                <div class="bubble b-3">
+                    <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+                </div>
+                <div class="bubble b-4">
+                    <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
+                </div>
+                <div class="plus p-1">
+                    <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
+                </div>
+                <div class="plus p-2">
+                    <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
+                </div>
+                <div class="mx-auto w-32rem">
+                    @if (Model.VietNamOiPicture != null)
+                    {
+                        <img class="w-100" src="@Model.GhienDaLatPicture.MediaItem.Url()" alt="" /> }
+                    else
+                    {
+                        <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-2.png")" alt="" />}
+                </div>
             </div>
         </div>
     </div>
