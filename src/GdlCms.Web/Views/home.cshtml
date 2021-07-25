@@ -27,7 +27,7 @@
                         <img class="w-100" src="@Url.Content("~/css/imgs/landing-logo.gif")" alt="logo">}
                 </div>
                 <div class="text-center mt-3rem">
-                    <button class="contact-btn f-1rem f-ssp">@Model.HeroCtacaption</button>
+                    <a class="smoothscroll contact-btn f-1rem f-ssp " href="#contact">@Model.HeroCtacaption</a>
                 </div>
             </div>
             <div class="w-layout d-flex landing-page-content">
@@ -202,7 +202,7 @@
     <div class="bubble b-7">
         <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" />
     </div>
-    <img class="p-absolute img-4" src="@Url.Content("~/css/imgs/4.png")" />
+    <img class="p-absolute img-3" src="@Url.Content("~/css/imgs/3.png")" />
     <div class="fade-in-content mx-layout">
         <div class="header">
             <p class="f-rbt fw-500 f-layout upper-case">@Model.PartnerHeader</p>
@@ -229,3 +229,104 @@
         </div>
     </div>
 </div>
+
+<!-- contact
+================================================== -->
+<section id="contact" class="s-contact">
+    <div class="fade-in-anchor p-relative">
+        <div class="bubble b-6">
+            <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")"/>
+        </div>
+        <div class="bubble b-7">
+            <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")"/>
+        </div>
+        <img class="p-absolute img-4" src="@Url.Content("~/css/imgs/4.png")"/>
+        <div class="fade-in-content mx-layout">
+            <div class="header">
+                <p class="f-rbt fw-500 f-layout upper-case">@Model.ContactHeader</p>
+                <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")"/>
+            </div>
+            <div class="partner-container">
+                <div class="row contact-content">
+
+                    <div class="contact-primary">
+
+                        <h3 class="h6">@Model.ContactFormHeader</h3>
+
+                        <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
+                            <fieldset>
+
+                                <div class="form-field">
+                                    <input name="contactName" type="text" id="contactName" placeholder="Your Name" value="" minlength="2" class="full-width">
+                                </div>
+                                <div class="form-field">
+                                    <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" value="" class="full-width">
+                                </div>
+                                <div class="form-field">
+                                    <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
+                                </div>
+                                <div class="form-field">
+                                    <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="10" cols="50" class="full-width"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <button class="full-width btn--primary">Submit</button>
+                                    <div class="submit-loader">
+                                        <div class="text-loader">Sending...</div>
+                                        <div class="s-loader">
+                                            <div class="bounce1"></div>
+                                            <div class="bounce2"></div>
+                                            <div class="bounce3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+
+                        <!-- contact-warning -->
+                        <div class="message-warning">
+                            @Model.ContactFormWarningMessage
+                        </div>
+
+                        <!-- contact-success -->
+                        <div class="message-success">
+                            @Model.ContactFormSuccessMessage<br>
+                        </div>
+
+                    </div> <!-- end contact-primary -->
+
+                    <div class="contact-secondary hide-on-fullwidth">
+                        <div class="contact-info">
+                            <h3>@Model.ContactSubHeader</h3>
+
+                            <div class="cinfo">
+                                <h5>@Model.ContactAddressTitle</h5>
+                                <p>
+                                    @Model.ContactAddressDetail
+                                </p>
+                            </div>
+
+                            <div class="cinfo">
+                                <h5>@Model.ContactEmailHeader</h5>
+                                <p>
+                                    @Model.ContactEmailDetail
+                                </p>
+                            </div>
+
+                            <div class="cinfo">
+                                <h5>@Model.ContactPhoneTitle</h5>
+                                <p>
+                                    @Model.ContactPhoneDetail
+                                </p>
+                            </div>
+                        
+                        </div> <!-- end contact-info -->
+                    </div> <!-- end contact-secondary -->
+
+                </div> <!-- end contact-content -->
+
+            </div>
+        </div>
+    </div>
+    
+</section> <!-- end s-contact -->

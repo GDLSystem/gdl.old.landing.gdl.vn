@@ -354,6 +354,8 @@
     <Content Include="css\imgs\partner-3.png" />
     <Content Include="css\imgs\partner-4.png" />
     <Content Include="css\imgs\plus.png" />
+    <Content Include="css\imgs\scroll2top.jpg" />
+    <Content Include="css\imgs\scroll2top.png" />
     <Content Include="css\imgs\service-1.png" />
     <Content Include="css\imgs\service-2.png" />
     <Content Include="css\imgs\service-3.png" />
@@ -372,6 +374,7 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\jquery-3.2.1.min.js" />
+    <Content Include="scripts\main.js" />
     <Content Include="scripts\modernizr.js" />
     <Content Include="scripts\pace.min.js" />
     <Content Include="scripts\plugins.js" />
