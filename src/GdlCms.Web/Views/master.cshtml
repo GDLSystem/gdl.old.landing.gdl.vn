@@ -34,7 +34,7 @@
 
 <body id="top">
     <button id="back2top">
-        <img src="~/css/imgs/scroll2top.png" />
+        <img src="~/css/imgs/scroll2top.png" width="24px" height="24px" />
     </button>
     <div class="nav mx-layout h-3rem mt-2rem">
         <div class="my-auto">
@@ -61,7 +61,7 @@
                             <a class="d-flex" target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/instagram.png")" title="instagram"></a>
                         }
 
-                        if (item.Caption.ToLower().Contains("facebook"))
+                        if (item.Caption.ToLower().Contains("youtube"))
                         {
                             <a class="d-flex" target="_blank" href="@item.ActionUrl"><img class="h-1rem social-icon" src="@Url.Content("~/css/imgs/youtube.png")" title="youtube"></a>
                         }
@@ -121,7 +121,7 @@
                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/instagram-f.png")" title="instagram"></a>
                                                    }
 
-                                                   if (item.Caption.ToLower().Contains("facebook"))
+                                                   if (item.Caption.ToLower().Contains("youtube"))
                                                    {
                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/youtube-f.png")" title="youtube"></a>
                                                    }

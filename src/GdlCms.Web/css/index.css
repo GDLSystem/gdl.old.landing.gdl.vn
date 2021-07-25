@@ -1143,8 +1143,8 @@ input[type="button"].btn--primary {
     transition: all 0.3s ease-in-out;
     background-color: #c5c5c5;
     border: .2rem solid #c5c5c5;
-    background: #39b54a;
-    border-color: #39b54a;
+    background: #1C6014;
+    border-color: #1C6014;
     color: #FFFFFF;
 }
 
@@ -1358,12 +1358,13 @@ input[type="button"].btn--primary:focus {
 .message-warning,
 .message-success {
     display: none;
-    background: #111111;
-    font-size: 1.5rem;
+    border: solid 1px #063b00;
+    font-size: 1rem;
     line-height: 2;
-    padding: 3rem;
-    margin-bottom: 3.6rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
     width: 100%;
+    border-radius: 5px;
 }
 
 .message-warning {
