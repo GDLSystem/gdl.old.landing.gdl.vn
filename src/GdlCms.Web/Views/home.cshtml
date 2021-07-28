@@ -76,12 +76,14 @@
                     <img class="w-100" src="@Url.Content("~/css/imgs/bubble.png")" alt="" />
                 </div>
                 <div class="mx-auto w-32rem">
+                    <a href="@Model.VietNamOiActionUrl" target="_blank">
                     @if (Model.VietNamOiPicture != null)
                     {
                         <img class="w-100" src="@Model.VietNamOiPicture.MediaItem.Url()" alt="" /> }
                     else
                     {
                         <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-1.png")" alt="" />}
+                    </a>
                 </div>
             </div>
             <div class="w-layout d-flex px-layout f-1rem">
@@ -121,12 +123,15 @@
                     <img class="w-100" src="@Url.Content("~/css/imgs/plus.png")" alt="" />
                 </div>
                 <div class="mx-auto w-32rem">
+                    <a href="@Model.GhienDaLatActionUrl" target="_blank">
                     @if (Model.VietNamOiPicture != null)
                     {
-                        <img class="w-100" src="@Model.GhienDaLatPicture.MediaItem.Url()" alt="" /> }
+                        <img class="w-100" src="@Model.GhienDaLatPicture.MediaItem.Url()" alt=""/>
+                    }
                     else
                     {
-                        <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-2.png")" alt="" />}
+                        <img class="w-100" src="@Url.Content("~/css/imgs/detail-img-2.png")" alt=""/>}
+                    </a>
                 </div>
             </div>
         </div>

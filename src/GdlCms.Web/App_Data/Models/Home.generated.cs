@@ -283,6 +283,13 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string FooterSubHeader => this.Value<string>("footerSubHeader");
 
 		///<summary>
+		/// Ghien Da Lat Action Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("ghienDaLatActionUrl")]
+		public virtual string GhienDaLatActionUrl => this.Value<string>("ghienDaLatActionUrl");
+
+		///<summary>
 		/// Ghien Da Lat Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -470,6 +477,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("socials")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SocialIcon> Socials => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SocialIcon>>("socials");
+
+		///<summary>
+		/// Viet Nam Oi Action Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("vietNamOiActionUrl")]
+		public virtual string VietNamOiActionUrl => this.Value<string>("vietNamOiActionUrl");
 
 		///<summary>
 		/// Viet Nam oi Community Title
