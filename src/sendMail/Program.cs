@@ -6,7 +6,7 @@ namespace SendMail {
         static int portNumber = 587;  
         static bool enableSSL = true;  
         static string emailFromAddress = "kynhero@gmail.com"; //Sender Email Address  
-        static string password = "google!K@XXX#04"; //Sender Password  
+        static string password = ""; //Sender Password  
         static string emailToAddress = "kynhero@gmail.com"; //Receiver Email Address  
         static string subject = "Hello";  
         static string body = "Hello, This is Email sending test using gmail.";  
