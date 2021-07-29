@@ -1,0 +1,61 @@
+﻿@inherits UmbracoViewPage<ContactViewModel>
+
+@using GdlCms.Web.ViewModels;
+@using GdlCms.Web.Controllers;
+
+<div id="form-outer">
+    
+    @using (Ajax.BeginForm("SubmitForm", "ContactSurface", new AjaxOptions()
+    {
+        UpdateTargetId = "form-result",
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        OnSuccess = "contactForm.showResult",
+        OnFailure = "contactForm.showResult"
+    }, new {id = "contact-form"}))
+    {
+        @Html.HiddenFor(m => m.ContactFormId)
+    <fieldset>
+            @{
+                var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+            }
+            <div class="form-field">
+                @* <input name="contactName" type="text" id="contactName" placeholder="@(currentCulture.Contains("en") ? "Your Name" : "Họ và tên")" value="" minlength="2" class="full-width"> *@
+                @Html.TextBoxFor(m => m.Name, new{@class="form-control", placeholder=(currentCulture.Contains("en") ? "Your Name" : "Họ và tên")})
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="form-field">
+                @* <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" class="full-width"> *@
+                @Html.TextBoxFor(m => m.Email, new{@class="form-control", placeholder= "Email"})
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-field">
+                @* <input name="contactSubject" type="text" id="contactSubject" placeholder="@(currentCulture.Contains("en") ? "Subject" : "Tiêu đề")" value="" class="full-width"> *@
+                @Html.TextBoxFor(m => m.EmailTitle, new{@class="form-control", placeholder=(currentCulture.Contains("en") ? "Subject" : "Tiêu đề")})
+                @Html.ValidationMessageFor(m => m.EmailTitle)
+            </div>
+            <div class="form-field">
+                @* <textarea name="contactMessage" id="contactMessage" placeholder="@(currentCulture.Contains("en") ? "Your Message" : "Nội dung")" rows="10" cols="50" class="full-width"></textarea> *@
+                @Html.TextAreaFor(m => m.Message, new{@class="form-control", placeholder=(currentCulture.Contains("en") ? "Your Message" : "Nội dung"), rows="10", cols="50"})
+                @Html.ValidationMessageFor(m => m.Message)
+            </div>
+            @* <div class="form-field"> *@
+            @*     <button class="full-width btn--primary">Submit</button> *@
+            @*     <div class="submit-loader"> *@
+            @*         <div class="text-loader">Sending...</div> *@
+            @*         <div class="s-loader"> *@
+            @*             <div class="bounce1"></div> *@
+            @*             <div class="bounce2"></div> *@
+            @*             <div class="bounce3"></div> *@
+            @*         </div> *@
+            @*     </div> *@
+            @* </div> *@
+            <div class="form-group">
+                <button type="submit" class="full-width btn--primary contact-submit" id="sendMessageButton">Submit</button>
+            </div>
+        </fieldset>
+    }
+</div>
+<div id="form-result">
+    
+</div>

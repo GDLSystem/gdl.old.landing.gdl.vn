@@ -1,8 +1,18 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ClientDependency.Core.Mvc
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{ Layout = "master.cshtml";
     var heroImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : string.Empty;
     string domainAddress = $"{Request.Url?.Scheme}://{Request.Url?.Authority}";
+    
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    Html.RequiresJs("~/scripts/jquery-3.2.1.min.js");
+    Html.RequiresJs("~/scripts/jquery.validate.min.js");
+    Html.RequiresJs("~/scripts/jquery.validate.unobtrusive.min.js");
+    Html.RequiresJs("~/scripts/jquery.unobtrusive-ajax.min.js");
+    Html.RequiresJs("~/scripts/contactForm.js");
 }
 @section HeaderMeta
 {
@@ -258,37 +268,17 @@
 
                         <h3 class="h6">@Model.ContactFormHeader</h3>
 
-                        <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
-                            <fieldset>
-                                @{
-                                    var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
-                                }
-                                <div class="form-field">
-                                    <input name="contactName" type="text" id="contactName" placeholder="@(currentCulture.Contains("en") ? "Your Name" : "Họ và tên" )" value="" minlength="2" class="full-width">
+                        @* CONTACT FORM *@
+                        @* CONTACT FORM *@
+                        @* CONTACT FORM *@
+                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 mx-auto">
+                                    @{ Html.RenderAction("RenderForm", "ContactSurface");}
                                 </div>
-                                <div class="form-field">
-                                    <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" class="full-width">
-                                </div>
-                                <div class="form-field">
-                                    <input name="contactSubject" type="text" id="contactSubject" placeholder="@(currentCulture.Contains("en") ? "Subject" : "Tiêu đề" )" value="" class="full-width">
-                                </div>
-                                <div class="form-field">
-                                    <textarea name="contactMessage" id="contactMessage" placeholder="@(currentCulture.Contains("en") ? "Your Message" : "Nội dung" )" rows="10" cols="50" class="full-width"></textarea>
-                                </div>
-                                <div class="form-field">
-                                    <button class="full-width btn--primary">Submit</button>
-                                    <div class="submit-loader">
-                                        <div class="text-loader">Sending...</div>
-                                        <div class="s-loader">
-                                            <div class="bounce1"></div>
-                                            <div class="bounce2"></div>
-                                            <div class="bounce3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </fieldset>
-                        </form>
+                            </div>
+                        </div>
 
                         <!-- contact-warning -->
                         <div class="message-warning">
