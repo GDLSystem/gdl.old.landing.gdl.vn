@@ -2,6 +2,7 @@
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using GdlCms.Web.Helpers;
 using GdlCms.Web.Services;
 using GdlCms.Web.ViewModels;
 using Umbraco.Core.Logging;
@@ -33,11 +34,13 @@ namespace GdlCms.Web.Controllers
         [HttpPost]
         public ActionResult SubmitForm(ContactViewModel model)
         {
+            var emailSubject = $"[GDL-CMS] [NEW CONTACT]: {model.EmailTitle} - {model.Name}";
+            var emailBody = GetEmailBody(model);
             bool success = false;
 
             if (ModelState.IsValid)
             {
-                success = _smtpService.SendEmail(model);
+                success = _smtpService.SendEmail(emailSubject, emailBody);
             }
 
             var contactPage = UmbracoContext.Content.GetById(false, model.ContactFormId);
@@ -47,6 +50,11 @@ namespace GdlCms.Web.Controllers
 
             return Json(new {success, message = success ? successMessage : errorMessage});
             // return PartialView("~/Views/Partials/Contact/Result.cshtml", success ? successMessage : errorMessage);
+        }
+    
+        private string GetEmailBody(ContactViewModel model)
+        {
+            return RazorViewToStringRenderer.RenderViewToString(ControllerContext, "~/Views/Partials/Contact/MailContact.cshtml", model, true);
         }
     }
 }

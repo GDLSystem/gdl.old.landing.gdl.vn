@@ -419,6 +419,7 @@
     <Compile Include="App_Data\Models\UmbracoMediaVideo.generated.cs" />
     <Compile Include="Composing\RegisterServicesComposer.cs" />
     <Compile Include="Controllers\ContactSurfaceController.cs" />
+    <Compile Include="Helpers\RazorViewToStringRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ISmtpService.cs" />
     <Compile Include="Services\SmtpService.cs" />
@@ -440,6 +441,7 @@
     <Content Include="css\index.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Partials\Contact\ContactForm.cshtml" />
+    <Content Include="Views\Partials\Contact\MailContact.cshtml" />
     <Content Include="Views\Partials\Contact\Result.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
