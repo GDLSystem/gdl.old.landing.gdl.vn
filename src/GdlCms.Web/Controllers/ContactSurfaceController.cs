@@ -34,13 +34,12 @@ namespace GdlCms.Web.Controllers
         [HttpPost]
         public ActionResult SubmitForm(ContactViewModel model)
         {
-            var emailSubject = $"[GDL-CMS] [NEW CONTACT]: {model.EmailTitle} - {model.Name}";
             var emailBody = GetEmailBody(model);
             bool success = false;
 
             if (ModelState.IsValid)
             {
-                success = _smtpService.SendEmail(emailSubject, emailBody);
+                success = _smtpService.SendEmail(model.Email, model.Name, emailBody);
             }
 
             var contactPage = UmbracoContext.Content.GetById(false, model.ContactFormId);

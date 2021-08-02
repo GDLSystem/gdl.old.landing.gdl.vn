@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using GdlCms.Web.Controllers;
 using GdlCms.Web.ViewModels;
@@ -15,25 +18,45 @@ namespace GdlCms.Web.Services
             _logger = logger;
         }
         
-        public bool SendEmail(string subject, string body)
+        public bool SendEmail(string inputEmail, string name,string body)
         {
             try
             {
-                MailMessage message = new MailMessage
+                var fromEmail = new MailAddress(ConfigurationManager.AppSettings["MailAddress"]);
+                var pass = ConfigurationManager.AppSettings["EmailPassword"];
+                var toEmail = new MailAddress(ConfigurationManager.AppSettings["EmailReceive"]);
+                
+                string title = string.Format(ConfigurationManager.AppSettings["EmailTitle"], inputEmail, name);
+
+                var useDefaultCredentials = bool.Parse(ConfigurationManager.AppSettings["UseDefaultCredentialsMail"]);
+                var enableSsl = bool.Parse(ConfigurationManager.AppSettings["EnableSslMail"]);
+                var smtp = new SmtpClient()
                 {
+                    Host = ConfigurationManager.AppSettings["HostMail"],
+                    Port = int.Parse(ConfigurationManager.AppSettings["PortMail"]),
+                    EnableSsl = enableSsl,
+                    UseDefaultCredentials = useDefaultCredentials,
+                    Credentials = new NetworkCredential(fromEmail.Address, pass)
+                };
+
+                var mess = new MailMessage(fromEmail, toEmail)
+                {
+                    Subject = title,
+                    Body = body,
                     IsBodyHtml = true
                 };
-                SmtpClient client = new SmtpClient();
 
-                string toAddress = "kynhero@gmail.com";
-                string fromAddress = "kynhero@gmail.com";
-                // message.Subject =  $"[GDL-CMS] [NEW CONTACT]: {model.EmailTitle} - {model.Name}";
-                message.Subject = subject;
-                message.Body = body;
-                message.To.Add(new MailAddress(toAddress, toAddress));
-                message.From = new MailAddress(fromAddress, fromAddress);
+                var ccMailsString = ConfigurationManager.AppSettings["EmailCC"];
+                if (!string.IsNullOrEmpty(ccMailsString))
+                {
+                    foreach (var mailAddress in ccMailsString.Split(',').Select(x => new MailAddress(x)).ToList())
+                    {
+                        mess.CC.Add(mailAddress);
+                    }
+                }
                 
-                client.Send(message);
+                smtp.Send(mess);
+                
                 return true;
             }
             catch (Exception e)
