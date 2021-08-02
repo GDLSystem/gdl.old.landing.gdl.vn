@@ -272,13 +272,7 @@
                         @* CONTACT FORM *@
                         @* CONTACT FORM *@
                         
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 mx-auto">
-                                    @{ Html.RenderAction("RenderForm", "ContactSurface");}
-                                </div>
-                            </div>
-                        </div>
+                        @{ Html.RenderAction("RenderForm", "ContactSurface");}
 
                         <!-- contact-warning -->
                         <div class="message-warning">

@@ -372,7 +372,6 @@
     <Content Include="css\micons\fonts\icomoon.woff" />
     <Content Include="css\micons\micons.css" />
     <Content Include="Global.asax" />
-    <Content Include="scripts\contactForm.js" />
     <Content Include="scripts\index.js" />
     <Content Include="Scripts\jquery-1.8.0-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
