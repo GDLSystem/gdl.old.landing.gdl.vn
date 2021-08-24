@@ -36,7 +36,28 @@
     <button id="back2top">
         <img src="~/css/imgs/scroll2top.png" width="24px" height="24px" />
     </button>
-    <div class="nav mx-layout h-3rem mt-2rem">
+    <div class="nav mx-custom-layout">
+        <div class="nav-content">
+            <div class="top-left-header">
+                <img src="~/css/imgs/top-left.png" alt="">
+            </div>
+            <div class="top-right-header">
+                <div class="nav-menu">
+                    <a href="communities.html" class="nav-item">Dịch vụ</a>
+                    <a href="#" class="nav-item">Booking</a>
+                    <a href="communities.html" class="nav-item">Cộng đồng</a>
+                    <a href="#" class="nav-item">Liên hệ</a>
+                </div>
+                <div class="my-auto d-flex">
+                    <img class="social-icon" src="~/css/imgs/tiktok.png" alt="">
+                    <img class="social-icon" src="~/css/imgs/facebook.png" alt="">
+                    <img class="social-icon" src="~/css/imgs/instagram.png" alt="">
+                    <img class="social-icon" src="~/css/imgs/youtube.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="nav mx-layout h-3rem mt-2rem">
         <div class="my-auto">
             <img class="h-3rem" src="@home.SiteLogo.Url()" alt="@home.Name">
         </div>
@@ -78,7 +99,7 @@
             </div>
         </div>
 
-    </div>
+    </div>*@
 
     <div class="container">
         @RenderBody()
@@ -91,7 +112,19 @@
             <div class="footer f-ssp fw-400 f-1rem d-flex">
                 <div class="flex-layout align-center mx-auto mt-2rem mb-auto">
                     <div class="f-item footer-m">
-                        <div class="d-flex">
+                        <div class="container">
+                            <img src="~/css/imgs/footer-logo-1.png" alt="" style="height: 2.5rem;">
+                            <div id="footer-logo">
+                                <p style="color: white; font-size: 0.75rem;">www.gld.vn</p>
+                                <div class="mt-1rem">
+                                    <img class="f-social-icon" src="~/css/imgs/twitter-f.png" alt="">
+                                    <img class="f-social-icon" src="~/css/imgs/facebook-f.png" alt="">
+                                    <img class="f-social-icon" src="~/css/imgs/instagram-f.png" alt="">
+                                    <img class="f-social-icon" src="~/css/imgs/youtube-f.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="d-flex">
                             <div class="container mx-auto-layout">
                                 @if (home.FooterLogo != null)
                                 {
@@ -103,35 +136,35 @@
                                 <div class="d-flex mt-1rem">
                                     <div class="d-flex mx-auto">
                                         @{ if (home.Socials.Any())
-                                           {
-                                               foreach (var item in home.Socials.ToList())
-                                               {
-                                                   if (item.Caption.ToLower().Contains("twitter"))
-                                                   {
-                                                       <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/twitter-f.png")" title="twitter"></a>
-                                                   }
+                                            {
+                                                foreach (var item in home.Socials.ToList())
+                                                {
+                                                    if (item.Caption.ToLower().Contains("twitter"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/twitter-f.png")" title="twitter"></a>
+                                                    }
 
-                                                   if (item.Caption.ToLower().Contains("facebook"))
-                                                   {
-                                                       <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/facebook-f.png")" title="facebook"></a>
-                                                   }
+                                                    if (item.Caption.ToLower().Contains("facebook"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/facebook-f.png")" title="facebook"></a>
+                                                    }
 
-                                                   if (item.Caption.ToLower().Contains("instagram"))
-                                                   {
-                                                       <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/instagram-f.png")" title="instagram"></a>
-                                                   }
+                                                    if (item.Caption.ToLower().Contains("instagram"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/instagram-f.png")" title="instagram"></a>
+                                                    }
 
-                                                   if (item.Caption.ToLower().Contains("youtube"))
-                                                   {
-                                                       <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/youtube-f.png")" title="youtube"></a>
-                                                   }
-                                               }
-                                           }
+                                                    if (item.Caption.ToLower().Contains("youtube"))
+                                                    {
+                                                        <a target="_blank" href="@item.ActionUrl"><img class="f-social-icon" src="@Url.Content("~/css/imgs/youtube-f.png")" title="youtube"></a>
+                                                    }
+                                                }
+                                            }
                                         }
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                     <div class="flex-layout">
                         <div class="f-item footer-m">
@@ -150,7 +183,7 @@
                         </div>
                     </div>
                 </div>
-                <br/>
+                <br />
                 <div class="text-center mb-1rem mt-1rem">© Copyright gdl.vn  @DateTime.Now.Year</div>
                 @*<div class="text-center mb-1rem mt-1rem">Site Development by <a class="link" href="https://vindustry.co/">Vindustry.co</a></div>*@
             </div>
