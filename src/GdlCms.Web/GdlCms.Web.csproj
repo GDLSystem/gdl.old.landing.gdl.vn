@@ -373,7 +373,9 @@
     <Content Include="css\imgs\twitter.png" />
     <Content Include="css\imgs\youtube-f.png" />
     <Content Include="css\imgs\youtube.png" />
-    <Content Include="css\index.css" />
+    <Content Include="css\index.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="css\micons\fonts\icomoon.eot" />
     <Content Include="css\micons\fonts\icomoon.svg" />
     <Content Include="css\micons\fonts\icomoon.ttf" />

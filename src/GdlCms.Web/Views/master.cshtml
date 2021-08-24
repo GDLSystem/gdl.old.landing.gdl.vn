@@ -17,7 +17,7 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="@Url.Content("~/css/index.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/index.css")?v=@DateTime.Now.Ticks">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap">
@@ -43,10 +43,11 @@
             </div>
             <div class="top-right-header">
                 <div class="nav-menu">
-                    <a href="communities.html" class="nav-item">Dịch vụ</a>
-                    <a href="#" class="nav-item">Booking</a>
-                    <a href="communities.html" class="nav-item">Cộng đồng</a>
-                    <a href="#" class="nav-item">Liên hệ</a>
+                    @Html.Partial("~/Views/Partials/Navigation/TopNavigation.cshtml")
+                    @* <a href="communities.html" class="nav-item">Dịch vụ</a> *@
+                    @* <a href="#" class="nav-item">Booking</a> *@
+                    @* <a href="communities.html" class="nav-item">Cộng đồng</a> *@
+                    @* <a href="#" class="nav-item">Liên hệ</a> *@
                 </div>
                 <div class="my-auto d-flex">
                     <img class="social-icon" src="~/css/imgs/tiktok.png" alt="">
