@@ -19,64 +19,64 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Feature</summary>
-	[PublishedModel("feature")]
-	public partial class Feature : PublishedElementModel
+	/// <summary>Group Community</summary>
+	[PublishedModel("groupCommunity")]
+	public partial class GroupCommunity : PublishedContentModel, IContentBase, INavigationBase
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		public new const string ModelTypeAlias = "feature";
+		public new const string ModelTypeAlias = "groupCommunity";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Feature, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GroupCommunity, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Feature(IPublishedElement content)
+		public GroupCommunity(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Action Redirect URL
+		/// Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("actionRedirectURL")]
-		public virtual string ActionRedirectUrl => this.Value<string>("actionRedirectURL");
+		[ImplementPropertyType("bodyText")]
+		public virtual global::Newtonsoft.Json.Linq.JToken BodyText => global::Umbraco.Web.PublishedModels.ContentBase.GetBodyText(this);
 
 		///<summary>
-		/// Details
+		/// Page Title: The title of the page, this is also the first text in a google search result. The ideal length is between 40 and 60 characters
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("featureDetails")]
-		public virtual string FeatureDetails => this.Value<string>("featureDetails");
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Web.PublishedModels.ContentBase.GetPageTitle(this);
 
 		///<summary>
-		/// Name
+		/// Keywords: Keywords that describe the content of the page. This is considered optional since most modern search engines don't use this anymore
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("featureName")]
-		public virtual string FeatureName => this.Value<string>("featureName");
+		[ImplementPropertyType("keywords")]
+		public virtual global::System.Collections.Generic.IEnumerable<string> Keywords => global::Umbraco.Web.PublishedModels.NavigationBase.GetKeywords(this);
 
 		///<summary>
-		/// Feature Picture
+		/// Description: A brief description of the content on your page. This text is shown below the title in a google search result and also used for Social Sharing Cards. The ideal length is between 130 and 155 characters
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("featurePicture")]
-		public virtual global::Umbraco.Core.Models.MediaWithCrops FeaturePicture => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("featurePicture");
+		[ImplementPropertyType("seoMetaDescription")]
+		public virtual string SeoMetaDescription => global::Umbraco.Web.PublishedModels.NavigationBase.GetSeoMetaDescription(this);
 
 		///<summary>
-		/// Sort
+		/// Hide in Navigation: If you don't want this page to appear in the navigation, check this box
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("sort")]
-		public virtual int Sort => this.Value<int>("sort");
+		[ImplementPropertyType("umbracoNavihide")]
+		public virtual bool UmbracoNavihide => global::Umbraco.Web.PublishedModels.NavigationBase.GetUmbracoNavihide(this);
 	}
 }

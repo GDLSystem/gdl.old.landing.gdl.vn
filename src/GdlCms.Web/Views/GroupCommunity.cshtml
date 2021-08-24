@@ -1,0 +1,191 @@
+﻿@using GdlCms.Web.Helpers
+@using GdlCms.Web.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "master.cshtml";
+    var home = (Home)Model.Root();
+    var groupCommunities = Model.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
+}
+@{
+    var groupLevel1 = new GroupApiResult()
+    {
+        Name = "Chị em mần đẹp",
+        Description = "Group chia sẻ kinh nghiệm làm đẹp cho chị em phụ nữ lớn nhất Việt Nam",
+        TotalMember = "638,152 thành viên",
+        Growth = "Tăng trưởng : 21%/tháng",
+        Interact = "Tương tác : 2.410.000/tháng",
+        ImageUrl = "../css/images-communities/img-1.png",
+        Level = 1
+    };
+
+    var groupsLv2 = new List<GroupApiResult>()
+    {
+        new GroupApiResult()
+        {
+            Name = "Làm đẹp đúng cách",
+            TotalMember = "227.000 thành viên",
+            ImageUrl = "../css/images-communities/img-2.png"
+        },
+        new GroupApiResult()
+        {
+            Name = "Làm đẹp không khó",
+            TotalMember = "238,152 thành viên",
+            ImageUrl = "../css/images-communities/img-3.png"
+        },
+    };
+    var groupsLv3 = new List<GroupApiResult>()
+    {
+        new GroupApiResult()
+        {
+            Name = "Phụ nữ là phải đẹp",
+            TotalMember = "227.000 thành viên",
+            ImageUrl = "../css/images-communities/img-4.png"
+        },
+        new GroupApiResult()
+        {
+            Name = "Hội chị em đẹp chanh sả",
+            TotalMember = "238,152 thành viên",
+            ImageUrl = "../css/images-communities/img-5.png"
+        },
+        new GroupApiResult()
+        {
+            Name = "Một chút đáng yêu mỗi ngày",
+            TotalMember = "227.000 thành viên",
+            ImageUrl = "../css/images-communities/img-6.png"
+        },
+        new GroupApiResult()
+        {
+            Name = "Đẹp xí mệ mấy bà luôn",
+            TotalMember = "238,152 thành viên",
+            ImageUrl = "../css/images-communities/img-7.png"
+        },
+    };
+}
+
+@* the fun starts here *@
+<div class="index-fade-in mt-4rem">
+    <div class="mx-layout community-header d-layout">
+        <div class="logo">
+            <img src="../css/images-communities/beauty-community.png" alt="">
+        </div>
+        <div class="mt-auto">
+            @* <button id="rate-btn" class="custom-btn f-1rem f-ssp">Đánh giá</button> *@
+        </div>
+    </div>
+</div>
+<div class="mt-4rem">
+    <div class="mx-layout fade-in-anchor">
+        <div class="index-fade-in line d-layout">
+            <div class="large-article">
+                <div class="img">
+                    <img src="@groupLevel1.ImageUrl" alt="@groupLevel1.Name">
+                </div>
+                <div class="large-article-content">
+                    <div class="large-article-summary">
+                        <p class="tag">@groupLevel1.Name</p>
+                        <div class="des">
+                            @groupLevel1.Description
+                        </div>
+
+                    </div>
+                    <div class="large-article-numbers">
+                        <p class="members">@groupLevel1.TotalMember</p>
+                        <div class="info">
+                            <p>Tăng trưởng : <span class="f-bold">@groupLevel1.Growth</span></p>
+                            <p>Tương tác : <span class="f-bold">@groupLevel1.Interact</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medium-articles">
+                @foreach (var item in groupsLv2)
+                {
+                    <div class="medium-article">
+                        <div class="img">
+                            <img src="@item.ImageUrl" alt="@item.Name">
+                        </div>
+                        <div class="medium-article-content">
+                            <div class="medium-article-header">
+                                <span class="tag">@item.Name</span>
+                            </div>
+                            <div class="medium-article-members">@item.TotalMember</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="line mt-2rem">
+            <div class="small-articles d-layout">
+                @foreach (var batch in groupsLv3.Partition(2))
+                {
+                    <div class="d-flex w-layout">
+                        @foreach (var item in batch)
+                        {
+                            <div class="small-article fade-in-content">
+                                <div class="img">
+                                    <img src="@item.ImageUrl" alt="@item.Name">
+                                </div>
+                                <div class="small-article-content">
+                                    <div class="small-article-header">
+                                        <span class="tag">@item.Name</span>
+                                    </div>
+                                    <div class="small-article-title">@item.TotalMember</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="line mt-2rem">
+            <div class="small-articles d-layout">
+                @foreach (var batch in groupsLv3.Partition(2))
+                {
+                    <div class="d-flex w-layout">
+                        @foreach (var item in batch)
+                        {
+                            <div class="small-article fade-in-content">
+                             <div class="img">
+                                 <img src="@item.ImageUrl" alt="@item.Name">
+                             </div>
+                             <div class="small-article-content">
+                                 <div class="small-article-header">
+                                     <span class="tag">@item.Name</span>
+                                 </div>
+                                 <div class="small-article-title">@item.TotalMember</div>
+                             </div>
+                         </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fade-in-anchor mt-4rem">
+    <div class="fade-in-content mx-layout">
+        <div class="d-flex justify-content-between">
+            <span class="f-rbt upper-case fw-500 f-2rem">CÁC CỤM CỘNG ĐỒNG KHÁC</span>
+        </div>
+        <div id="communities" class="d-flex communities">
+            @if (groupCommunities != null)
+            {
+                foreach (var group in groupCommunities.FeatureGroups)
+                {
+                    if (group.FeaturePicture.MediaItem != null)
+                    {
+                        <img class="community-item" src="@group.FeaturePicture.MediaItem.Url()" alt="">
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+            $(document).ready(() => {
+                drag2Scroll('communities');
+            });
+        </script>
+}

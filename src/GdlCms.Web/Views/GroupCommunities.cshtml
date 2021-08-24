@@ -1,0 +1,27 @@
+﻿@inherits UmbracoViewPage<GroupCommunities>
+@{
+    Layout = "master.cshtml";
+}
+
+@* the fun starts here *@
+<div>
+    <div class="mt-2rem mx-layout">
+        <div class="d-flex justify-content-between mt-2rem mb-2rem">
+            <span class="f-rbt f-layout upper-case fw-500 mx-auto">CÁC CỤM CỘNG ĐỒNG</span>
+        </div>
+        <div class="text-center">
+            @if (Model.FeatureGroups != null && Model.FeatureGroups.Any())
+            {
+                foreach (var feature in Model.FeatureGroups.OrderBy(_=>_.Sort))
+                {
+                    if (feature.FeaturePicture.MediaItem != null)
+                    {
+                        <a class="layout-w-100" href="@feature.ActionRedirectUrl">
+                        <img class="mb-1rem layout-w-100" src="@feature.FeaturePicture.MediaItem.Url()" alt="">
+                    </a>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

@@ -326,6 +326,14 @@
     <Content Include="css\fonts\montserrat\montserrat-semibold-webfont.woff2" />
     <Content Include="css\fonts\montserrat\montserrat-thin-webfont.woff" />
     <Content Include="css\fonts\montserrat\montserrat-thin-webfont.woff2" />
+    <Content Include="css\images-communities\beauty-community.png" />
+    <Content Include="css\images-communities\img-1.png" />
+    <Content Include="css\images-communities\img-2.png" />
+    <Content Include="css\images-communities\img-3.png" />
+    <Content Include="css\images-communities\img-4.png" />
+    <Content Include="css\images-communities\img-5.png" />
+    <Content Include="css\images-communities\img-6.png" />
+    <Content Include="css\images-communities\img-7.png" />
     <Content Include="css\imgs\1.png" />
     <Content Include="css\imgs\2.png" />
     <Content Include="css\imgs\3.png" />
@@ -403,6 +411,8 @@
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\GalleryElement.generated.cs" />
+    <Compile Include="App_Data\Models\GroupCommunities.generated.cs" />
+    <Compile Include="App_Data\Models\GroupCommunity.generated.cs" />
     <Compile Include="App_Data\Models\Home.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
@@ -418,7 +428,9 @@
     <Compile Include="App_Data\Models\UmbracoMediaVideo.generated.cs" />
     <Compile Include="Composing\RegisterServicesComposer.cs" />
     <Compile Include="Controllers\ContactSurfaceController.cs" />
+    <Compile Include="Helpers\EnumerableExtensions.cs" />
     <Compile Include="Helpers\RazorViewToStringRenderer.cs" />
+    <Compile Include="Models\GroupApiResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ISmtpService.cs" />
     <Compile Include="Services\SmtpService.cs" />
@@ -439,6 +451,8 @@
     <Content Include="css\index.css.map" />
     <Content Include="css\index.scss" />
     <None Include="packages.config" />
+    <Content Include="Views\GroupCommunities.cshtml" />
+    <Content Include="Views\GroupCommunity.cshtml" />
     <Content Include="Views\Partials\Contact\ContactForm.cshtml" />
     <Content Include="Views\Partials\Contact\MailContact.cshtml" />
     <Content Include="Views\Partials\Contact\Result.cshtml" />
