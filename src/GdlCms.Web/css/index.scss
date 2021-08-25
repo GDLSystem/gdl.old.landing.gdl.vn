@@ -106,12 +106,18 @@ body {
         border: 0.175rem solid #063B00;
         font-size: 1.25rem;
         font-weight: 800;
+        display: inline-block; 
+        text-align: center; 
+        text-decoration: none;
     }
 
     #contact-btn-2 {
         width: 9rem;
         padding: 0.5rem;
         border: 0.125rem solid #063B00;
+        display: inline-block; 
+        text-align: center; 
+        text-decoration: none;
     }
 
     #contact-1 {
