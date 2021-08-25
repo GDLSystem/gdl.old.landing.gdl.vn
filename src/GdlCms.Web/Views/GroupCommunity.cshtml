@@ -4,7 +4,7 @@
 @{
     Layout = "master.cshtml";
     var home = (Home)Model.Root();
-    var groupCommunities = Model.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
+    var groupCommunities = home.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
 }
 @{
     var groupLevel1 = new GroupApiResult()
