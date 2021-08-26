@@ -22,34 +22,38 @@
     <meta property="og:image" content="@($"{domainAddress}{Model.SiteLogo.Url()}")" />
 }
 
-<div class="landing-page p-relative index-fade-in">
+<div class="landing-page p-relative">
     <img class="p-absolute img-1" src="@Url.Content("~/css/imgs/1.png")" />
     <img class="p-absolute img-2" src="@Url.Content("~/css/imgs/2.png")" />
     <div class="page-content mx-layout mt-4rem">
         <div class="flex-layout">
-            <div class="w-layout">
+            <div class="w-layout index-fade-in">
                 <div class="text-center w-22rem mx-auto">
                     @if (Model.HeroImage != null)
                     {
-                        <img class="w-100" src="@Model.HeroImage.MediaItem.Url()" alt="logo"> }
+                        <img class="w-100" src="@Model.HeroImage.MediaItem.Url()" alt="logo"> 
+                    }
                     else
                     {
-                        <img class="w-100" src="@Url.Content("~/css/imgs/landing-logo.gif")" alt="logo">}
+                        <img class="w-100" src="@Url.Content("~/css/imgs/landing-logo.png")" alt="logo">
+                    }
                 </div>
                 <div class="text-center mt-3rem">
-                    <a class="smoothscroll contact-btn f-1rem f-ssp " href="#contact">@Model.HeroCtacaption</a>
+                    <div id="contact-1" class="w-100 text-center mt-2rem w-10rem">
+                        <a id="contact-btn-1" class="smoothscroll custom-btn f-1rem f-ssp" href="#contact">@Model.HeroCtacaption</a>
+                    </div>
                 </div>
             </div>
-            <div class="w-layout d-flex landing-page-content">
+            <div class="w-layout d-flex landing-page-content mt-auto index-fade-in">
                 <div class="flex-center">
-                    <div class="text-center w-20rem">
+                    <div id="landing-text-logo" class="text-center ">
 
                         @if (Model.AboutTopPicture != null)
                         {
-                            <img id="landing-text-logo" class="w-100" src="@Model.AboutTopPicture.MediaItem.Url()" alt="About top image"> }
+                            <img class="w-100" src="@Model.AboutTopPicture.MediaItem.Url()" alt="About top image"> }
                         else
                         {
-                            <img id="landing-text-logo" class="w-100" src="@Url.Content("~/css/imgs/landing-text-logo.png")" alt="About top image">}
+                            <img class="w-100" src="@Url.Content("~/css/imgs/landing-text-logo.png")" alt="About top image">}
                     </div>
                     <div class="mt-layout">
                         <div class="w-lp-description">
@@ -67,11 +71,16 @@
                                 }
                             </div>
                         </div>
+                        <div id="contact-2" class="mt-5rem p-absolute">
+                            <a id="contact-btn-2" class="smoothscroll custom-btn f-1rem f-ssp" href="#contact">
+                                @Model.HeroCtacaption
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="mt-12rem">
+        <div class="mt-20rem">
             <p class="f-rbt f-layout upper-case fw-500">@Model.WhatWeHaveTitle</p>
             <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" />
         </div>
@@ -107,7 +116,8 @@
         </div>
     </div>
     <div class="fade-in-anchor">
-        <div class="flex-layout mt-8rem flex-direction-layout fade-in-content">
+        <div class="flex-layout mt-8rem flex-direction-layout p-relative fade-in-content">
+            <img class="p-absolute img-3" src="~/css/imgs/3.png" alt="">
             <div class="w-layout d-flex px-layout f-1rem">
                 <div class="flex-center w-32rem">
                     <div class="f-pd fw-700 f-content-header">
@@ -148,31 +158,21 @@
     </div>
 </div>
 
-<div class="fade-in-anchor p-relative">
-    <img class="p-absolute img-3" src="@Url.Content("~/css/imgs/3.png")" alt="">
+<div class="fade-in-anchor">
     <div class="fade-in-content mx-layout">
         <div class="d-flex justify-content-between mt-6rem mb-2rem">
-            <span class="f-pd fw-700 f-content-header">@Model.OtherCommunityTitle</span>
-            @*<div class="my-auto">
-                    <a class="f-ssp fw-400 f-1rem" href="#" id="view-all">
-                        <span>Xem tất cả</span>
-                        <img class="next-icon" src="./imgs/next.png" alt="">
-                    </a>
-                </div>*@
+            <span class="f-rbt f-layout upper-case fw-500">CÁC CỤM CỘNG ĐỒNG</span>
         </div>
         <div id="communities" class="d-flex communities">
-            @if (Model.OtherCommunities != null)
-            {
-                foreach (var item in Model.OtherCommunities.ToList())
-                {
-                    <a href="@item.ActionRedirectUrl" target="_blank">
-                        @if (item.FeaturePicture != null)
-                        {
-                            <img class="community-item h-13rem" src="@item.FeaturePicture.MediaItem.Url()" alt="@item.FeatureName">
-                        }
-                    </a>
-                }
-            }
+            <img class="community-item" src="~/css/imgs/community-1.png" alt="">
+            <img class="community-item" src="~/css/imgs/community-2.png" alt="">
+            <img class="community-item" src="~/css/imgs/community-3.png" alt="">
+        </div>
+        <div class="view-all">
+            <a class="f-ssp fw-400 f-1rem" href="communities.html" id="view-all">
+                <span>Xem tất cả</span>
+                <img class="next-icon" src="~/css/imgs/next.png" alt="">
+            </a>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
 @{
     Layout = "master.cshtml";
     var home = (Home)Model.Root();
-    var groupCommunities = Model.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
+    var groupCommunities = home.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
 }
 @{
     var groupLevel1 = new GroupApiResult()
@@ -100,7 +100,7 @@
             <div class="medium-articles">
                 @foreach (var item in groupsLv2)
                 {
-                    <div class="medium-article">
+                    <div class="medium-article mb-2rem">
                         <div class="img">
                             <img src="@item.ImageUrl" alt="@item.Name">
                         </div>
