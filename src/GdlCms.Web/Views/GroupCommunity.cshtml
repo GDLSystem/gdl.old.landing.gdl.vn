@@ -19,7 +19,7 @@
     };
 
     var groupsLv2 = new List<GroupApiResult>()
-    {
+{
         new GroupApiResult()
         {
             Name = "Làm đẹp đúng cách",
@@ -34,7 +34,7 @@
         },
     };
     var groupsLv3 = new List<GroupApiResult>()
-    {
+{
         new GroupApiResult()
         {
             Name = "Phụ nữ là phải đẹp",
@@ -100,7 +100,7 @@
             <div class="medium-articles">
                 @foreach (var item in groupsLv2)
                 {
-                    <div class="medium-article mb-2rem">
+                    <div class="medium-article @(groupsLv2.FirstOrDefault() == item ? "mb-2rem" : "")">
                         <div class="img">
                             <img src="@item.ImageUrl" alt="@item.Name">
                         </div>
@@ -145,16 +145,16 @@
                         @foreach (var item in batch)
                         {
                             <div class="small-article fade-in-content">
-                             <div class="img">
-                                 <img src="@item.ImageUrl" alt="@item.Name">
-                             </div>
-                             <div class="small-article-content">
-                                 <div class="small-article-header">
-                                     <span class="tag">@item.Name</span>
-                                 </div>
-                                 <div class="small-article-title">@item.TotalMember</div>
-                             </div>
-                         </div>
+                                <div class="img">
+                                    <img src="@item.ImageUrl" alt="@item.Name">
+                                </div>
+                                <div class="small-article-content">
+                                    <div class="small-article-header">
+                                        <span class="tag">@item.Name</span>
+                                    </div>
+                                    <div class="small-article-title">@item.TotalMember</div>
+                                </div>
+                            </div>
                         }
                     </div>
                 }
@@ -184,8 +184,8 @@
 
 @section Scripts{
     <script>
-            $(document).ready(() => {
-                drag2Scroll('communities');
-            });
-        </script>
+        $(document).ready(() => {
+            drag2Scroll('communities');
+        });
+    </script>
 }
