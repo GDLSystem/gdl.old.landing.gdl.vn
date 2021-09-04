@@ -11,7 +11,7 @@ function drag2Scroll(id) {
 
     let pos = { top: 0, left: 0, x: 0, y: 0 };
 
-    const mouseDownHandler = function(e) {
+    const mouseDownHandler = function (e) {
         e.preventDefault();
         e.stopPropagation();
         ele.style.cursor = 'grabbing';
@@ -29,7 +29,7 @@ function drag2Scroll(id) {
         document.addEventListener('mouseup', mouseUpHandler);
     };
 
-    const mouseMoveHandler = function(e) {
+    const mouseMoveHandler = function (e) {
         // How far the mouse has been moved
         const dx = e.clientX - pos.x;
         const dy = e.clientY - pos.y;
@@ -39,7 +39,7 @@ function drag2Scroll(id) {
         ele.scrollLeft = pos.left - dx;
     };
 
-    const mouseUpHandler = function() {
+    const mouseUpHandler = function () {
         ele.style.cursor = 'grab';
         ele.style.removeProperty('user-select');
 
@@ -51,15 +51,14 @@ function drag2Scroll(id) {
     ele.addEventListener('mousedown', mouseDownHandler);
 }
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     let fadeInAnchor = $('.fade-in-anchor');
-    for(let item of fadeInAnchor) 
-    {
+    for (let item of fadeInAnchor) {
         var hT = $(item).offset().top,
-        hH = $(item).outerHeight(),
-        wH = $(window).height(),
-        wS = $(this).scrollTop();
-        if (wS > (hT+hH/2-wH)){
+            hH = $(item).outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
+        if (wS > (hT + hH / 2 - wH)) {
             let contents = $(item).find('.fade-in-content');
             if (contents.length > 1) {
                 let i = 0;
@@ -76,24 +75,30 @@ $(window).scroll(function() {
     }
 });
 
+function GotoLienHe() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#contact").offset().top
+    }, 2000);
+};
+
 function animateValue(obj, duration) {
     var start = 0;
     var end = parseInt(obj.text().trim());
     var startTimestamp = null;
     var step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      var progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      obj.text(Math.floor(progress * (end - start) + start));
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
+        if (!startTimestamp) startTimestamp = timestamp;
+        var progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.text(Math.floor(progress * (end - start) + start));
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
     };
     window.requestAnimationFrame(step);
-  }
-  
+}
+
 
 function startCount() {
-    $('.stats-count').each(function(index) {
+    $('.stats-count').each(function (index) {
         animateValue($(this), 2000);
     });
 }

@@ -6,7 +6,11 @@
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
 <a class="nav-item nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url">@site.Name</a>
+
+<a class="nav-item nav-link" href="/cong-dong/chi-tiet-cong-dong">Dịch Vụ</a>
+<a class="nav-item nav-link" href="/cong-dong/chi-tiet-cong-dong">Booking</a>
 @foreach (var item in selection)
 {
     <a class="nav-item nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
 }
+<a class="nav-item nav-link" href="#" onclick="GotoLienHe()">Liên Hệ</a>

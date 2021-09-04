@@ -25,17 +25,17 @@
 <div class="landing-page p-relative">
     <img class="p-absolute img-1" src="@Url.Content("~/css/imgs/1.png")" />
     <img class="p-absolute img-2" src="@Url.Content("~/css/imgs/2.png")" />
-    <div class="page-content mx-layout mt-4rem">
+    <div class="page-content mx-layout mt-6rem">
         <div class="flex-layout">
             <div class="w-layout index-fade-in">
                 <div class="text-center w-22rem mx-auto">
                     @if (Model.HeroImage != null)
                     {
-                        <img class="w-100" src="@Model.HeroImage.MediaItem.Url()" alt="logo"> 
+                        <img class="w-100 mt-2rem" src="@Model.HeroImage.MediaItem.Url()" alt="logo"> 
                     }
                     else
                     {
-                        <img class="w-100" src="@Url.Content("~/css/imgs/landing-logo.png")" alt="logo">
+                        <img class="w-100 mt-2rem" src="@Url.Content("~/css/imgs/landing-logo.png")" alt="logo">
                     }
                 </div>
                 <div class="text-center mt-3rem">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-layout d-flex landing-page-content mt-auto index-fade-in">
+            <div class="w-layout d-flex landing-page-content index-fade-in mt-2rem">
                 <div class="flex-center">
                     <div id="landing-text-logo" class="text-center ">
 
@@ -59,7 +59,7 @@
                         <div class="w-lp-description">
                             @Html.Raw(Model.AboutDescription)
                         </div>
-                        <div class="d-flex mt-1rem">
+                        <div class="d-flex mt-1rem justify-content-between-custom">
                             <div class="summaries d-flex">
                                 @foreach (var item in Model.FeatureStats)
                                 {
@@ -71,7 +71,7 @@
                                 }
                             </div>
                         </div>
-                        <div id="contact-2" class="mt-5rem p-absolute">
+                        <div id="contact-2" class="mt-5rem p-absolute ml-6rem">
                             <a id="contact-btn-2" class="smoothscroll custom-btn f-1rem f-ssp" href="#contact">
                                 @Model.HeroCtacaption
                             </a>
@@ -164,12 +164,12 @@
             <span class="f-rbt f-layout upper-case fw-500">CÁC CỤM CỘNG ĐỒNG</span>
         </div>
         <div id="communities" class="d-flex communities">
-            <img class="community-item" src="~/css/imgs/community-1.png" alt="">
-            <img class="community-item" src="~/css/imgs/community-2.png" alt="">
-            <img class="community-item" src="~/css/imgs/community-3.png" alt="">
+            <a href="/cong-dong"><img class="community-item" src="~/css/imgs/community-1.png" alt=""></a>
+            <a href="/cong-dong"><img class="community-item" src="~/css/imgs/community-2.png" alt=""></a>
+            <a href="/cong-dong"><img class="community-item" src="~/css/imgs/community-3.png" alt=""></a>
         </div>
         <div class="view-all">
-            <a class="f-ssp fw-400 f-1rem" href="communities.html" id="view-all">
+            <a class="f-ssp fw-400 f-1rem" href="/cong-dong/chi-tiet-cong-dong" id="view-all">
                 <span>Xem tất cả</span>
                 <img class="next-icon" src="~/css/imgs/next.png" alt="">
             </a>
@@ -200,7 +200,7 @@
                         <div class="service-name fw-600 f-1-125rem">
                             @item.FeatureName
                         </div>
-                        <div class="service-description f-1rem fw-400">
+                        <div class="service-description text-justify f-1rem fw-400">
                             @item.FeatureDetails
                         </div>
                     </div>
