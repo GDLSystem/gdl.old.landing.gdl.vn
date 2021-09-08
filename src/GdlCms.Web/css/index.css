@@ -1,3 +1,24 @@
+html * {
+    font-family: Helvetica !important;
+}
+
+.summary-item .fw-400 {
+    font-size: 18px;
+}
+
+.w-lp-description .fw-600, .mt-1rem {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.service-description {
+    line-height: 18px;
+}
+
+.summary-item .info {
+    margin-top: 9px;
+}
+
 .f-ssp, .landing-page-content {
     font-family: 'Source Serif Pro', serif;
 }
@@ -421,6 +442,8 @@ textarea {
     display: inline-block;
     text-align: center;
     text-decoration: none;
+    font-size: 18px;
+    line-height: 26px;
 }
 
 .landing-page #contact-1 {
@@ -746,6 +769,9 @@ textarea {
     display: -webkit-box;
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
+    font-size: 18px;
+    line-height: 26px;
+    width: 36rem;
 }
 
 .f-item p:first-child {
@@ -754,6 +780,7 @@ textarea {
 
 .custom-size p {
     font-size: 1.1rem;
+    width: 15rem;
 }
 
 .service-item {
@@ -827,6 +854,7 @@ textarea {
                     text-decoration: none;
                     color: black;
                     font-family: 'Roboto', sans-serif;
+                    font-size: 16px;
                 }
 
 .mx-layout {
@@ -836,10 +864,6 @@ textarea {
 
 .w-layout {
     width: 50%;
-}
-
-.summary-item {
-    text-align: left;
 }
 
 .f-layout {
@@ -895,6 +919,7 @@ textarea {
 
 .num-layout {
     font-size: 3rem;
+    margin-top: 10px;
 }
 
 .footer-m {
@@ -1526,7 +1551,7 @@ input[type="button"].btn--primary {
             }
 
 .contact-content {
-    max-width: 1000px;
+    /*max-width: 1000px;*/
     border: #0a9a00 dashed 1px;
     color: whitesmoke;
     padding-top: 3rem;
@@ -1619,6 +1644,7 @@ input[type="button"].btn--primary {
 
 .contact-primary {
     width: 65%;
+    font-size: 18px;
 }
 
     .contact-primary #contactForm {
