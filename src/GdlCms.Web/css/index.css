@@ -11,10 +11,6 @@ html * {
     line-height: 26px;
 }
 
-.service-description {
-    line-height: 18px;
-}
-
 .summary-item .info {
     margin-top: 9px;
 }
@@ -854,7 +850,7 @@ textarea {
                     text-decoration: none;
                     color: black;
                     font-family: 'Roboto', sans-serif;
-                    font-size: 16px;
+                    font-size: 18px;
                 }
 
 .mx-layout {
@@ -925,6 +921,7 @@ textarea {
 .footer-m {
     margin-right: 6rem;
     max-width: 12rem;
+    font-size: 11px;
 }
 
 .footer-logo-custom {
@@ -1082,6 +1079,7 @@ textarea {
         margin-right: 0;
         margin-bottom: 2rem;
         text-align: center;
+        font-size: 11px;
     }
 
     .bubble {
@@ -1173,6 +1171,7 @@ textarea {
             margin-bottom: 1rem;
             border-radius: 6px;
             overflow: hidden;
+            height: 140px;
         }
 
             .small-article .img img {
@@ -1960,6 +1959,7 @@ input[type="button"].btn--primary {
         margin-bottom: 1rem;
         border-radius: 6px;
         overflow: hidden;
+        height: 140px;
     }
 
         .small-article .img img {
