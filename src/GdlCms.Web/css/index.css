@@ -6,8 +6,17 @@ html * {
     font-size: 18px;
 }
 
-.f-s-18{
+.large-article-numbers .info :first-child {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.f-s-18 {
     font-size: 18px !important;
+}
+
+.m-b-4-2{
+    margin-bottom: 4.2rem;
 }
 
 .w-lp-description .fw-600, .mt-1rem {
@@ -1580,7 +1589,7 @@ input[type="button"].btn--primary {
 .contact-content h5 {
     margin-top: 0;
     color: #39b54a;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .contact-content input[type="email"],
