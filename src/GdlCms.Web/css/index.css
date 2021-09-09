@@ -6,6 +6,10 @@ html * {
     font-size: 18px;
 }
 
+.f-s-18{
+    font-size: 18px !important;
+}
+
 .w-lp-description .fw-600, .mt-1rem {
     font-size: 18px;
     line-height: 26px;
@@ -920,8 +924,12 @@ textarea {
 
 .footer-m {
     margin-right: 6rem;
-    max-width: 12rem;
-    font-size: 11px;
+    max-width: 14rem;
+    font-size: 16px;
+}
+
+.flex-layout .footer-m p {
+    font-size: 16px;
 }
 
 .footer-logo-custom {
