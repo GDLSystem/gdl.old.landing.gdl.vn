@@ -408,8 +408,6 @@ textarea {
 }
 
     #back2top img {
-        height: 100%;
-        width: 100%;
     }
 
 #footer-logo {
@@ -778,8 +776,6 @@ textarea {
     display: -webkit-box;
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
-    font-size: 18px;
-    line-height: 26px;
     width: 36rem;
 }
 
@@ -927,7 +923,7 @@ textarea {
 }
 
 .num-layout {
-    font-size: 3rem;
+    font-size: 40px;
     margin-top: 10px;
 }
 
@@ -1590,6 +1586,7 @@ input[type="button"].btn--primary {
     margin-top: 0;
     color: #39b54a;
     font-size: 18px;
+    margin-bottom: 1rem;
 }
 
 .contact-content input[type="email"],

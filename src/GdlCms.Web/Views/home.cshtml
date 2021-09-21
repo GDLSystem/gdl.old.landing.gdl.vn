@@ -200,7 +200,7 @@
                         <div class="service-name fw-600 f-1-125rem">
                             @item.FeatureName
                         </div>
-                        <div class="service-description text-justify f-1rem fw-400" style="line-height: 18px !important;">
+                        <div class="service-description text-justify f-1rem fw-400">
                             @item.FeatureDetails
                         </div>
                     </div>
@@ -292,23 +292,17 @@
 
                             <div class="cinfo">
                                 <h5>@Model.ContactAddressTitle</h5>
-                                <p>
-                                    @Model.ContactAddressDetail
-                                </p>
+                                @Model.ContactAddressDetail
                             </div>
 
                             <div class="cinfo">
                                 <h5>@Model.ContactEmailHeader</h5>
-                                <p>
-                                    @Model.ContactEmailDetail
-                                </p>
+                                @Model.ContactEmailDetail
                             </div>
 
                             <div class="cinfo">
                                 <h5>@Model.ContactPhoneTitle</h5>
-                                <p>
-                                    @Model.ContactPhoneDetail
-                                </p>
+                                @Model.ContactPhoneDetail
                             </div>
                         
                         </div> <!-- end contact-info -->
