@@ -75,7 +75,7 @@ $(window).scroll(function () {
     }
 });
 
-function GotoLienHe() {
+function GotoContactPage() {
     $([document.documentElement, document.body]).animate({
         scrollTop: $("#contact").offset().top
     }, 2000);
