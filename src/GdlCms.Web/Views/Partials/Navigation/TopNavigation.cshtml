@@ -5,12 +5,43 @@
     var selection = site.Children.Where(x => x.IsVisible());
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
-<a class="nav-item nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url">@site.Name</a>
+<li class="nav-item @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")">
+    <a class="nav-link" rel="tooltip" title="@site.Name" data-placement="bottom" href="@site.Url()">
+        <i class="fa fa-home"></i><span>@site.Name</span>
+    </a>
+</li>
 
-<a class="nav-item nav-link" href="/cong-dong/chi-tiet-cong-dong">Dịch Vụ</a>
-<a class="nav-item nav-link" href="/cong-dong/chi-tiet-cong-dong">Booking</a>
+<li class="nav-item">
+    <a class="nav-link" rel="tooltip" title="Dịch Vụ" data-placement="bottom" href="/cong-dong/chi-tiet-cong-dong">
+        <i class="fa fa-server"></i><span>Dịch Vụ</span>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" rel="tooltip" title="Booking" data-placement="bottom" href="/cong-dong/chi-tiet-cong-dong">
+        <i class="fa fa-server"></i><span>Booking</span>
+    </a>
+</li>
+
 @foreach (var item in selection)
 {
-    <a class="nav-item nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
+    <li class="nav-item @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)">
+        <a class="nav-link" rel="tooltip" title="@item.Name" data-placement="bottom" href="@item.Url()">
+            <i class="fa fa-server"></i><span>@item.Name</span>
+        </a>
+    </li>
 }
-<a class="nav-item nav-link" href="/#contact">Liên Hệ</a>
+
+<li class="nav-item">
+    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="~/#contact">
+        <i class="fa fa-server"></i><span>Liên hệ</span>
+    </a>
+</li>
+
+<!--Social -->
+@* <li class="nav-item"> *@
+@*     <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial/paper-kit" target="_blank"> *@
+@*         <i class="fa fa-github"></i> *@
+@*         <p class="d-lg-none">GitHub</p> *@
+@*     </a> *@
+@* </li> *@

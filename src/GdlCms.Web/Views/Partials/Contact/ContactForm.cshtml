@@ -2,9 +2,11 @@
 
 @using GdlCms.Web.ViewModels;
 @using GdlCms.Web.Controllers;
-
+@{
+    var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
 <div id="form-outer">
-    
+
     @using (Ajax.BeginForm("SubmitForm", "ContactSurface", new AjaxOptions()
     {
         UpdateTargetId = "form-result",
@@ -12,52 +14,43 @@
         InsertionMode = InsertionMode.Replace,
         OnSuccess = "contactForm.showResult",
         OnFailure = "contactForm.showResult"
-    }, new {id = "contact-form"}))
+    }, new { id = "contact-form" }))
     {
         @Html.HiddenFor(m => m.ContactFormId)
+
         <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
-            <fieldset>
-                @{
-                    var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
-                }
-                <div class="form-field">
-                    @* <input name="contactName" type="text" id="contactName" placeholder="@(currentCulture.Contains("en") ? "Your Name" : "Họ và tên")" value="" minlength="2" class="full-width"> *@
-                    @Html.TextBoxFor(m => m.Name, new {@class = "full-width", name="contactName", type="text", id="contactName", placeholder = (currentCulture.Contains("en") ? "Your Name" : "Họ và tên"), value="", minlength="2"})
-                    @Html.ValidationMessageFor(m => m.Name)
-                </div>
-                <div class="form-field">
-                    @* <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" class="full-width"> *@
-                    @Html.TextBoxFor(m => m.Email, new {@class = "full-width",name="contactEmail", type="email", id="contactEmail", placeholder = "Email", value=""})
-                    @Html.ValidationMessageFor(m => m.Email)
-                </div>
-                <div class="form-field">
-                    @* <input name="contactSubject" type="text" id="contactSubject" placeholder="@(currentCulture.Contains("en") ? "Subject" : "Tiêu đề")" value="" class="full-width"> *@
-                    @Html.TextBoxFor(m => m.EmailTitle, new {@class = "full-width",name="contactSubject", type="text", id="contactSubject", placeholder = (currentCulture.Contains("en") ? "Subject" : "Tiêu đề"), value=""})
-                    @Html.ValidationMessageFor(m => m.EmailTitle)
-                </div>
-                <div class="form-field">
-                    @* <textarea name="contactMessage" id="contactMessage" placeholder="@(currentCulture.Contains("en") ? "Your Message" : "Nội dung")" rows="10" cols="50" class="full-width"></textarea> *@
-                    @Html.TextAreaFor(m => m.Message, new {@class = "full-width", name="contactMessage", id="contactMessage", placeholder = (currentCulture.Contains("en") ? "Your Message" : "Nội dung"), rows = "10", cols = "50"})
-                    @Html.ValidationMessageFor(m => m.Message)
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="full-width btn--primary contact-submit" id="sendMessageButton">Submit</button>
-                    <div class="submit-loader">
-                        <div class="text-loader">Sending...</div>
-                        <div class="s-loader">
-                            <div class="bounce1"></div>
-                            <div class="bounce2"></div>
-                            <div class="bounce3"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Name</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-single-02"></i>
+                            </span>
                         </div>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", name = "contactName", type = "text", id = "contactName", placeholder = (currentCulture.Contains("en") ? "Your Name" : "Họ và tên"), value = "", minlength = "2" })
                     </div>
                 </div>
-                @* <div class="form-group"> *@
-                @*     <button type="submit" class="full-width btn--primary contact-submit" id="sendMessageButton">Submit</button> *@
-                @* </div> *@
-            </fieldset>
+                <div class="col-md-6">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-email-85"></i>
+                            </span>
+                        </div>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", name = "contactEmail", type = "email", id = "contactEmail", placeholder = "Email", value = "" })
+                    </div>
+                </div>
+            </div>
+            <label>Message</label>
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", name = "contactMessage", id = "contactMessage", placeholder = (currentCulture.Contains("en") ? "Your Message" : "Nội dung"), rows = "4" })
+            <div class="row mt-20">
+                <div class="col-md-4 ml-auto mr-auto">
+                    <button type="submit" class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                </div>
+            </div>
+
         </form>
     }
-</div>
-<div id="form-result">
-    
 </div>
