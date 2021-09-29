@@ -32,30 +32,27 @@
                 <div class="header-big-logo justify-content-center animation-slide-up">
                     @if (Model.HeroImage != null)
                     {
-                        <img src="@Model.HeroImage.MediaItem.Url()" alt="sub logo">
+                        <img class="w-100" src="@Model.HeroImage.MediaItem.Url()" alt="sub logo">
                     }
                     else
                     {
-                        <img src="@Url.Content("~/css/imgs/landing-logo.png")" alt="sub logo">
+                        <img class="w-100" src="@Url.Content("~/css/imgs/landing-logo.png")" alt="sub logo">
                     }
                 </div>
-                <div class="contact-button text-center">
-                    <a class="btn btn-lg btn-success btn-outline-success cd-btn" href="#contact">@Model.HeroCtacaption</a>
-                </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 header-right-content">
                 <div class="header-right-logo text-center animation-bounce animation-bounce-left">
                     @if (Model.AboutTopPicture != null)
                     {
-                        <img src="@Model.AboutTopPicture.MediaItem.Url()" alt="">
+                        <img class="w-100" src="@Model.AboutTopPicture.MediaItem.Url()" alt="">
                     }
                     else
                     {
-                        <img src="@Url.Content("~/css/imgs/landing-text-logo.png")" alt="">
+                        <img class="w-100" src="@Url.Content("~/css/imgs/landing-text-logo.png")" alt="">
                     }
                 </div>
                 <div class="header-about-detail animation-bounce animation-bounce-left">
-                    <div class="description">
+                    <div class="description text-justify">
                         @Html.Raw(Model.AboutDescription)
                     </div>
                     <div class="summaries text-center">
@@ -72,6 +69,10 @@
                                 }
                             }
                         </div>
+                    </div>
+                    
+                    <div class="contact-button text-center mt-10">
+                        <a class="btn btn-lg btn-success btn-outline-success cd-btn" href="#contact">@Model.HeroCtacaption</a>
                     </div>
                 </div>
             </div>
@@ -216,7 +217,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-4"  data-aos="flip-left"
                                        data-aos-easing="ease-out-cubic"
@@ -256,7 +257,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid-80 mt-30">
+    <div class="container mt-30">
         <div class="row justify-content-center">
             @{
                 var durationService = 1000;
@@ -308,7 +309,7 @@
                 {
                     if (partner.FeatureCoverImage != null)
                     {
-                        <div class="col-md-3"  data-aos="zoom-out"  data-aos-duration="@durationPartner">
+                        <div class="col-md-3"  data-aos="zoom-in" data-aos-duration="@durationPartner">
                             <div class="partner-item text-center">
                                 <img src="@partner.FeatureCoverImage.MediaItem.Url()" alt="@partner.FeatureName">
                             </div>
@@ -321,11 +322,11 @@
     </div>
 </div>
 <!--Section Contact-->
-<div class="section landing-section section-contact" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+<div class="section landing-section section-contact mt-30" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 ml-auto mr-auto mb-20">
-                <h2 class="section-title text-center">Keep in touch?</h2>
+            <div class="col-md-12 ml-auto mr-auto mb-20">
+                <h2 class="section-title text-center">Liên hệ</h2>
                
                 @{ Html.RenderAction("RenderForm", "ContactSurface"); }
                 <!-- contact-warning -->
@@ -338,27 +339,27 @@
                     @Model.ContactFormSuccessMessage<br>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="contact-info">
-                    <h4 class="info-title">@Model.ContactSubHeader</h4>
-
-                    <div class="item-block">
-                        <h5>@Model.ContactAddressTitle</h5>
-                        @Model.ContactAddressDetail
-                    </div>
-
-                    <div class="item-block">
-                        <h5>@Model.ContactEmailHeader</h5>
-                        @Model.ContactEmailDetail
-                    </div>
-
-                    <div class="item-block">
-                        <h5>@Model.ContactPhoneTitle</h5>
-                        @Model.ContactPhoneDetail
-                    </div>
-
-                </div> <!-- end contact-info -->
-            </div>
+            @* <div class="col-md-4"> *@
+            @*     <div class="contact-info"> *@
+            @*         <h4 class="info-title">@Model.ContactSubHeader</h4> *@
+            @* *@
+            @*         <div class="item-block"> *@
+            @*             <h5>@Model.ContactAddressTitle</h5> *@
+            @*             @Model.ContactAddressDetail *@
+            @*         </div> *@
+            @* *@
+            @*         <div class="item-block"> *@
+            @*             <h5>@Model.ContactEmailHeader</h5> *@
+            @*             @Model.ContactEmailDetail *@
+            @*         </div> *@
+            @* *@
+            @*         <div class="item-block"> *@
+            @*             <h5>@Model.ContactPhoneTitle</h5> *@
+            @*             @Model.ContactPhoneDetail *@
+            @*         </div> *@
+            @* *@
+            @*     </div> <!-- end contact-info --> *@
+            @* </div> *@
         </div>
     </div>
 </div>

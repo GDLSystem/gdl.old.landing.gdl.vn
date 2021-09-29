@@ -589,6 +589,8 @@
     <Content Include="css\imgs\service-2.png" />
     <Content Include="css\imgs\service-3.png" />
     <Content Include="css\imgs\service-4.png" />
+    <Content Include="css\imgs\TikTok-f.png" />
+    <Content Include="css\imgs\tiktok.png" />
     <Content Include="css\imgs\top-left.png" />
     <Content Include="css\imgs\twitter-f.png" />
     <Content Include="css\imgs\twitter.png" />

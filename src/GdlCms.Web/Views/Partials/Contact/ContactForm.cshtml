@@ -28,7 +28,7 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", name = "contactName", type = "text", id = "contactName", placeholder = (currentCulture.Contains("en") ? "Your Name" : "Họ và tên"), value = "", minlength = "2" })
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", name = "contactName", type = "text", id = "contactName", placeholder = "Họ và tên", value = "", minlength = "2" })
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -44,10 +44,10 @@
                 </div>
             </div>
             <label>Message</label>
-            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", name = "contactMessage", id = "contactMessage", placeholder = (currentCulture.Contains("en") ? "Your Message" : "Nội dung"), rows = "4" })
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", name = "contactMessage", id = "contactMessage", placeholder = "Nội dung", rows = "4" })
             <div class="row mt-20">
-                <div class="col-md-4 ml-auto mr-auto">
-                    <button type="submit" class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                <div class="col-md-4 ml-auto mr-auto text-center">
+                    <button type="submit" class="btn btn-danger btn-lg btn-fill">Gửi liên hệ</button>
                 </div>
             </div>
 

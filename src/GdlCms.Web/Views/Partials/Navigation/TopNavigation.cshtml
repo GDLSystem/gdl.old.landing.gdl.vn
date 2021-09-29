@@ -2,24 +2,25 @@
 @using Umbraco.Web;
 @{
     var site = Model.Root();
+    var home = (Home)site;
     var selection = site.Children.Where(x => x.IsVisible());
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
 <li class="nav-item @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")">
     <a class="nav-link" rel="tooltip" title="@site.Name" data-placement="bottom" href="@site.Url()">
-        <i class="fa fa-home"></i><span>@site.Name</span>
+        <span>@site.Name</span>
     </a>
 </li>
 
 <li class="nav-item">
     <a class="nav-link" rel="tooltip" title="Dịch Vụ" data-placement="bottom" href="/cong-dong/chi-tiet-cong-dong">
-        <i class="fa fa-server"></i><span>Dịch Vụ</span>
+        <span>Dịch Vụ</span>
     </a>
 </li>
 
 <li class="nav-item">
     <a class="nav-link" rel="tooltip" title="Booking" data-placement="bottom" href="/cong-dong/chi-tiet-cong-dong">
-        <i class="fa fa-server"></i><span>Booking</span>
+        <span>Booking</span>
     </a>
 </li>
 
@@ -27,14 +28,29 @@
 {
     <li class="nav-item @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)">
         <a class="nav-link" rel="tooltip" title="@item.Name" data-placement="bottom" href="@item.Url()">
-            <i class="fa fa-server"></i><span>@item.Name</span>
+            <span>@item.Name</span>
         </a>
     </li>
 }
 
 <li class="nav-item">
-    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="~/#contact">
-        <i class="fa fa-server"></i><span>Liên hệ</span>
+    <a class="nav-link" rel="tooltip" title="Contact" data-placement="bottom" href="~/#contact">
+        <span>Liên hệ</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <img src="~/css/imgs/tiktok.png" alt="Tiktok" />
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <img src="~/css/imgs/youtube.png" alt="Tiktok" />
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <img src="~/css/imgs/twitter.png" alt="Tiktok" />
     </a>
 </li>
 
