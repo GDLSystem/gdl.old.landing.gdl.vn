@@ -25,9 +25,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- CSS Files -->
     <link href="@Url.Content("~/css/assets/css/bootstrap.min.css")" rel="stylesheet"/>
     <link rel="stylesheet" href="@Url.Content("~/css/assets/css/paper-kit.css")?v=@DateTime.Now.Ticks">
+    <link rel="stylesheet" href="@Url.Content("~/css/fontawesome/css/all.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/animated-intro/css/style.css")">
     <link rel="stylesheet" href="@Url.Content("~/css/gdl.css")?v=@DateTime.Now.Ticks">
     <!-- CSS Just for demo purpose, don't include it in your project -->
     @* <link href="./assets/demo/demo.css" rel="stylesheet" /> *@
@@ -63,20 +66,51 @@
 <footer class="footer mt-30">
     <div class="container">
         <div class="row">
-            <div class="container">
-                <div class="col-4 footer-contact">
-                    <div class="f-item footer-m">
-                        <p class="mb-0-5rem f-1-2rem f-s-18">@home.ContactAddressTitle</p>
-                        @home.ContactAddressDetail
+            <div class="col-md-2">
+                <div id="footer-logo">
+                    <div class="mr-1rem">
+                        <img src="~/css/imgs/footer-icon.png" alt="">
                     </div>
-                    <div class="f-item footer-m custom-size">
-                        <p class="mb-0-5rem f-1-2rem f-s-18">@home.ContactEmailHeader</p>
-                        @home.ContactEmailDetail
+                    <div>
+                        <img src="~/css/imgs/footer-logo-1.png" alt="" style="height: 2.5rem;">
+                        <a href="https://gdl.vn/" style="text-decoration: none !important">
+                            <p class="footer-logo-custom">www.gdl.vn</p>
+                        </a>
+                        <div class="socials">
+                            <a class="social-item" href="https://www.tiktok.com/">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a class="social-item" href="https://www.facebook.com/">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a class="social-item" href="https://www.instagram.com/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a class="social-item" href="https://www.youtube.com/">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="f-item footer-m custom-size">
-                        <p class="mb-0-5rem f-1-2rem f-s-18">@home.ContactPhoneTitle</p>
-                        @home.ContactPhoneDetail
-                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-contact">
+                <div class="f-item footer-m">
+                    <h4 class="footer-item-title">@home.ContactAddressTitle</h4>
+                    @home.ContactAddressDetail
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="f-item footer-m custom-size">
+                    <h4 class="footer-item-title">@home.ContactEmailHeader</h4>
+                    @home.ContactEmailDetail
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="f-item footer-m custom-size">
+                    <h4 class="footer-item-title">@home.ContactPhoneTitle</h4>
+                    @home.ContactPhoneDetail
                 </div>
             </div>
         </div>
@@ -118,6 +152,13 @@
 <script src="@Url.Content("~/scripts/js/plugins/bootstrap-datepicker.js")" type="text/javascript"></script>
 <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
 <script src="@Url.Content("~/scripts/js/paper-kit.js?v=2.2.0")" type="text/javascript"></script>
+<script defer src="@Url.Content("~/css/fontawesome/js/all.js")"></script>
+<script defer src="@Url.Content("~/css/animated-intro/js/main.js")"></script>
+<script defer src="@Url.Content("~/css/animated-intro/js/modernizr.js")"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 <!--  Google Maps Plugin    -->
 @* <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> *@
 

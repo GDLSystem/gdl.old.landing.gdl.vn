@@ -1,6 +1,22 @@
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, input, select, textarea{
     font-weight: 400;
 }
+.navbar-transparent .navbar-nav .nav-item .nav-link:not(.btn), [class*="bg"] .navbar-nav .nav-item .nav-link:not(.btn){
+    color: #333333;
+}
+.navbar .navbar-nav .nav-item .nav-link{
+    font-size: 14px;
+}
+.navbar .navbar-nav .nav-item .nav-link  svg{
+    margin-right: 10px;
+}
+.container-fluid-80 {
+    width: 80%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 body{
     padding-top: 80px;
     font-size: 18px;
@@ -43,6 +59,10 @@ body{
 .mb-10{
     margin-bottom: 10px;
 }
+.align-center{
+    align-items: center;
+}
+
 .logo{
     height: 50px;
     display: inline-block;
@@ -53,6 +73,12 @@ body{
 }
 .p-absolute {
     position: absolute;
+}
+
+
+.section-title{
+    font-weight: 500;
+    text-transform: uppercase;
 }
 /* Header section*/
 .home-header .summaries{
@@ -118,7 +144,7 @@ body{
 .home-group-first .group-first-header{
     
 }
-.home-group-first .group-first-header-line{
+.group-first-header-line{
     float: left;
     display: block;
     width: 100%;
@@ -149,8 +175,23 @@ body{
 .left-content .info .num-layout{
     font-size: 30px;
 }
-.align-center{
-    align-items: center;
+/*Section services*/
+.all-services .service-item {
+    display: block;
+    float: left;
+    vertical-align: center;
+}
+.sv-image{
+    width: 100%;
+    float: left;
+    display: block;
+    min-height: 100px;
+}
+.service-item .service-item-title {
+    display: block;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #015901;
 }
 /*Section partners*/
 .all-partners .partner-item {
@@ -192,6 +233,9 @@ body{
 .section-contact .contact-info .item-block{
     margin-bottom: 20px;
 }
+#contact-form label{
+    margin-top: 15px;
+}
 .message-warning, .message-success{
     margin-top: 10px;
     display: none;
@@ -200,4 +244,104 @@ body{
     padding-top: 20px;
     background: #015901;
     color: whitesmoke;
+}
+.footer a{
+    color: whitesmoke;
+}
+.footer-item-title{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 0 10px 0;
+    margin-bottom: 10px;
+    margin-top: 0;
+    border-bottom: 1px double whitesmoke;
+}
+.footer .socials .social-item{
+    color: whitesmoke;
+    padding: 0 10px 0 0;
+    margin: 0 auto;
+    float: left;
+    display: inline-block;
+}
+.footer .copyright{
+    color: whitesmoke;
+    font-size: 14px;
+}
+.medium-article, .large-article {
+    margin-bottom: 30px;
+}
+.large-article , .medium-article{
+    box-shadow: 0px 0px 6px 0px #a5a5a5;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.large-article-content {
+    padding: 15px;
+}
+.medium-article-content{
+    padding: 14px 0 0 15px;
+}
+
+/********* Responsive *********/
+/* (1) Màn hình nhỏ để đứng (phones, 600px và nhỏ hơn) */
+@media only screen and (max-width: 600px) {
+    .section-title{
+        font-size: 26px;
+        font-weight: 500;
+    }
+    .group-first-header-line {
+        margin-top: 5px !important;
+    }
+    .service-item{
+        margin-bottom: 20px;
+    }
+    .partner-item{
+        min-height: 100px;
+    }
+    .all-partners .partner-item img {
+        vertical-align: middle;
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+/* (2) Màn hình nhỏ để ngang(phones 600px và lớn hơn) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+/* (3) Màn hình cỡ thường để đứng (tablets, 768px và lớn hơn) */
+@media only screen and (min-width: 768px) {
+    
+}
+
+/* (4) Màn hình lớn (laptops/desktops, 992px và lớn hơn) */
+@media only screen and (min-width: 992px) {
+    
+}
+
+/* (5) Màn hình lớn với độ phân giải cao (màn hình 1200px, 2k, 4k, 8k và lớn hơn) */
+@media only screen and (min-width: 1200px) {
+    
+}
+
+@media only screen and (max-width: 480px) {
+    .f-item {
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .img-1, .img-2, .img-3 { display: none !important;}
+    
+     .group-first-header-line img  {
+        max-width: 100%;
+    }
 }

@@ -4,22 +4,36 @@
 }
 
 @* the fun starts here *@
-<div>
-    <div class="mt-2rem mx-layout">
-        <div class="d-flex justify-content-between mt-2rem mb-2rem">
-            <span class="f-rbt f-layout upper-case fw-500 mx-auto">CÁC CỤM CỘNG ĐỒNG</span>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="partners-title">
+                    <h2 class="section-title text-center">CÁC CỤM CỘNG ĐỒNG</h2>
+                </div>
+                <div class="group-first-header-line text-center">
+                    <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
+                </div>
+            </div>
         </div>
-        <div class="text-center">
+    </div>
+    <div class="container">
+        <div class="row">
             @if (Model.FeatureGroups != null && Model.FeatureGroups.Any())
             {
-                foreach (var feature in Model.FeatureGroups.OrderBy(_=>_.Sort))
+                var groupDuration = 1000;
+                foreach (var feature in Model.FeatureGroups.OrderBy(_ => _.Sort))
                 {
                     if (feature.FeaturePicture.MediaItem != null)
                     {
-                        <a class="layout-w-100" href="@feature.ActionRedirectUrl">
-                        <img class="mb-1rem layout-w-100" src="@feature.FeaturePicture.MediaItem.Url()" alt="">
-                    </a>
+                        <div class="col-12 mt-10" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                             data-aos-duration="@groupDuration">
+                            <a class="w-100" href="@feature.ActionRedirectUrl">
+                                <img class="w-100" src="@feature.FeaturePicture.MediaItem.Url()" alt="">
+                            </a>
+                        </div>
                     }
+                    groupDuration += 500;
                 }
             }
         </div>

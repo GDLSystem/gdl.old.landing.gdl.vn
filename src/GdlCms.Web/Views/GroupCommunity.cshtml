@@ -19,7 +19,7 @@
     };
 
     var groupsLv2 = new List<GroupApiResult>()
-{
+    {
         new GroupApiResult()
         {
             Name = "Làm đẹp đúng cách",
@@ -34,7 +34,7 @@
         },
     };
     var groupsLv3 = new List<GroupApiResult>()
-{
+    {
         new GroupApiResult()
         {
             Name = "Phụ nữ là phải đẹp",
@@ -62,130 +62,156 @@
     };
 }
 
-@* the fun starts here *@
-<div class="index-fade-in mt-4rem">
-    <div class="mx-layout community-header d-layout">
-        <div class="logo">
-            <img src="../css/images-communities/beauty-community.png" alt="">
-        </div>
-        <div class="mt-auto">
-            @* <button id="rate-btn" class="custom-btn f-1rem f-ssp">Đánh giá</button> *@
-        </div>
-    </div>
-</div>
-<div class="mt-4rem">
-    <div class="mx-layout fade-in-anchor">
-        <div class="index-fade-in line d-layout">
-            <div class="large-article">
-                <div class="img">
-                    <img src="@groupLevel1.ImageUrl" alt="@groupLevel1.Name">
-                </div>
-                <div class="large-article-content">
-                    <div class="large-article-summary">
-                        <p class="tag">@groupLevel1.Name</p>
-                        <div class="des" style="margin-top: 0.4rem">
-                            @groupLevel1.Description
-                        </div>
+<div class="section"  data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="groups-title">
+                    <h2 class="section-title text-center">LÀM ĐẸP</h2>
+                </div>
+                <div class="group-first-header-line text-center">
+                    <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="large-article"  data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                    <div class="img">
+                        <img class="w-100" src="@groupLevel1.ImageUrl" alt="@groupLevel1.Name">
                     </div>
-                    <div class="large-article-numbers">
-                        <p class="members">@groupLevel1.TotalMember</p>
-                        <div class="info">
-                            <p><span class="f-bold">@groupLevel1.Growth</span></p>
-                            <p><span class="f-bold">@groupLevel1.Interact</span></p>
+                    <div class="large-article-content">
+                        <div class="large-article-summary">
+                            <h5 class="fw-600 tag">@groupLevel1.Name</h5>
+                            <div class="des" style="margin-top: 0.4rem">
+                                @groupLevel1.Description
+                            </div>
+
+                        </div>
+                        <div class="large-article-numbers">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="members">@groupLevel1.TotalMember</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>
+                                        <span class="f-bold">@groupLevel1.Growth</span>
+                                    </p>
+
+                                </div>
+                                <div class="col-md-4">
+
+                                    <p>
+                                        <span class="f-bold">@groupLevel1.Interact</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="medium-articles">
-                @foreach (var item in groupsLv2)
-                {
-                    <div class="medium-article @(groupsLv2.FirstOrDefault() == item ? "mb-2rem" : "")">
-                        <div class="img">
-                            <img src="@item.ImageUrl" alt="@item.Name">
-                        </div>
-                        <div class="medium-article-content">
-                            <div class="medium-article-header">
-                                <span class="tag">@item.Name</span>
-                            </div>
-                            <div class="medium-article-members">@item.TotalMember</div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-        <div class="line mt-2rem">
-            <div class="small-articles d-layout">
-                @foreach (var batch in groupsLv3.Partition(2))
-                {
-                    <div class="d-flex w-layout">
-                        @foreach (var item in batch)
+            <div class="col-md-4">
+                <div class="medium-articles"  data-aos="fade-up" data-aos-duration="1000">
+                    @foreach (var item in groupsLv2.ToList())
+                    {
+                        if (item != null)
                         {
-                            <div class="small-article fade-in-content">
+                            <div class="medium-article @(groupsLv2.FirstOrDefault() == item ? "mb-2rem" : "")">
                                 <div class="img">
-                                    <img src="@item.ImageUrl" alt="@item.Name">
+                                    <img class="w-100" src="@item.ImageUrl" alt="@item.Name">
                                 </div>
-                                <div class="small-article-content">
-                                    <div class="small-article-header">
-                                        <span class="tag">@item.Name</span>
+                                <div class="medium-article-content">
+                                    <div class="medium-article-header">
+                                        <h5 class="fw-600 tag">@item.Name</h5>
                                     </div>
-                                    <div class="small-article-title">@item.TotalMember</div>
+                                    <div class="medium-article-members">@item.TotalMember</div>
                                 </div>
                             </div>
                         }
-                    </div>
-                }
-            </div>
-        </div>
-        <div class="line mt-2rem">
-            <div class="small-articles d-layout">
-                @foreach (var batch in groupsLv3.Partition(2))
-                {
-                    <div class="d-flex w-layout">
-                        @foreach (var item in batch)
-                        {
-                            <div class="small-article fade-in-content">
-                                <div class="img">
-                                    <img src="@item.ImageUrl" alt="@item.Name">
-                                </div>
-                                <div class="small-article-content">
-                                    <div class="small-article-header">
-                                        <span class="tag">@item.Name</span>
-                                    </div>
-                                    <div class="small-article-title">@item.TotalMember</div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div class="fade-in-anchor mt-4rem">
-    <div class="fade-in-content mx-layout m-b-4-2">
-        <div class="d-flex justify-content-between">
-            <span class="f-rbt upper-case fw-500 f-2rem">CÁC CỤM CỘNG ĐỒNG KHÁC</span>
-        </div>
-        <div id="communities" class="d-flex communities">
-            @if (groupCommunities != null)
+
+<div class="section">
+    <div class="container-fluid-80 text-center">
+        <div class="row">
+            @foreach (var item in groupsLv3)
             {
-                foreach (var group in groupCommunities.FeatureGroups)
-                {
-                    if (group.FeaturePicture.MediaItem != null)
-                    {
-                        <img class="community-item" src="@group.FeaturePicture.MediaItem.Url()" alt="">
-                    }
-                }
+                <div class="col-md-3" data-aos="fade-up"   data-aos-anchor-placement="center-bottom">
+                    <div class="small-article fade-in-content">
+                        <div class="img">
+                            <img class="w-100" src="@item.ImageUrl" alt="@item.Name">
+                        </div>
+                        <div class="small-article-content">
+                            <div class="small-article-header">
+                                <strong class="fw-400 tag">@item.Name</strong>
+                            </div>
+                            <div class="small-article-title">@item.TotalMember</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in groupsLv3)
+            {
+                <div class="col-md-3"  data-aos="fade-up"  data-aos-anchor-placement="center-bottom">
+                    <div class="small-article fade-in-content">
+                        <div class="img">
+                            <img class="w-100" src="@item.ImageUrl" alt="@item.Name">
+                        </div>
+                        <div class="small-article-content">
+                            <div class="small-article-header">
+                                <strong class="fw-400 tag">@item.Name</strong>
+                            </div>
+                            <div class="small-article-title">@item.TotalMember</div>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
     </div>
 </div>
 
-@section Scripts{
-    <script>
-        $(document).ready(() => {
-            drag2Scroll('communities');
-        });
-    </script>
-}
+<!--Section All Groups-->
+<div class="section all-fb-groups" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="groups-title">
+                    <h2 class="section-title text-center">CÁC CỤM CỘNG ĐỒNG KHÁC</h2>
+                </div>
+                <div class="group-first-header-line text-center">
+                    <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-20">
+        <div class="row">
+            @if (groupCommunities != null)
+            {
+                var groupDuration = 1000;
+                foreach (var group in groupCommunities.FeatureGroups)
+                {
+                    if (group.FeaturePicture.MediaItem != null)
+                    {
+                        <div class="col-md-4" data-aos="flip-left"
+                             data-aos-easing="ease-out-cubic"
+                             data-aos-duration="@groupDuration">
+                            <a href="#">
+                                <img class="w-100" src="@group.FeaturePicture.MediaItem.Url()" alt="">
+                            </a>
+                        </div>
+                    }
+                    groupDuration += 1000;
+                }
+            }
+
+        </div>
+    </div>
+</div>
