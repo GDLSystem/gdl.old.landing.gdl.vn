@@ -21,7 +21,9 @@
         <div class="row">
             @{
                 var home = (Home)Model.Root();
-                var groupCommunities = home.Children().Where(_ => _.GetType() == typeof(GroupCommunity)).Cast<GroupCommunity>().OrderBy(x => x.SortOrder).ToList();
+                var groupCate = home.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
+                var groupCommunities = groupCate.Children().Where(_ => _.GetType() == typeof(GroupCommunity)).Cast<GroupCommunity>().OrderBy(x => x.SortOrder).ToList();
+
             }
             @if (groupCommunities.Any())
             {
