@@ -147,7 +147,7 @@
                             <div class="fw-400">
                                 <strong>Tổng tương tác lên đến :</strong>
                             </div>
-                            <div class="info"><span class="num-layout fw-600">~@vietNamOi.TotalReactionsPerMonth</span> / tháng</div>
+                            <div class="info"><span class="num-layout fw-600">~@vietNamOi.TotalReactionsPerMonth.ToString("##,###")</span> / tháng</div>
                         </div>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
                             <div class="fw-400">
                                 <strong>Tổng tương tác lên đến :</strong>
                             </div>
-                            <div class="info"><span class="num-layout fw-600">~@ghienDaLat.TotalReactionsPerMonth</span> / tháng</div>
+                            <div class="info"><span class="num-layout fw-600">~@ghienDaLat.TotalReactionsPerMonth.ToString("##,###")</span> / tháng</div>
                         </div>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
             }
             @foreach (var item in groupCommunities)
             {
-                <div class="col-md-6" data-aos="flip-left"
+                <div class="col-md-6 mb-30" data-aos="flip-left"
                      data-aos-easing="ease-out-cubic"
                      data-aos-duration="@durationGroup">
                     <a href="@item.Url()">

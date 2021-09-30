@@ -47,7 +47,7 @@
                         <div class="large-article-numbers">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <p class="members"><strong>@groupLevel1.MemberCount</strong> thành viên</p>
+                                    <p class="members"><strong>@groupLevel1.MemberCount.ToString("##,###")</strong> thành viên</p>
                                 </div>
                                 <div class="col-md-4">
                                     <p>
@@ -58,7 +58,7 @@
                                 <div class="col-md-4">
 
                                     <p>
-                                        <span class="f-bold">Tương tác: <strong>@groupLevel1.TotalReactionsPerMonth</strong> / tháng</span>
+                                        <span class="f-bold">Tương tác: <strong>@groupLevel1.TotalReactionsPerMonth.ToString("##,###")</strong> / tháng</span>
                                     </p>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     <div class="medium-article-header">
                                         <h5 class="fw-600 tag">@item.Title</h5>
                                     </div>
-                                    <div class="medium-article-members"><strong>@item.MemberCount</strong> thành viên</div>
+                                    <div class="medium-article-members"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
                                 </div>
                             </div>
                         }
@@ -107,7 +107,7 @@
                             <div class="small-article-header">
                                 <strong class="fw-400 tag">@item.Title</strong>
                             </div>
-                            <div class="small-article-title"><strong>@item.MemberCount</strong> thành viên</div>
+                            <div class="small-article-title"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
                         </div>
                     </div>
                 </div>
