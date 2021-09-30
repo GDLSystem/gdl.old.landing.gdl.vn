@@ -50,6 +50,10 @@ body{
 .mt-30{
     margin-top: 30px;
 }
+.social-item-top img {
+    margin-top: -5px;
+}
+
 .mb-30{
     margin-bottom: 30px;
 }

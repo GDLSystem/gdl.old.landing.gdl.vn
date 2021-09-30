@@ -1,11 +1,14 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
 @using ClientDependency.Core.Mvc
+@using GdlCms.Web.Services.Gdll.Clients
+@using GdlCms.Web.Services.Gdll.Entities
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "master.cshtml";
-    var heroImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : string.Empty;
+    // var heroImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : string.Empty;
     string domainAddress = $"{Request.Url?.Scheme}://{Request.Url?.Authority}";
-
+    var api = new ApiClient();
+    var homeApiData = api.Group.GetCmsHomeData().Resource;
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
 
@@ -57,20 +60,21 @@
                     </div>
                     <div class="summaries text-center">
                         <div class="row">
-                            @{
-                                var headerDuration = 1000;
-                                foreach (var item in Model.FeatureStats)
-                                {
-                                    <div class="col-md-@((int)12 / Model.FeatureStats.Count()) stats-item"  data-aos="flip-right" data-aos-duration="@headerDuration">
-                                        <span class="stats-count">@item.StatsCount</span>
-                                        <p class="stats-text">@item.Title</p>
-                                    </div>
-                                    headerDuration += 1000;
-                                }
-                            }
+                            <div class="col-md-4 stats-item" data-aos="flip-right" data-aos-duration="1000">
+                                <span class="stats-count">@homeApiData.PageCount</span>
+                                <p class="stats-text">FANPAGES</p>
+                            </div>
+                            <div class="col-md-4 stats-item" data-aos="flip-right" data-aos-duration="2000">
+                                <span class="stats-count">@homeApiData.GroupCount</span>
+                                <p class="stats-text">GROUPS</p>
+                            </div>
+                            <div class="col-md-4 stats-item" data-aos="flip-right" data-aos-duration="3000">
+                                <span class="stats-count">@homeApiData.PartnerCount</span>
+                                <p class="stats-text">PARTNERS</p>
+                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="contact-button text-center mt-10">
                         <a class="btn btn-lg btn-success btn-outline-success cd-btn" href="#contact">@Model.HeroCtacaption</a>
                     </div>
@@ -95,9 +99,16 @@
                 </div>
             </div>
         </div>
+        @{
+            var vietNamOi = new CmsGdlLandingPageModel.BrandingCommunity();
+            if (homeApiData.BrandingCommunities.Count > 0)
+            {
+                vietNamOi = homeApiData.BrandingCommunities[0];
+            }
+        }
         <div class="row mt-30">
             <div class="col-md-6">
-                <a href="@Model.VietNamOiActionUrl" target="_blank">
+                <a href="@vietNamOi.Url" target="_blank">
                     @if (Model.VietNamOiPicture != null)
                     {
                         <img class="w-100" src="@Model.VietNamOiPicture.MediaItem.Url()" alt=""/>
@@ -115,7 +126,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-justify">
-                            <div class="fw-600 mb-10">~643.800 thành viên</div>
+                            <div class="fw-600 mb-10">~@vietNamOi.MemberCount thành viên</div>
                         </div>
                     </div>
                     <div class="row">
@@ -129,14 +140,14 @@
                                 <strong>Tốc độ tăng trưởng :</strong>
                             </div>
                             <div class="info">
-                                <span class="num-layout fw-600">~7%</span><span> / tháng</span>
+                                <span class="num-layout fw-600">~@(vietNamOi.GrowthPercentagePerMonth + "%")</span><span> / tháng</span>
                             </div>
                         </div>
                         <div class="col-6 summary-item">
                             <div class="fw-400">
                                 <strong>Tổng tương tác lên đến :</strong>
                             </div>
-                            <div class="info"><span class="num-layout fw-600">~2.110.000</span> / tháng</div>
+                            <div class="info"><span class="num-layout fw-600">~@vietNamOi.TotalReactionsPerMonth</span> / tháng</div>
                         </div>
                     </div>
                 </div>
@@ -146,6 +157,13 @@
     <img class="p-absolute img-3" src="@Url.Content("~/css/imgs/3.png")" alt=""/>
 </div>
 
+ @{
+            var ghienDaLat = new CmsGdlLandingPageModel.BrandingCommunity();
+            if (homeApiData.BrandingCommunities.Count > 1)
+            {
+                ghienDaLat = homeApiData.BrandingCommunities[1];
+            }
+        }
 <!--Section Second-->
 <div class="section home-group-second" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
     <div class="container ps-relative">
@@ -161,7 +179,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-justify">
-                            <div class="fw-600 mb-10">~643.800 thành viên</div>
+                            <div class="fw-600 mb-10">~@ghienDaLat.MemberCount thành viên</div>
                         </div>
                     </div>
                     <div class="row">
@@ -175,14 +193,14 @@
                                 <strong>Tốc độ tăng trưởng :</strong>
                             </div>
                             <div class="info">
-                                <span class="num-layout fw-600">~7%</span><span> / tháng</span>
+                                <span class="num-layout fw-600">~@(ghienDaLat.GrowthPercentagePerMonth + "%")</span><span> / tháng</span>
                             </div>
                         </div>
                         <div class="col-6 summary-item">
                             <div class="fw-400">
                                 <strong>Tổng tương tác lên đến :</strong>
                             </div>
-                            <div class="info"><span class="num-layout fw-600">~2.110.000</span> / tháng</div>
+                            <div class="info"><span class="num-layout fw-600">~@ghienDaLat.TotalReactionsPerMonth</span> / tháng</div>
                         </div>
                     </div>
                 </div>
@@ -219,27 +237,23 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4"  data-aos="flip-left"
-                                       data-aos-easing="ease-out-cubic"
-                                       data-aos-duration="1000">
-                <a href="/cong-dong">
-                    <img class="w-100" src="~/css/imgs/community-1.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-4"  data-aos="flip-left"
-                                       data-aos-easing="ease-out-cubic"
-                                       data-aos-duration="2000">
-                <a href="/cong-dong">
-                    <img class="w-100" src="~/css/imgs/community-2.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-4"  data-aos="flip-left"
-                                       data-aos-easing="ease-out-cubic"
-                                       data-aos-duration="3000">
-                <a href="/cong-dong">
-                    <img class="w-100" src="~/css/imgs/community-3.png" alt="">
-                </a>
-            </div>
+            @{
+                var home = (Home)Model.Root();
+                var groupCate = home.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
+                var groupCommunities = groupCate.Children().Where(_ => _.GetType() == typeof(GroupCommunity)).Cast<GroupCommunity>().OrderBy(x=>x.SortOrder).ToList();
+                var durationGroup = 1000;
+            }
+            @foreach (var item in groupCommunities)
+            {
+                <div class="col-md-6" data-aos="flip-left"
+                     data-aos-easing="ease-out-cubic"
+                     data-aos-duration="@durationGroup">
+                    <a href="@item.Url()">
+                        <img class="w-100" src="@item.GroupImage.MediaItem.MediaUrl(mode: UrlMode.Absolute)" alt="">
+                    </a>
+                </div>
+                durationGroup += 500;
+            }
         </div>
     </div>
 </div>
@@ -309,7 +323,7 @@
                 {
                     if (partner.FeatureCoverImage != null)
                     {
-                        <div class="col-md-3"  data-aos="zoom-in" data-aos-duration="@durationPartner">
+                        <div class="col-md-3" data-aos="zoom-in" data-aos-duration="@durationPartner">
                             <div class="partner-item text-center">
                                 <img src="@partner.FeatureCoverImage.MediaItem.Url()" alt="@partner.FeatureName">
                             </div>
@@ -327,7 +341,7 @@
         <div class="row">
             <div class="col-md-12 ml-auto mr-auto mb-20">
                 <h2 class="section-title text-center">Liên hệ</h2>
-               
+
                 @{ Html.RenderAction("RenderForm", "ContactSurface"); }
                 <!-- contact-warning -->
                 <div class="message-warning text-danger">

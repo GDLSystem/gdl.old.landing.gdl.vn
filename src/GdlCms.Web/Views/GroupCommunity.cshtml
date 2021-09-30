@@ -1,65 +1,19 @@
 ﻿@using GdlCms.Web.Helpers
 @using GdlCms.Web.Models
-@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using GdlCms.Web.Services.Gdll.Clients
+@using GdlCms.Web.Services.Gdll.Entities
+@inherits  UmbracoViewPage<GroupCommunity>
 @{
     Layout = "master.cshtml";
-    var home = (Home)Model.Root();
-    var groupCommunities = home.Children().Where(_ => _.GetType() == typeof(GroupCommunities)).Cast<GroupCommunities>().FirstOrDefault();
+    Enum.TryParse(Model.GroupCategoryTypeName, out GroupCategoryType categoryType);
+    var api = new ApiClient();
+    var communityDetail = api.Group.GetCmsGdlCommunityGroup(categoryType).Resource;
 }
 @{
-    var groupLevel1 = new GroupApiResult()
-    {
-        Name = "Chị em mần đẹp",
-        Description = "Group chia sẻ kinh nghiệm làm đẹp cho chị em phụ nữ lớn nhất Việt Nam",
-        TotalMember = "638,152 thành viên",
-        Growth = "Tăng trưởng : 21%/tháng",
-        Interact = "Tương tác : 2.410.000/tháng",
-        ImageUrl = "../css/images-communities/img-1.png",
-        Level = 1
-    };
+    var groupLevel1 = communityDetail.Level1.FirstOrDefault();
 
-    var groupsLv2 = new List<GroupApiResult>()
-    {
-        new GroupApiResult()
-        {
-            Name = "Làm đẹp đúng cách",
-            TotalMember = "227.000 thành viên",
-            ImageUrl = "../css/images-communities/img-2.png"
-        },
-        new GroupApiResult()
-        {
-            Name = "Làm đẹp không khó",
-            TotalMember = "238,152 thành viên",
-            ImageUrl = "../css/images-communities/img-3.png"
-        },
-    };
-    var groupsLv3 = new List<GroupApiResult>()
-    {
-        new GroupApiResult()
-        {
-            Name = "Phụ nữ là phải đẹp",
-            TotalMember = "227.000 thành viên",
-            ImageUrl = "../css/images-communities/img-4.png"
-        },
-        new GroupApiResult()
-        {
-            Name = "Hội chị em đẹp chanh sả",
-            TotalMember = "238,152 thành viên",
-            ImageUrl = "../css/images-communities/img-5.png"
-        },
-        new GroupApiResult()
-        {
-            Name = "Một chút đáng yêu mỗi ngày",
-            TotalMember = "227.000 thành viên",
-            ImageUrl = "../css/images-communities/img-6.png"
-        },
-        new GroupApiResult()
-        {
-            Name = "Đẹp xí mệ mấy bà luôn",
-            TotalMember = "238,152 thành viên",
-            ImageUrl = "../css/images-communities/img-7.png"
-        },
-    };
+    var groupsLv2 = communityDetail.Level2;
+    var groupsLv3 = communityDetail.Level3;
 }
 
 <div class="section"  data-aos="fade-up" data-aos-anchor-placement="center-bottom">
@@ -78,32 +32,33 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="large-article"  data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-                    <div class="img">
-                        <img class="w-100" src="@groupLevel1.ImageUrl" alt="@groupLevel1.Name">
-                    </div>
+                    <a href="@groupLevel1.Url" target="_blank" class="img">
+                        @* <img class="w-100" src="@groupLevel1.ImageUrl" alt="@groupLevel1.Title"> *@
+                        <img class="w-100" src="~/css/imgs/img-1.png" alt="">
+                    </a>
                     <div class="large-article-content">
                         <div class="large-article-summary">
-                            <h5 class="fw-600 tag">@groupLevel1.Name</h5>
+                            <h5 class="fw-600 tag">@groupLevel1.Title</h5>
                             <div class="des" style="margin-top: 0.4rem">
-                                @groupLevel1.Description
+                                @groupLevel1.ShortDescription
                             </div>
 
                         </div>
                         <div class="large-article-numbers">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <p class="members">@groupLevel1.TotalMember</p>
+                                    <p class="members"><strong>@groupLevel1.MemberCount</strong> thành viên</p>
                                 </div>
                                 <div class="col-md-4">
                                     <p>
-                                        <span class="f-bold">@groupLevel1.Growth</span>
+                                        <span class="f-bold">Tăng trưởng: <strong>@(groupLevel1.GrowthPercentagePerMonth + "%")</strong> / tháng</span>
                                     </p>
 
                                 </div>
                                 <div class="col-md-4">
 
                                     <p>
-                                        <span class="f-bold">@groupLevel1.Interact</span>
+                                        <span class="f-bold">Tương tác: <strong>@groupLevel1.TotalReactionsPerMonth</strong> / tháng</span>
                                     </p>
                                 </div>
                             </div>
@@ -113,19 +68,20 @@
             </div>
             <div class="col-md-4">
                 <div class="medium-articles"  data-aos="fade-up" data-aos-duration="1000">
-                    @foreach (var item in groupsLv2.ToList())
+                    @foreach (var item in groupsLv2)
                     {
                         if (item != null)
                         {
                             <div class="medium-article @(groupsLv2.FirstOrDefault() == item ? "mb-2rem" : "")">
-                                <div class="img">
-                                    <img class="w-100" src="@item.ImageUrl" alt="@item.Name">
-                                </div>
+                                <a href="@item.Url" target="_blank" class="img">
+                                    @* <img class="w-100" src="@item.ImageUrl" alt="@item.Title"> *@
+                                    <img class="w-100" src="~/css/imgs/img-1.png" alt="">
+                                </a>
                                 <div class="medium-article-content">
                                     <div class="medium-article-header">
-                                        <h5 class="fw-600 tag">@item.Name</h5>
+                                        <h5 class="fw-600 tag">@item.Title</h5>
                                     </div>
-                                    <div class="medium-article-members">@item.TotalMember</div>
+                                    <div class="medium-article-members"><strong>@item.MemberCount</strong> thành viên</div>
                                 </div>
                             </div>
                         }
@@ -143,32 +99,15 @@
             {
                 <div class="col-md-3" data-aos="fade-up"   data-aos-anchor-placement="center-bottom">
                     <div class="small-article fade-in-content">
-                        <div class="img">
-                            <img class="w-100" src="@item.ImageUrl" alt="@item.Name">
-                        </div>
+                        <a href="@item.Url" target="_blank" class="img">
+                            @* <img class="w-100" src="@item.ImageUrl" alt="@item.Title"> *@
+                            <img class="w-100" src="~/css/imgs/img-1.png" alt="">
+                        </a>
                         <div class="small-article-content">
                             <div class="small-article-header">
-                                <strong class="fw-400 tag">@item.Name</strong>
+                                <strong class="fw-400 tag">@item.Title</strong>
                             </div>
-                            <div class="small-article-title">@item.TotalMember</div>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="row">
-            @foreach (var item in groupsLv3)
-            {
-                <div class="col-md-3"  data-aos="fade-up"  data-aos-anchor-placement="center-bottom">
-                    <div class="small-article fade-in-content">
-                        <div class="img">
-                            <img class="w-100" src="@item.ImageUrl" alt="@item.Name">
-                        </div>
-                        <div class="small-article-content">
-                            <div class="small-article-header">
-                                <strong class="fw-400 tag">@item.Name</strong>
-                            </div>
-                            <div class="small-article-title">@item.TotalMember</div>
+                            <div class="small-article-title"><strong>@item.MemberCount</strong> thành viên</div>
                         </div>
                     </div>
                 </div>
@@ -178,40 +117,40 @@
 </div>
 
 <!--Section All Groups-->
-<div class="section all-fb-groups" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="groups-title">
-                    <h2 class="section-title text-center">CÁC CỤM CỘNG ĐỒNG KHÁC</h2>
-                </div>
-                <div class="group-first-header-line text-center">
-                    <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container mt-20">
-        <div class="row">
-            @if (groupCommunities != null)
-            {
-                var groupDuration = 1000;
-                foreach (var group in groupCommunities.FeatureGroups)
-                {
-                    if (group.FeaturePicture.MediaItem != null)
-                    {
-                        <div class="col-md-4" data-aos="flip-left"
-                             data-aos-easing="ease-out-cubic"
-                             data-aos-duration="@groupDuration">
-                            <a href="#">
-                                <img class="w-100" src="@group.FeaturePicture.MediaItem.Url()" alt="">
-                            </a>
-                        </div>
-                    }
-                    groupDuration += 1000;
-                }
-            }
-
-        </div>
-    </div>
-</div>
+@* <div class="section all-fb-groups" data-aos="fade-up" data-aos-anchor-placement="center-bottom"> *@
+@*     <div class="container"> *@
+@*         <div class="row"> *@
+@*             <div class="col-12"> *@
+@*                 <div class="groups-title"> *@
+@*                     <h2 class="section-title text-center">CÁC CỤM CỘNG ĐỒNG KHÁC</h2> *@
+@*                 </div> *@
+@*                 <div class="group-first-header-line text-center"> *@
+@*                     <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="container mt-20"> *@
+@*         <div class="row"> *@
+@*             @if (groupCommunities != null) *@
+@*             { *@
+@*                 var groupDuration = 1000; *@
+@*                 foreach (var group in groupCommunities.FeatureGroups) *@
+@*                 { *@
+@*                     if (group.FeaturePicture.MediaItem != null) *@
+@*                     { *@
+@*                         <div class="col-md-4" data-aos="flip-left" *@
+@*                              data-aos-easing="ease-out-cubic" *@
+@*                              data-aos-duration="@groupDuration"> *@
+@*                             <a href="#"> *@
+@*                                 <img class="w-100" src="@group.FeaturePicture.MediaItem.Url()" alt=""> *@
+@*                             </a> *@
+@*                         </div> *@
+@*                     } *@
+@*                     groupDuration += 1000; *@
+@*                 } *@
+@*             } *@
+@* *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@

@@ -52,20 +52,6 @@ namespace Umbraco.Web.PublishedModels
 		public virtual global::System.Web.IHtmlString AboutDescription => this.Value<global::System.Web.IHtmlString>("aboutDescription");
 
 		///<summary>
-		/// Menu ID
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("aboutMenuId")]
-		public virtual string AboutMenuId => this.Value<string>("aboutMenuId");
-
-		///<summary>
-		/// Menu Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("aboutMenuName")]
-		public virtual string AboutMenuName => this.Value<string>("aboutMenuName");
-
-		///<summary>
 		/// About Sub Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -157,20 +143,6 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string ContactHeader => this.Value<string>("contactHeader");
 
 		///<summary>
-		/// Menu ID
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("contactMenuId")]
-		public virtual string ContactMenuId => this.Value<string>("contactMenuId");
-
-		///<summary>
-		/// Menu Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("contactMenuName")]
-		public virtual string ContactMenuName => this.Value<string>("contactMenuName");
-
-		///<summary>
 		/// Contact Phone Detail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -204,13 +176,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("featureServices")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.FeatureService> FeatureServices => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.FeatureService>>("featureServices");
-
-		///<summary>
-		/// Feature Stats
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("featureStats")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.FeauterStatsCount> FeatureStats => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.FeauterStatsCount>>("featureStats");
 
 		///<summary>
 		/// Font
@@ -260,20 +225,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("footerLogo")]
 		public virtual global::Umbraco.Core.Models.MediaWithCrops FooterLogo => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("footerLogo");
-
-		///<summary>
-		/// Menu ID
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("footerMenuId")]
-		public virtual string FooterMenuId => this.Value<string>("footerMenuId");
-
-		///<summary>
-		/// Menu Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("footerMenuName")]
-		public virtual string FooterMenuName => this.Value<string>("footerMenuName");
 
 		///<summary>
 		/// Footer Sub Header
@@ -353,20 +304,6 @@ namespace Umbraco.Web.PublishedModels
 		public virtual global::Umbraco.Core.Models.MediaWithCrops HeroImage => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("heroImage");
 
 		///<summary>
-		/// Menu ID
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("homeMenuId")]
-		public virtual string HomeMenuId => this.Value<string>("homeMenuId");
-
-		///<summary>
-		/// Menu Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("homeMenuName")]
-		public virtual string HomeMenuName => this.Value<string>("homeMenuName");
-
-		///<summary>
 		/// Other Communities
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -393,20 +330,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("partnerHeader")]
 		public virtual string PartnerHeader => this.Value<string>("partnerHeader");
-
-		///<summary>
-		/// Menu ID
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("partnerMenuId")]
-		public virtual string PartnerMenuId => this.Value<string>("partnerMenuId");
-
-		///<summary>
-		/// Menu Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("partnerMenuName")]
-		public virtual string PartnerMenuName => this.Value<string>("partnerMenuName");
 
 		///<summary>
 		/// Partner Sub Header
@@ -437,20 +360,6 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string ServiceHeader => this.Value<string>("serviceHeader");
 
 		///<summary>
-		/// Menu ID
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("serviceMenuId")]
-		public virtual string ServiceMenuId => this.Value<string>("serviceMenuId");
-
-		///<summary>
-		/// Menu Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("serviceMenuName")]
-		public virtual string ServiceMenuName => this.Value<string>("serviceMenuName");
-
-		///<summary>
 		/// Service Sub Header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
@@ -470,13 +379,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("sitename")]
 		public virtual string Sitename => this.Value<string>("sitename");
-
-		///<summary>
-		/// Socials
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
-		[ImplementPropertyType("socials")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SocialIcon> Socials => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SocialIcon>>("socials");
 
 		///<summary>
 		/// Viet Nam Oi Action Url

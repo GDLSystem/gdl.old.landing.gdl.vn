@@ -19,20 +19,21 @@
     </div>
     <div class="container">
         <div class="row">
-            @if (Model.FeatureGroups != null && Model.FeatureGroups.Any())
+            @{
+                var home = (Home)Model.Root();
+                var groupCommunities = home.Children().Where(_ => _.GetType() == typeof(GroupCommunity)).Cast<GroupCommunity>().OrderBy(x => x.SortOrder).ToList();
+            }
+            @if (groupCommunities.Any())
             {
                 var groupDuration = 1000;
-                foreach (var feature in Model.FeatureGroups.OrderBy(_ => _.Sort))
+                foreach (var feature in groupCommunities)
                 {
-                    if (feature.FeaturePicture.MediaItem != null)
-                    {
-                        <div class="col-12 mt-10" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-                             data-aos-duration="@groupDuration">
-                            <a class="w-100" href="@feature.ActionRedirectUrl">
-                                <img class="w-100" src="@feature.FeaturePicture.MediaItem.Url()" alt="">
-                            </a>
-                        </div>
-                    }
+                    <div class="col-12 mt-10" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                         data-aos-duration="@groupDuration">
+                        <a class="w-100" href="@feature.Url()">
+                            <img class="w-100" src="@feature.GroupImage.MediaItem.MediaUrl(mode: UrlMode.Absolute)" alt="">
+                        </a>
+                    </div>
                     groupDuration += 500;
                 }
             }

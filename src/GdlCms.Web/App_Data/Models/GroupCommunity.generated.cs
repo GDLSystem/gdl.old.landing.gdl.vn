@@ -45,6 +45,27 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Display Order
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("displayOrder")]
+		public virtual int DisplayOrder => this.Value<int>("displayOrder");
+
+		///<summary>
+		/// Group Category Type Name: Group Category Type Name on tracking system
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("groupCategoryTypeName")]
+		public virtual string GroupCategoryTypeName => this.Value<string>("groupCategoryTypeName");
+
+		///<summary>
+		/// Group Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("groupImage")]
+		public virtual global::Umbraco.Core.Models.MediaWithCrops GroupImage => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("groupImage");
+
+		///<summary>
 		/// Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
