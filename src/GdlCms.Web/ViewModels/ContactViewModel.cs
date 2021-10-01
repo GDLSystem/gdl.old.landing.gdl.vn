@@ -11,7 +11,6 @@ namespace GdlCms.Web.ViewModels
         [EmailAddress(ErrorMessage = "Please enter valid email!")]
         public string Email { get; set; }
         
-        [Required(ErrorMessage = "Please enter your email title!")]
         public string EmailTitle { get; set; }
         
         [Required(ErrorMessage = "Please enter your message")]
