@@ -633,6 +633,7 @@
     <Compile Include="App_Data\Models\Contact.generated.cs" />
     <Compile Include="App_Data\Models\ContentBase.generated.cs" />
     <Compile Include="App_Data\Models\ContentPage.generated.cs" />
+    <Compile Include="App_Data\Models\FacebookGroupPageInfo.generated.cs" />
     <Compile Include="App_Data\Models\Feature.generated.cs" />
     <Compile Include="App_Data\Models\FeaturePartner.generated.cs" />
     <Compile Include="App_Data\Models\FeatureService.generated.cs" />
@@ -670,6 +671,7 @@
     <Compile Include="Services\Gdll\Core\ErrorLogger.cs" />
     <Compile Include="Services\Gdll\Entities\CmsGdlLandingPageModel.cs" />
     <Compile Include="Services\Gdll\Entities\TokenModel.cs" />
+    <Compile Include="Services\Gdll\Helpers\EnumHelper.cs" />
     <Compile Include="Services\Gdll\Helpers\ExceptionHelper.cs" />
     <Compile Include="Services\Gdll\Helpers\NewtonsoftJsonSerializer.cs" />
     <Compile Include="Services\Gdll\Helpers\RestHelper.cs" />

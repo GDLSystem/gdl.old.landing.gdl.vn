@@ -66,6 +66,13 @@ namespace Umbraco.Web.PublishedModels
 		public virtual global::Umbraco.Core.Models.MediaWithCrops GroupImage => this.Value<global::Umbraco.Core.Models.MediaWithCrops>("groupImage");
 
 		///<summary>
+		/// Group Page Items
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("groupPageItems")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.FacebookGroupPageInfo> GroupPageItems => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.FacebookGroupPageInfo>>("groupPageItems");
+
+		///<summary>
 		/// Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]

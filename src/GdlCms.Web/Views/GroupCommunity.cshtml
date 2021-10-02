@@ -8,21 +8,30 @@
     Enum.TryParse(Model.GroupCategoryTypeName, out GroupCategoryType categoryType);
     var api = new ApiClient();
     var communityDetail = api.Group.GetCmsGdlCommunityGroup(categoryType).Resource;
+    var groupItems = Model.GroupPageItems.ToList();
 }
 @{
     var groupLevel1 = communityDetail.Level1.FirstOrDefault();
-
+    var groupLevel1Image = string.Empty;
+    if (groupLevel1 != null)
+    {
+        var itemLevel1 = groupItems.FirstOrDefault(x => x.FacebookID == groupLevel1.Fid);
+        if (itemLevel1?.CoverImage != null)
+        {
+            groupLevel1Image = itemLevel1?.CoverImage.MediaItem.MediaUrl();
+        }
+    }
     var groupsLv2 = communityDetail.Level2;
     var groupsLv3 = communityDetail.Level3;
 }
 
-<div class="section"  data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+<div class="section" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
 
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="groups-title">
-                    <h2 class="section-title text-center">LÀM ĐẸP</h2>
+                    <h2 class="section-title text-center">@Model.PageTitle</h2>
                 </div>
                 <div class="group-first-header-line text-center">
                     <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
@@ -31,55 +40,63 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <div class="large-article"  data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-                    <a href="@groupLevel1.Url" target="_blank" class="img">
-                        @* <img class="w-100" src="@groupLevel1.ImageUrl" alt="@groupLevel1.Title"> *@
-                        <img class="w-100" src="~/css/imgs/img-1.png" alt="">
-                    </a>
-                    <div class="large-article-content">
-                        <div class="large-article-summary">
-                            <h5 class="fw-600 tag">@groupLevel1.Title</h5>
-                            <div class="des" style="margin-top: 0.4rem">
-                                @groupLevel1.ShortDescription
+                <div class="large-article" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" data-fb-id="@(groupLevel1?.Fid)">
+                    @if (groupLevel1 != null)
+                    {
+                        <a href="@groupLevel1.Url" target="_blank" class="img fb-group-cover">
+                            
+                            <img class="w-100" src="@groupLevel1Image" alt="@(groupLevel1.Title + " - " + groupLevel1.Fid)">
+                        </a>
+                        <div class="large-article-content">
+                            <div class="large-article-summary">
+                                <h5 class="fw-600 tag">@(groupLevel1.Title + $" ({groupLevel1.GroupSourceType.ToString()})")</h5>
+                                <div class="des" style="margin-top: 0.4rem">
+                                    @groupLevel1.ShortDescription
+                                </div>
+
                             </div>
+                            <div class="large-article-numbers">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="members"><strong>@groupLevel1.MemberCount.ToString("##,###")</strong> thành viên</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p>
+                                            <span class="f-bold">Tăng trưởng: <strong>@(groupLevel1.GrowthPercentagePerMonth + "%")</strong> / tháng</span>
+                                        </p>
 
-                        </div>
-                        <div class="large-article-numbers">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <p class="members"><strong>@groupLevel1.MemberCount.ToString("##,###")</strong> thành viên</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p>
-                                        <span class="f-bold">Tăng trưởng: <strong>@(groupLevel1.GrowthPercentagePerMonth + "%")</strong> / tháng</span>
-                                    </p>
+                                    </div>
+                                    <div class="col-md-4">
 
-                                </div>
-                                <div class="col-md-4">
-
-                                    <p>
-                                        <span class="f-bold">Tương tác: <strong>@groupLevel1.TotalReactionsPerMonth.ToString("##,###")</strong> / tháng</span>
-                                    </p>
+                                        <p>
+                                            <span class="f-bold">Tương tác: <strong>@groupLevel1.TotalReactionsPerMonth.ToString("##,###")</strong> / tháng</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="medium-articles"  data-aos="fade-up" data-aos-duration="1000">
+                <div class="medium-articles" data-aos="fade-up" data-aos-duration="1000">
                     @foreach (var item in groupsLv2)
                     {
                         if (item != null)
                         {
-                            <div class="medium-article @(groupsLv2.FirstOrDefault() == item ? "mb-2rem" : "")">
-                                <a href="@item.Url" target="_blank" class="img">
-                                    @* <img class="w-100" src="@item.ImageUrl" alt="@item.Title"> *@
-                                    <img class="w-100" src="~/css/imgs/img-1.png" alt="">
+                            var groupLevel2Image = string.Empty;
+                            var itemLevel2 = groupItems.FirstOrDefault(x => x.FacebookID == item.Fid);
+                            if (itemLevel2?.CoverImage != null)
+                            {
+                                groupLevel2Image = itemLevel2?.CoverImage.MediaItem.MediaUrl();
+                            }
+                            <div class="medium-article" data-fb-id="@(item?.Fid)">
+                                <a href="@item.Url" target="_blank" class="img fb-group-cover">
+                                    <img class="w-100" src="@groupLevel2Image" alt="@(item.Title + " - " + item.Fid)">
                                 </a>
                                 <div class="medium-article-content">
                                     <div class="medium-article-header">
-                                        <h5 class="fw-600 tag">@item.Title</h5>
+                                        <h5 class="fw-600 tag">@(item.Title + $" ({item.GroupSourceType.ToString()})")</h5>
                                     </div>
                                     <div class="medium-article-members"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
                                 </div>
@@ -97,15 +114,25 @@
         <div class="row">
             @foreach (var item in groupsLv3)
             {
-                <div class="col-md-3" data-aos="fade-up"   data-aos-anchor-placement="center-bottom">
+                if (item == null)
+                {
+                    continue;
+                }
+                var groupLevel3Image = string.Empty;
+                var itemLevel3 = groupItems.FirstOrDefault(x => x.FacebookID == item.Fid);
+                if (itemLevel3?.CoverImage != null)
+                {
+                    groupLevel3Image = itemLevel3?.CoverImage.MediaItem.MediaUrl();
+                }
+                <div class="col-md-3" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-fb-id="@(item?.Fid)">
                     <div class="small-article fade-in-content">
-                        <a href="@item.Url" target="_blank" class="img">
-                            @* <img class="w-100" src="@item.ImageUrl" alt="@item.Title"> *@
-                            <img class="w-100" src="~/css/imgs/img-1.png" alt="">
+                        <a href="@item.Url" target="_blank" class="img fb-group-cover">
+                            
+                            <img class="w-100" src="@groupLevel3Image" alt="@(item.Title + " - " + item.Fid)">
                         </a>
                         <div class="small-article-content">
                             <div class="small-article-header">
-                                <strong class="fw-400 tag">@item.Title</strong>
+                                <strong class="fw-400 tag">@(item.Title + $" ({item.GroupSourceType.ToString()})") </strong>
                             </div>
                             <div class="small-article-title"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
                         </div>

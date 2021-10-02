@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace GdlCms.Web.Services.Gdll.Entities
 {
@@ -24,17 +25,7 @@ namespace GdlCms.Web.Services.Gdll.Entities
             public string Url { get; set; }
         }
     }
-    public enum GroupCategoryType
-    {
-        Unknown = 1,
-        Architecture = 10,
-        Beauty = 20,
-        FnB = 30,
-        TravelAndSport = 40,
-        General = 90,
-        Dalat = 100,
-        HappyDay = 900
-    }
+   
     public class CmsGdlFeatureCommunityGroup
     {
         public string CategoryName { get; set; }
@@ -55,13 +46,36 @@ namespace GdlCms.Web.Services.Gdll.Entities
         }
         public class Item
         {
+            public string Fid { get; set; }
+            public GroupSourceType GroupSourceType { get; set; }
             public string Title { get; set; }
             public string ShortDescription { get; set; }
             public int MemberCount { get; set; }
             public decimal GrowthPercentagePerMonth { get; set; }
             public int TotalReactionsPerMonth { get; set; }
             public string Url { get; set; }
+            [JsonIgnore]
             public string ImageUrl { get; set; }
         }
+    }
+    
+    public enum GroupCategoryType
+    {
+        Unknown = 1,
+        Architecture = 10,
+        Beauty = 20,
+        FnB = 30,
+        TravelAndSport = 40,
+        General = 90,
+        Dalat = 100,
+        HappyDay = 900
+    }
+    public enum GroupSourceType
+    {
+        Group,
+        Page,
+        Website,
+        Instagram,
+        Tiktok
     }
 }
