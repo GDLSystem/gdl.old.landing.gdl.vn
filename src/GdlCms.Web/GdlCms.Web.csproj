@@ -575,6 +575,7 @@
     <Content Include="css\imgs\facebook.png" />
     <Content Include="css\imgs\footer-logo-1.png" />
     <Content Include="css\imgs\footer-logo-2.png" />
+    <Content Include="css\imgs\gdl-gif.gif" />
     <Content Include="css\imgs\instagram-f.png" />
     <Content Include="css\imgs\instagram.png" />
     <Content Include="css\imgs\landing-logo.gif" />
