@@ -380,3 +380,6 @@ body{
         max-width: 100%;
     }
 }
+.scroll-page {
+    scroll-behavior: smooth;
+}
