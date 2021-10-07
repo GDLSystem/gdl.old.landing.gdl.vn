@@ -297,7 +297,7 @@ body{
     border-radius: 10px;
 }
 .large-article-content {
-    padding: 15px;
+    padding: 25px;
 }
 .medium-article-content{
     float: left;
@@ -315,28 +315,28 @@ body{
     float: left;
     overflow: hidden;
     width: 100%;
-    height: 70px;
+    height: 50px;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp:2;
+    -webkit-line-clamp:1;
 }
 .group-community-description{
-    height: 82px;
-    margin-bottom: 40px;
+    height: 50px;
+    margin-bottom: 35px;
     overflow: hidden;
     width: 100%;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp:3;
+    -webkit-line-clamp:2;
 }
 .group-community-title.title-small{
-    font-size: 16px !important;
+    font-size: 15px !important;
 }
 .medium-article-header .group-community-title{
     font-size: 18px;
-    height: 50px;
+    height: 25px;
 }
 
 .fb-group-cover{
