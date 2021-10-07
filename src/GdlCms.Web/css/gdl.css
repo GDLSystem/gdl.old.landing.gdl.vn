@@ -301,6 +301,10 @@ body{
     cursor: pointer;
     border-radius: 10px;
 }
+.large-group-title{
+    margin-top: 20px;
+    margin-bottom: -12px;
+}
 .large-article-content {
     padding: 25px;
 }
