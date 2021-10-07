@@ -31,6 +31,11 @@
 
         return title.Humanize(LetterCasing.Title) + sourceType;
     }
+
+    string GetPageTitle(string title)
+    {
+        return $"Cộng Đồng {title}";
+    }
 }
 
 <div class="section" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
@@ -39,7 +44,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="groups-title">
-                    <h2 class="section-title text-center">@Model.PageTitle</h2>
+                    <h2 class="section-title text-center">@GetPageTitle(Model.PageTitle)</h2>
                 </div>
                 @* <div class="group-first-header-line text-center"> *@
                 @*     <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/> *@
@@ -59,7 +64,7 @@
                         </a>
                         <div class="large-article-content">
                             <div class="large-article-summary">
-                                <h5 class="group-community-title fw-600 tag">@(GetGroupTitle(groupLevel1.Title, groupLevel1.GroupSourceType))</h5>
+                                <h5 class="group-community-title fw-600 tag large-group-title">@(GetGroupTitle(groupLevel1.Title, groupLevel1.GroupSourceType))</h5>
                                 <div class="group-community-description" style="margin-top: 0.4rem">
                                     @groupLevel1.ShortDescription
                                 </div>
