@@ -4,6 +4,7 @@
     var site = Model.Root();
     var home = (Home)site;
     var selection = site.Children.Where(x => x.IsVisible());
+    var tiktokLink = "https://www.tiktok.com/@ghiendalat_official";
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
 <li class="nav-item @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")">
@@ -38,23 +39,17 @@
         <span>Liên hệ</span>
     </a>
 </li>
-<li class="nav-item social-item-top">
-    <a class="nav-link" href="#">
+<li class="nav-item social-item-top row">
+    <a class="nav-link social-item-top col-2" href="https://www.facebook.com/groups/956982674510656">
         <img src="~/css/imgs/facebook.png" alt="Facebook"  width="29px" />
     </a>
-</li>
-<li class="nav-item social-item-top">
-    <a class="nav-link" href="#">
+    <a class="nav-link social-item-top col-2" href="https://www.instagram.com/ghiendalat/">
         <img src="~/css/imgs/instagram.png" alt="Instagram" width="29px" />
     </a>
-</li>
-<li class="nav-item social-item-top">
-    <a class="nav-link" href="#">
+    <a class="nav-link social-item-top col-2" href="@tiktokLink">
         <img src="~/css/imgs/tiktok.png" alt="Tiktok" width="29px" />
     </a>
-</li>
-<li class="nav-item">
-    <a class="nav-link social-item-top" href="#">
+    <a class="nav-link social-item-top col-2" href="https://www.youtube.com/channel/UCk95u38DzdaZt45zsYHYc5w">
         <img src="~/css/imgs/youtube.png" alt="Youtube" />
     </a>
 </li>

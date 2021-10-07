@@ -35,11 +35,11 @@
                 <div class="header-big-logo justify-content-center animation-slide-up">
                     @if (Model.HeroImage != null)
                     {
-                        <img class="w-100" src="@Model.HeroImage.MediaItem.Url()" alt="sub logo">
+                        <img style="width: 80% !important" src="@Model.HeroImage.MediaItem.Url()" alt="sub logo">
                     }
                     else
                     {
-                        <img class="w-100" src="@Url.Content("~/css/imgs/gdl-gif.gif")" alt="sub logo">
+                        <img style="width: 80% !important" src="@Url.Content("~/css/imgs/gdl-gif.gif")" alt="sub logo">
                     }
                 </div>
             </div>
@@ -57,6 +57,7 @@
                 <div class="header-about-detail animation-bounce animation-bounce-left">
                     <div class="description text-justify">
                         @Html.Raw(Model.AboutDescription)
+                        @($"Tổng hệ thống lên đến hơn 20 triệu followers và {@homeApiData.GroupCount + @homeApiData.PageCount} groups, fan page lớn thuộc top đầu tại Việt Nam.")
                     </div>
                     <div class="summaries text-center">
                         <div class="row">
@@ -126,7 +127,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-justify">
-                            <div class="fw-600 mb-10">~@vietNamOi.MemberCount.ToString("##,###") thành viên</div>
+                            <div class="fw-600 mb-10">~@vietNamOi.MemberCount.ToString("N0") thành viên</div>
                         </div>
                     </div>
                     <div class="row">
@@ -140,14 +141,14 @@
                                 <strong>Tốc độ tăng trưởng :</strong>
                             </div>
                             <div class="info">
-                                <span class="num-layout fw-600">~@(vietNamOi.GrowthPercentagePerMonth + "%")</span><span> / tháng</span>
+                                <span class="num-layout fw-600">~@((Math.Round(vietNamOi.GrowthPercentagePerMonth * 100, MidpointRounding.AwayFromZero) / 100m).ToString("N")  + "%")</span><span> / tháng</span>
                             </div>
                         </div>
                         <div class="col-6 summary-item">
                             <div class="fw-400">
                                 <strong>Tổng tương tác lên đến :</strong>
                             </div>
-                            <div class="info"><span class="num-layout fw-600">~@vietNamOi.TotalReactionsPerMonth.ToString("##,###")</span> / tháng</div>
+                            <div class="info"><span class="num-layout fw-600">~@vietNamOi.TotalReactionsPerMonth.ToString("N0")</span> / tháng</div>
                         </div>
                     </div>
                 </div>
@@ -179,7 +180,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-justify">
-                            <div class="fw-600 mb-10">~@ghienDaLat.MemberCount.ToString("##,###") thành viên</div>
+                            <div class="fw-600 mb-10">~@ghienDaLat.MemberCount.ToString("N0") thành viên</div>
                         </div>
                     </div>
                     <div class="row">
@@ -193,14 +194,14 @@
                                 <strong>Tốc độ tăng trưởng :</strong>
                             </div>
                             <div class="info">
-                                <span class="num-layout fw-600">~@(ghienDaLat.GrowthPercentagePerMonth + "%")</span><span> / tháng</span>
+                                <span class="num-layout fw-600">~@((Math.Round(ghienDaLat.GrowthPercentagePerMonth * 100m, MidpointRounding.AwayFromZero) / 100m).ToString("N") + "%")</span><span> / tháng</span>
                             </div>
                         </div>
                         <div class="col-6 summary-item">
                             <div class="fw-400">
                                 <strong>Tổng tương tác lên đến :</strong>
                             </div>
-                            <div class="info"><span class="num-layout fw-600">~@ghienDaLat.TotalReactionsPerMonth.ToString("##,###")</span> / tháng</div>
+                            <div class="info"><span class="num-layout fw-600">~@ghienDaLat.TotalReactionsPerMonth.ToString("N0")</span> / tháng</div>
                         </div>
                     </div>
                 </div>
