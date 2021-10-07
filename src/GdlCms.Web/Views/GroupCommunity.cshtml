@@ -2,6 +2,7 @@
 @using GdlCms.Web.Models
 @using GdlCms.Web.Services.Gdll.Clients
 @using GdlCms.Web.Services.Gdll.Entities
+@using Humanizer
 @inherits  UmbracoViewPage<GroupCommunity>
 @{
     Layout = "master.cshtml";
@@ -28,7 +29,7 @@
     {
         var sourceType = groupSourceType == GroupSourceType.Page ? " - Fanpage" : string.Empty;
 
-        return title + sourceType;
+        return title.Humanize(LetterCasing.Title) + sourceType;
     }
 }
 
@@ -40,9 +41,11 @@
                 <div class="groups-title">
                     <h2 class="section-title text-center">@Model.PageTitle</h2>
                 </div>
-                <div class="group-first-header-line text-center">
-                    <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
-                </div>
+                @* <div class="group-first-header-line text-center"> *@
+                @*     <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/> *@
+                @* </div> *@
+                <br/>
+                <br/>
             </div>
         </div>
         <div class="row">
@@ -56,8 +59,8 @@
                         </a>
                         <div class="large-article-content">
                             <div class="large-article-summary">
-                                <h5 class="fw-600 tag">@(GetGroupTitle(groupLevel1.Title, groupLevel1.GroupSourceType))</h5>
-                                <div class="des" style="margin-top: 0.4rem">
+                                <h5 class="group-community-title fw-600 tag">@(GetGroupTitle(groupLevel1.Title, groupLevel1.GroupSourceType))</h5>
+                                <div class="group-community-description" style="margin-top: 0.4rem">
                                     @groupLevel1.ShortDescription
                                 </div>
 
@@ -101,9 +104,9 @@
                                 <a href="@item.Url" target="_blank" class="img fb-group-cover">
                                     <img class="w-100" src="@groupLevel2Image" alt="@(item.Title + " - " + item.Fid)">
                                 </a>
-                                <div class="medium-article-content">
+                                <div class="medium-article-content text-center">
                                     <div class="medium-article-header">
-                                        <h5 class="fw-600 tag">@(GetGroupTitle(item.Title, item.GroupSourceType))</h5>
+                                        <h5 class="group-community-title fw-600 tag">@(GetGroupTitle(item.Title, item.GroupSourceType))</h5>
                                     </div>
                                     <div class="medium-article-members"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
                                 </div>
@@ -132,16 +135,16 @@
                     groupLevel3Image = itemLevel3?.CoverImage.MediaItem.MediaUrl();
                 }
                 <div class="col-md-3" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-fb-id="@(item?.Fid)">
-                    <div class="small-article fade-in-content">
+                    <div class="medium-article fade-in-content">
                         <a href="@item.Url" target="_blank" class="img fb-group-cover">
                             
                             <img class="w-100" src="@groupLevel3Image" alt="@(item.Title + " - " + item.Fid)">
                         </a>
-                        <div class="small-article-content">
-                            <div class="small-article-header">
-                                <strong class="fw-400 tag">@(GetGroupTitle(item.Title, item.GroupSourceType)) </strong>
+                        <div class="medium-article-content">
+                            <div class="medium-article-header">
+                                <strong class="group-community-title title-small fw-600 tag">@(GetGroupTitle(item.Title, item.GroupSourceType)) </strong>
                             </div>
-                            <div class="small-article-title"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
+                            <div class="medium-article-title"><strong>@item.MemberCount.ToString("##,###")</strong> thành viên</div>
                         </div>
                     </div>
                 </div>

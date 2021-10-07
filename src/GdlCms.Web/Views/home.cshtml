@@ -302,40 +302,40 @@
     </div>
 </div>
 <!--Section Partner-->
-<div class="section all-partners" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="partners-title">
-                    <h2 class="section-title text-center">@Model.PartnerHeader</h2>
-                </div>
-                <div class="group-first-header-line text-center">
-                    <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center align-center">
-            @{
-                var durationPartner = 1000;
-                var partners = Model.FeaturePartners.ToArray();
-                foreach (var partner in partners)
-                {
-                    if (partner.FeatureCoverImage != null)
-                    {
-                        <div class="col-md-3" data-aos="zoom-in" data-aos-duration="@durationPartner">
-                            <div class="partner-item text-center">
-                                <img src="@partner.FeatureCoverImage.MediaItem.Url()" alt="@partner.FeatureName">
-                            </div>
-                        </div>
-                    }
-                    durationPartner += 500;
-                }
-            }
-        </div>
-    </div>
-</div>
+@* <div class="section all-partners" data-aos="fade-up" data-aos-anchor-placement="center-bottom"> *@
+@*     <div class="container"> *@
+@*         <div class="row"> *@
+@*             <div class="col-12"> *@
+@*                 <div class="partners-title"> *@
+@*                     <h2 class="section-title text-center">@Model.PartnerHeader</h2> *@
+@*                 </div> *@
+@*                 $1$ <div class="group-first-header-line text-center"> #1# *@
+@*                 $1$     <img class="line-w mt-1rem mb-2rem" src="@Url.Content("~/css/imgs/line.png")" alt=""/> #1# *@
+@*                 $1$ </div> #1# *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="container"> *@
+@*         <div class="row justify-content-center align-center"> *@
+@*             @{ *@
+@*                 var durationPartner = 1000; *@
+@*                 var partners = Model.FeaturePartners.ToArray(); *@
+@*                 foreach (var partner in partners) *@
+@*                 { *@
+@*                     if (partner.FeatureCoverImage != null) *@
+@*                     { *@
+@*                         <div class="col-md-3" data-aos="zoom-in" data-aos-duration="@durationPartner"> *@
+@*                             <div class="partner-item text-center"> *@
+@*                                 <img src="@partner.FeatureCoverImage.MediaItem.Url()" alt="@partner.FeatureName"> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                     } *@
+@*                     durationPartner += 500; *@
+@*                 } *@
+@*             } *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
 <!--Section Contact-->
 <div class="section landing-section section-contact mt-30" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
     <div class="container">

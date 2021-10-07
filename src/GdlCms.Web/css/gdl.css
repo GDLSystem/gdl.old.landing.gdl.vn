@@ -52,6 +52,7 @@ body{
 }
 .social-item-top img {
     margin-top: -5px;
+    margin-left: 15px;
 }
 
 .mb-30{
@@ -86,7 +87,7 @@ body{
 }
 /* Header section*/
 .header-right-content{
-    padding-left: 100px;
+    padding-left: 20px;
 }
 .home-header .summaries{
     float: left;
@@ -283,7 +284,14 @@ body{
 .medium-article, .large-article {
     margin-bottom: 30px;
 }
+.medium-article img, .large-article img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
 .large-article , .medium-article{
+    float: left;
+    display: block;
+    width: 100%;
     box-shadow: 0px 0px 6px 0px #a5a5a5;
     cursor: pointer;
     border-radius: 10px;
@@ -292,7 +300,43 @@ body{
     padding: 15px;
 }
 .medium-article-content{
-    padding: 14px 0 0 15px;
+    float: left;
+    padding: 15px;
+    display: block;
+    width: 100%;
+}
+.medium-article-header{
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.group-community-title{
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    height: 70px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+}
+.group-community-description{
+    height: 82px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+}
+.group-community-title.title-small{
+    font-size: 16px !important;
+}
+.medium-article-header .group-community-title{
+    font-size: 18px;
+    height: 50px;
 }
 
 .fb-group-cover{
@@ -378,6 +422,9 @@ body{
     
      .group-first-header-line img  {
         max-width: 100%;
+    }
+    .group-community-description{
+        height: auto !important;
     }
 }
 .scroll-page {
