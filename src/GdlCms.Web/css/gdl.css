@@ -281,6 +281,11 @@ body{
     color: whitesmoke;
     font-size: 14px;
 }
+.large-article-summary{
+    float: left;
+    display: block;
+    width: 100%;
+}
 .medium-article, .large-article {
     margin-bottom: 30px;
 }
@@ -424,9 +429,15 @@ body{
         max-width: 100%;
     }
     .group-community-description{
-        height: auto !important;
+       margin-bottom: 10px;
     }
 }
-.scroll-page {
+@media only screen and (max-width: 1202px){
+
+    .group-community-description{
+        margin-bottom: 10px;
+    }
+}
+    .scroll-page {
     scroll-behavior: smooth;
 }
