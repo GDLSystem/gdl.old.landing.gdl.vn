@@ -397,7 +397,11 @@ body{
         margin: auto;
     }
 }
-
+.large-article-numbers {
+    float: left;
+    width: 100%;
+    display: block;
+}
 /* (2) Màn hình nhỏ để ngang(phones 600px và lớn hơn) */
 @media only screen and (min-width: 600px) {
     
