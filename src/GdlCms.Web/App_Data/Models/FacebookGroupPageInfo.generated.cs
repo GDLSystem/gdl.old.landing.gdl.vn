@@ -64,5 +64,12 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
 		[ImplementPropertyType("facebookName")]
 		public virtual string FacebookName => this.Value<string>("facebookName");
+
+		///<summary>
+		/// Short Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("shortDescription")]
+		public virtual string ShortDescription => this.Value<string>("shortDescription");
 	}
 }

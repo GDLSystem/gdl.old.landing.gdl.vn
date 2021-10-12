@@ -14,12 +14,14 @@
 @{
     var groupLevel1 = communityDetail.Level1.FirstOrDefault();
     var groupLevel1Image = string.Empty;
+    var groupLevel1Description = string.Empty;
     if (groupLevel1 != null)
     {
         var itemLevel1 = groupItems.FirstOrDefault(x => x.FacebookID == groupLevel1.Fid);
         if (itemLevel1?.CoverImage != null)
         {
             groupLevel1Image = itemLevel1?.CoverImage.MediaItem.MediaUrl();
+            groupLevel1Description = itemLevel1.ShortDescription;
         }
     }
     var groupsLv2 = communityDetail.Level2;
@@ -66,7 +68,7 @@
                             <div class="large-article-summary">
                                 <h5 class="group-community-title fw-600 tag large-group-title">@(GetGroupTitle(groupLevel1.Title, groupLevel1.GroupSourceType))</h5>
                                 <div class="group-community-description" style="margin-top: 0.4rem">
-                                    @groupLevel1.ShortDescription
+                                    @groupLevel1Description
                                 </div>
 
                             </div>
