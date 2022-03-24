@@ -4,6 +4,6 @@ namespace GdlCms.Web.Services
 {
     public interface ISmtpService
     {
-        bool SendEmail(string inputEmail, string name,string body);
+        bool SendEmail(string inputEmail,string phone, string name,string bodyEmail);
     }
 }

@@ -39,7 +39,7 @@ namespace GdlCms.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                success = _smtpService.SendEmail(model.Email, model.Name, emailBody);
+                success = _smtpService.SendEmail(model.Email, model.Phone, model.Name, emailBody);
             }
 
             var contactPage = UmbracoContext.Content.GetById(false, model.ContactFormId);

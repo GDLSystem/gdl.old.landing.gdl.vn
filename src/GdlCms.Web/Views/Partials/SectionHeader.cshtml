@@ -1,6 +1,12 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
-<section class="section section--themed section--header section--content-center-bottom">
-    <div class="section__hero-content">
-        <h1 class="no-air">@Model.GetProperty("PageTitle").GetValue()</h1>
-    </div>
+<section class="section">
+     <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="partners-title">
+                         <h2 class="section-title text-center">@Model.GetProperty("PageTitle").GetValue()</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>

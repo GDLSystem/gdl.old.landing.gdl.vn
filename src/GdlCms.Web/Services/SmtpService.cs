@@ -18,14 +18,16 @@ namespace GdlCms.Web.Services
             _logger = logger;
         }
         
-        public bool SendEmail(string inputEmail, string name,string body)
+        public bool SendEmail(string inputEmail,string phone, string name,string bodyEmail)
         {
             try
             {
                 var fromEmail = new MailAddress(ConfigurationManager.AppSettings["MailAddress"]);
                 var pass = ConfigurationManager.AppSettings["EmailPassword"];
                 var toEmail = new MailAddress(ConfigurationManager.AppSettings["EmailReceive"]);
-                
+#if DEBUG
+                toEmail = new MailAddress("romeohuy@gmail.com"); 
+#endif
                 string title = string.Format(ConfigurationManager.AppSettings["EmailTitle"], inputEmail, name);
 
                 var useDefaultCredentials = bool.Parse(ConfigurationManager.AppSettings["UseDefaultCredentialsMail"]);
@@ -38,11 +40,11 @@ namespace GdlCms.Web.Services
                     UseDefaultCredentials = useDefaultCredentials,
                     Credentials = new NetworkCredential(fromEmail.Address, pass)
                 };
-
+                
                 var mess = new MailMessage(fromEmail, toEmail)
                 {
                     Subject = title,
-                    Body = body,
+                    Body = bodyEmail,
                     IsBodyHtml = true
                 };
 

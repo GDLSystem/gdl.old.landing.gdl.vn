@@ -20,7 +20,7 @@
 
         <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
             <div class="row mt-30">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
@@ -30,7 +30,7 @@
                         @Html.TextBoxFor(m => m.Name, new { @class = "form-control", name = "contactName", type = "text", id = "contactName", placeholder = "Họ và tên", value = "", minlength = "2" })
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
@@ -38,6 +38,16 @@
                             </span>
                         </div>
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", name = "contactEmail", type = "email", id = "contactEmail", placeholder = "Email", value = "" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-mobile"></i>
+                            </span>
+                        </div>
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", name = "contactPhone", type = "text", id = "contactPhone", placeholder = "Phone number", value = "" })
                     </div>
                 </div>
             </div>

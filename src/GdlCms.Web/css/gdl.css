@@ -367,6 +367,35 @@ body{
     border-bottom-left-radius: 10px;
     background: #fff;
 }
+.pagination > li > a, .pagination > li > span, .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span
+{
+    padding: 5px 11px !important;
+    border-radius: 0;
+}
+.blogpost{
+    margin: 15px 0;
+}
+
+.blogpost a{
+    color: #333333;
+    background-color: #f9f9f9 !important;
+    display: block;
+    padding: 20px;
+    height: 100%;
+    position: relative;
+    box-shadow: 1px 1.732px 5px 0px rgba(220, 220, 220, 0.75);
+    -webkit-box-shadow: 1px 1.732px 5px 0px rgba(220, 220, 220, 0.75);
+}
+.blogpost-excerpt{
+    margin-top: 15px;
+}
+.blogpost-meta{
+    margin-top: 10px;
+}
+.blogpost a:hover, a.blogpost:focus, a.blogpost:active{
+    color: #026E02;
+}
+
 /********* Responsive *********/
 /* (1) Màn hình nhỏ để đứng (phones, 600px và nhỏ hơn) */
 @media only screen and (max-width: 600px) {
@@ -402,9 +431,15 @@ body{
     width: 100%;
     display: block;
 }
+.blog-detail img{
+    width: 100% !important;
+    height: auto !important;
+}
+.blog-detail h1 {
+    font-size: 1.6em;
+}
 /* (2) Màn hình nhỏ để ngang(phones 600px và lớn hơn) */
 @media only screen and (min-width: 600px) {
-    
 }
 
 /* (3) Màn hình cỡ thường để đứng (tablets, 768px và lớn hơn) */

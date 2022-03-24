@@ -66,6 +66,13 @@ namespace Umbraco.Web.PublishedModels
 		public virtual string Excerpt => this.Value<string>("excerpt");
 
 		///<summary>
+		/// Main Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]
+		[ImplementPropertyType("mainImage")]
+		public virtual global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("mainImage");
+
+		///<summary>
 		/// Page Title: The title of the page, this is also the first text in a google search result. The ideal length is between 40 and 60 characters
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.14.1")]

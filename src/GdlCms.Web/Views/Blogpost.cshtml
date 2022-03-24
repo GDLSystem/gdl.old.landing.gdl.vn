@@ -1,20 +1,33 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Blogpost>
 @using ContentModels = Umbraco.Web.PublishedModels;
-    @{
+@{
     Layout = "master.cshtml";
 }
-@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
-
 <section class="section">
     <div class="container">
-        <article>
-            <div class="blogpost-meta">
-                <small class="blogpost-date">@Model.CreateDate.ToShortDateString()</small>
-                <span class="blogpost-cat">
-                    @Html.Partial("~/Views/Partials/CategoryLinks.cshtml", Model.Categories)
-                </span>
+        <div class="row">
+            <div class="col-12">
+                <div class="partners-title">
+                    <h4 class="section-title text-center">@Model.PageTitle</h4>
+                </div>
             </div>
-            <h3>@Model.Excerpt</h3>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <article class="blog-detail">
+            <div class="blogpost-meta">
+                <small class="blogpost-date">
+                    <i class="fa fa-calendar mr-2"></i>@Model.CreateDate.ToShortDateString()
+                </small>
+                <small> - </small>
+                <small class="blogpost-cat">
+                    <i class="fa fa-tags mr-2"></i>
+                    @Html.Partial("~/Views/Partials/CategoryLinks.cshtml", Model.Categories)
+                </small>
+            </div>
+            <strong>@Model.Excerpt</strong>
             @Html.GetGridHtml(Model, "bodyText", "bootstrap3-fluid")
             <!-- todo: implement discus comments -->
         </article>

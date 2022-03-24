@@ -730,7 +730,6 @@
     <Content Include="Views\Person.cshtml" />
     <Content Include="Views\Product.cshtml" />
     <Content Include="Views\Products.cshtml" />
-    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -738,6 +737,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
