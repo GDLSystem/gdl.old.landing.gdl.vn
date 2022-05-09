@@ -2,6 +2,7 @@
 
 @using GdlCms.Web.ViewModels;
 @using GdlCms.Web.Controllers;
+@using reCAPTCHA.MVC
 @{
     var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 }
@@ -55,6 +56,12 @@
                 <div class="col-md-12">
                     @Html.TextAreaFor(m => m.Message, new { @class = "form-control", name = "contactMessage", id = "contactMessage", placeholder = "Nội dung", rows = "4" })
                     
+                </div>
+            </div>
+            <div class="row mt-30">
+                <div class="col-md-12">
+                     @Html.Recaptcha()
+                     @Html.ValidationMessage("ReCaptcha")
                 </div>
             </div>
             <div class="row mt-20">

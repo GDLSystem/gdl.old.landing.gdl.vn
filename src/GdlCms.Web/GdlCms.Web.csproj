@@ -144,6 +144,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="reCAPTCHA.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\reCAPTCH.MVC.1.0.1\lib\net45\reCAPTCHA.MVC.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75">
       <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -562,48 +565,6 @@
     <Content Include="css\images-communities\img-5.png" />
     <Content Include="css\images-communities\img-6.png" />
     <Content Include="css\images-communities\img-7.png" />
-    <Content Include="css\imgs\1.png" />
-    <Content Include="css\imgs\2.png" />
-    <Content Include="css\imgs\3.png" />
-    <Content Include="css\imgs\4.png" />
-    <Content Include="css\imgs\bg-footer.png" />
-    <Content Include="css\imgs\bubble.png" />
-    <Content Include="css\imgs\community-1.png" />
-    <Content Include="css\imgs\community-2.png" />
-    <Content Include="css\imgs\community-3.png" />
-    <Content Include="css\imgs\community-4.png" />
-    <Content Include="css\imgs\detail-img-1.png" />
-    <Content Include="css\imgs\detail-img-2.png" />
-    <Content Include="css\imgs\facebook-f.png" />
-    <Content Include="css\imgs\facebook.png" />
-    <Content Include="css\imgs\footer-logo-1.png" />
-    <Content Include="css\imgs\footer-logo-2.png" />
-    <Content Include="css\imgs\gdl-gif.gif" />
-    <Content Include="css\imgs\instagram-f.png" />
-    <Content Include="css\imgs\instagram.png" />
-    <Content Include="css\imgs\landing-logo.gif" />
-    <Content Include="css\imgs\landing-logo.png" />
-    <Content Include="css\imgs\landing-text-logo.png" />
-    <Content Include="css\imgs\line.png" />
-    <Content Include="css\imgs\next.png" />
-    <Content Include="css\imgs\partner-1.png" />
-    <Content Include="css\imgs\partner-2.png" />
-    <Content Include="css\imgs\partner-3.png" />
-    <Content Include="css\imgs\partner-4.png" />
-    <Content Include="css\imgs\plus.png" />
-    <Content Include="css\imgs\scroll2top.jpg" />
-    <Content Include="css\imgs\scroll2top.png" />
-    <Content Include="css\imgs\service-1.png" />
-    <Content Include="css\imgs\service-2.png" />
-    <Content Include="css\imgs\service-3.png" />
-    <Content Include="css\imgs\service-4.png" />
-    <Content Include="css\imgs\TikTok-f.png" />
-    <Content Include="css\imgs\tiktok.png" />
-    <Content Include="css\imgs\top-left.png" />
-    <Content Include="css\imgs\twitter-f.png" />
-    <Content Include="css\imgs\twitter.png" />
-    <Content Include="css\imgs\youtube-f.png" />
-    <Content Include="css\imgs\youtube.png" />
     <Content Include="css\gdl.css" />
     <Content Include="css\micons\fonts\icomoon.eot" />
     <Content Include="css\micons\fonts\icomoon.svg" />
@@ -611,6 +572,48 @@
     <Content Include="css\micons\fonts\icomoon.woff" />
     <Content Include="css\micons\micons.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\imgs\1.png" />
+    <Content Include="images\imgs\2.png" />
+    <Content Include="images\imgs\3.png" />
+    <Content Include="images\imgs\4.png" />
+    <Content Include="images\imgs\bg-footer.png" />
+    <Content Include="images\imgs\bubble.png" />
+    <Content Include="images\imgs\community-1.png" />
+    <Content Include="images\imgs\community-2.png" />
+    <Content Include="images\imgs\community-3.png" />
+    <Content Include="images\imgs\community-4.png" />
+    <Content Include="images\imgs\detail-img-1.png" />
+    <Content Include="images\imgs\detail-img-2.png" />
+    <Content Include="images\imgs\facebook-f.png" />
+    <Content Include="images\imgs\facebook.png" />
+    <Content Include="images\imgs\footer-logo-1.png" />
+    <Content Include="images\imgs\footer-logo-2.png" />
+    <Content Include="images\imgs\gdl-gif.gif" />
+    <Content Include="images\imgs\instagram-f.png" />
+    <Content Include="images\imgs\instagram.png" />
+    <Content Include="images\imgs\landing-logo.gif" />
+    <Content Include="images\imgs\landing-logo.png" />
+    <Content Include="images\imgs\landing-text-logo.png" />
+    <Content Include="images\imgs\line.png" />
+    <Content Include="images\imgs\next.png" />
+    <Content Include="images\imgs\partner-1.png" />
+    <Content Include="images\imgs\partner-2.png" />
+    <Content Include="images\imgs\partner-3.png" />
+    <Content Include="images\imgs\partner-4.png" />
+    <Content Include="images\imgs\plus.png" />
+    <Content Include="images\imgs\scroll2top.jpg" />
+    <Content Include="images\imgs\scroll2top.png" />
+    <Content Include="images\imgs\service-1.png" />
+    <Content Include="images\imgs\service-2.png" />
+    <Content Include="images\imgs\service-3.png" />
+    <Content Include="images\imgs\service-4.png" />
+    <Content Include="images\imgs\TikTok-f.png" />
+    <Content Include="images\imgs\tiktok.png" />
+    <Content Include="images\imgs\top-left.png" />
+    <Content Include="images\imgs\twitter-f.png" />
+    <Content Include="images\imgs\twitter.png" />
+    <Content Include="images\imgs\youtube-f.png" />
+    <Content Include="images\imgs\youtube.png" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -739,6 +742,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="images" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <PropertyGroup>

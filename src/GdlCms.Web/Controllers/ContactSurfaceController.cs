@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using GdlCms.Web.Helpers;
 using GdlCms.Web.Services;
 using GdlCms.Web.ViewModels;
+using reCAPTCHA.MVC;
 using Umbraco.Core.Logging;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
@@ -32,6 +33,7 @@ namespace GdlCms.Web.Controllers
         }
 
         [HttpPost]
+        [CaptchaValidator]
         public ActionResult SubmitForm(ContactViewModel model)
         {
             var emailBody = GetEmailBody(model);
